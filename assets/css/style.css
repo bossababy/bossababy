@@ -1,0 +1,373 @@
+/* =========================================================
+   BOSSABABY — BRAND TOKENS
+   Palette from the brand colour scheme (Benjamin Moore):
+     White Dove OC-17      #f0efe6  — page background
+     Pale Oak OC-20        #dbd3c4  — cards, soft accents
+     Cloudy Gray 2107-70   #e3dbd2  — hero glow
+     Sandlot Gray 2107-50  #b5a79b  — borders, soft text
+     Knitting Basket CSP-405 #bfaea0
+     Creekbed 1006         #a18b77  — accent
+     Wrought Iron 2124-10  #494b4d  — ink, dark section
+   ========================================================= */
+:root {
+  /* Colors */
+  --color-ink: #494b4d;        /* Wrought Iron — primary text */
+  --color-ink-soft: #84786d;   /* warm gray — secondary text */
+  --color-cream: #f6f5f1;      /* page background — near-white, a touch warm */
+  --color-oak: #dbd3c4;        /* Pale Oak */
+  --color-cloud: #e3dbd2;      /* Cloudy Gray */
+  --color-sand: #b5a79b;       /* Sandlot Gray */
+  --color-accent: #a18b77;     /* Creekbed */
+  --color-accent-dark: #8c7866;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-display: "Bodoni Moda", "Didot", Georgia, serif;
+  --font-body: "Jost", "Helvetica Neue", sans-serif;
+
+  /* Shape */
+  --radius: 4px;
+  --radius-pill: 999px;
+}
+
+/* ============ Reset & base ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-ink);
+  background: var(--color-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ============ Logo ============ */
+/* The official wordmark SVG (logo-wordmark.svg is the uploaded
+   artwork, cropped to the artwork's bounds via viewBox only). */
+.logo img {
+  width: min(240px, 60vw);
+  height: auto;
+}
+
+.logo-img.small {
+  width: 160px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ============ Header ============ */
+.site-header {
+  display: flex;
+  justify-content: center;
+  padding: 2.2rem 1.5rem 0;
+}
+
+/* ============ Hero ============ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 5.5rem 1.5rem 7rem;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: auto -20% -55% -20%;
+  height: 75%;
+  background: radial-gradient(ellipse at center, var(--color-cloud) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.6rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.3rem, 5.5vw, 3.7rem);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.75em; /* smaller than the first line */
+  color: var(--color-accent);
+}
+
+.lede {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: var(--color-ink-soft);
+  max-width: 34rem;
+  margin: 0 auto 2.5rem;
+}
+
+.lede p + p {
+  margin-top: 0.85em;
+}
+
+/* ============ Signup form ============ */
+.signup {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.signup input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--color-sand);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.signup input::placeholder {
+  color: var(--color-sand);
+}
+
+.signup input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(161, 139, 119, 0.18);
+}
+
+.signup button {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.7rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  color: var(--color-cream);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.signup button:hover {
+  background: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.signup-message {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+.signup-message.success {
+  color: var(--color-accent-dark);
+}
+
+.signup-message.error {
+  color: #a3554f;
+}
+
+.signup-note {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin-top: 0.4rem;
+}
+
+.signup-note strong {
+  font-weight: 500;
+  color: var(--color-accent-dark);
+}
+
+/* ============ Hero art ============ */
+.hero-art {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-art img {
+  width: min(340px, 70vw);
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(73, 75, 77, 0.16));
+}
+
+/* ============ Features ============ */
+.features {
+  background: var(--color-white);
+  padding: 5.5rem 1.5rem;
+}
+
+.features-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.features h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.4rem;
+  text-align: left;
+}
+
+.feature {
+  background: var(--color-cream);
+  border: 1px solid var(--color-oak);
+  border-radius: var(--radius);
+  padding: 2rem 1.6rem;
+}
+
+.feature-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
+}
+
+.feature h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.12rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+/* ============ Story ============ */
+.story {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 5.5rem 1.5rem;
+}
+
+.story-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story .eyebrow {
+  color: var(--color-sand);
+}
+
+.story h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  line-height: 1.25;
+  margin-bottom: 2rem;
+}
+
+.story-copy p {
+  margin-bottom: 1.4rem;
+  color: rgba(246, 245, 241, 0.82);
+}
+
+.story-signoff {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-oak) !important;
+  margin-top: 2.2rem;
+}
+
+/* ============ Footer ============ */
+.site-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.social-links a {
+  color: var(--color-sand);
+  transition: color 0.2s, transform 0.15s;
+}
+
+.social-links a:hover {
+  color: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+.site-footer p {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 540px) {
+  .signup {
+    flex-direction: column;
+  }
+
+  .signup button {
+    width: 100%;
+  }
+
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+}
