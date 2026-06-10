@@ -1,24 +1,32 @@
 /* =========================================================
    BOSSABABY — BRAND TOKENS
-   Edit this block to match the branding document.
-   Everything below inherits from these variables.
+   Palette from the brand colour scheme (Benjamin Moore):
+     White Dove OC-17      #f0efe6  — page background
+     Pale Oak OC-20        #dbd3c4  — cards, soft accents
+     Cloudy Gray 2107-70   #e3dbd2  — hero glow
+     Sandlot Gray 2107-50  #b5a79b  — borders, soft text
+     Knitting Basket CSP-405 #bfaea0
+     Creekbed 1006         #a18b77  — accent
+     Wrought Iron 2124-10  #494b4d  — ink, dark section
    ========================================================= */
 :root {
   /* Colors */
-  --color-ink: #2d2233;        /* deep plum — primary text, "boss" side */
-  --color-ink-soft: #5c4a66;   /* muted plum — secondary text */
-  --color-blush: #f3dfdb;      /* soft blush — "baby" side */
-  --color-cream: #faf6f1;      /* page background */
-  --color-accent: #c9a227;     /* warm gold — buttons, highlights */
-  --color-accent-dark: #a8861d;
+  --color-ink: #494b4d;        /* Wrought Iron — primary text */
+  --color-ink-soft: #84786d;   /* warm gray — secondary text */
+  --color-cream: #f0efe6;      /* White Dove — page background */
+  --color-oak: #dbd3c4;        /* Pale Oak */
+  --color-cloud: #e3dbd2;      /* Cloudy Gray */
+  --color-sand: #b5a79b;       /* Sandlot Gray */
+  --color-accent: #a18b77;     /* Creekbed */
+  --color-accent-dark: #8c7866;
   --color-white: #ffffff;
 
   /* Typography */
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Bodoni Moda", "Didot", Georgia, serif;
   --font-body: "Jost", "Helvetica Neue", sans-serif;
 
   /* Shape */
-  --radius: 14px;
+  --radius: 4px;
   --radius-pill: 999px;
 }
 
@@ -59,12 +67,14 @@ img {
 }
 
 /* ============ Wordmark ============ */
+/* Lowercase didone wordmark matching the logo:
+   "bossababy" with the central "ab" in a deeper taupe. */
 .wordmark {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: 0.18em;
-  color: var(--color-ink);
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: 0.01em;
+  color: var(--color-sand);
 }
 
 .wordmark span {
@@ -72,14 +82,14 @@ img {
 }
 
 .wordmark.small {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 /* ============ Header ============ */
 .site-header {
   display: flex;
   justify-content: center;
-  padding: 2rem 1.5rem 0;
+  padding: 2.2rem 1.5rem 0;
 }
 
 /* ============ Hero ============ */
@@ -93,7 +103,7 @@ img {
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -101,36 +111,37 @@ img {
   position: absolute;
   inset: auto -20% -55% -20%;
   height: 75%;
-  background: radial-gradient(ellipse at center, var(--color-blush) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, var(--color-cloud) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .eyebrow {
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--color-accent-dark);
-  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1.6rem;
 }
 
 .hero h1 {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  line-height: 1.12;
-  margin-bottom: 1.4rem;
+  font-weight: 500;
+  font-size: clamp(2.3rem, 5.5vw, 3.7rem);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
 }
 
 .hero h1 em {
   font-style: italic;
-  color: var(--color-accent-dark);
+  font-weight: 400;
+  color: var(--color-accent);
 }
 
 .lede {
-  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   color: var(--color-ink-soft);
-  max-width: 32rem;
+  max-width: 34rem;
   margin: 0 auto 2.5rem;
 }
 
@@ -148,7 +159,7 @@ img {
   font-family: var(--font-body);
   font-size: 1rem;
   padding: 0.9rem 1.2rem;
-  border: 1px solid rgba(45, 34, 51, 0.18);
+  border: 1px solid var(--color-sand);
   border-radius: var(--radius-pill);
   background: var(--color-white);
   color: var(--color-ink);
@@ -156,35 +167,40 @@ img {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.signup input::placeholder {
+  color: var(--color-sand);
+}
+
 .signup input:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2);
+  box-shadow: 0 0 0 3px rgba(161, 139, 119, 0.18);
 }
 
 .signup button {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.9rem 1.6rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.7rem;
   border: none;
   border-radius: var(--radius-pill);
   background: var(--color-ink);
-  color: var(--color-white);
+  color: var(--color-cream);
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s, transform 0.15s;
 }
 
 .signup button:hover {
-  background: var(--color-accent-dark);
+  background: var(--color-accent);
   transform: translateY(-1px);
 }
 
 .signup-message {
   min-height: 1.5rem;
   margin-top: 1rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .signup-message.success {
@@ -192,7 +208,7 @@ img {
 }
 
 .signup-message.error {
-  color: #b3433e;
+  color: #a3554f;
 }
 
 .signup-note {
@@ -211,7 +227,7 @@ img {
 .hero-art img {
   width: min(340px, 70vw);
   height: auto;
-  filter: drop-shadow(0 18px 30px rgba(45, 34, 51, 0.18));
+  filter: drop-shadow(0 18px 30px rgba(73, 75, 77, 0.16));
 }
 
 /* ============ Features ============ */
@@ -228,8 +244,8 @@ img {
 
 .features h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
   line-height: 1.2;
   margin-bottom: 3rem;
 }
@@ -243,20 +259,23 @@ img {
 
 .feature {
   background: var(--color-cream);
-  border: 1px solid rgba(45, 34, 51, 0.07);
+  border: 1px solid var(--color-oak);
   border-radius: var(--radius);
-  padding: 1.8rem 1.5rem;
+  padding: 2rem 1.6rem;
 }
 
-.feature-icon {
-  font-size: 1.6rem;
-  margin-bottom: 0.9rem;
+.feature-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
 }
 
 .feature h3 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   margin-bottom: 0.5rem;
 }
 
@@ -279,27 +298,27 @@ img {
 }
 
 .story .eyebrow {
-  color: var(--color-accent);
+  color: var(--color-sand);
 }
 
 .story h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-  line-height: 1.2;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  line-height: 1.25;
   margin-bottom: 2rem;
 }
 
 .story-copy p {
   margin-bottom: 1.4rem;
-  color: rgba(250, 246, 241, 0.85);
+  color: rgba(240, 239, 230, 0.82);
 }
 
 .story-signoff {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.25rem;
-  color: var(--color-blush) !important;
+  font-size: 1.3rem;
+  color: var(--color-oak) !important;
   margin-top: 2.2rem;
 }
 
@@ -317,7 +336,7 @@ img {
 }
 
 .social-links a {
-  color: var(--color-ink-soft);
+  color: var(--color-sand);
   transition: color 0.2s, transform 0.15s;
 }
 
