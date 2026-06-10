@@ -30,7 +30,7 @@ form.addEventListener("submit", async (event) => {
     });
 
     if (response.ok) {
-      showMessage("You're on the list! See you at launch. 💛", "success");
+      showMessage("You're on the list! Your 15% launch code will arrive by email. 💛", "success");
       form.reset();
     } else {
       // Surface Formspree's validation message when it sends one.

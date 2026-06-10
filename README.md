@@ -30,6 +30,10 @@ places if it ever changes: `FORM_ENDPOINT` in `assets/js/main.js` and the
 
 ## TODOs before launch
 
+- The signup area promises a **15% promo code by email at launch** — when the
+  shop goes live, create that code and email it to everyone on the Formspree
+  list.
+
 - Swap `assets/img/bag-illustration.svg` for a real product photo when ready
   (product concept sketches exist; upload them to `assets/img/` to use them
   on the page).
