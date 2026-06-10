@@ -1,0 +1,268 @@
+/* =========================================================
+   BOSSABABY — BRAND TOKENS
+   Edit this block to match the branding document.
+   Everything below inherits from these variables.
+   ========================================================= */
+:root {
+  /* Colors */
+  --color-ink: #2d2233;        /* deep plum — primary text, "boss" side */
+  --color-ink-soft: #5c4a66;   /* muted plum — secondary text */
+  --color-blush: #f3dfdb;      /* soft blush — "baby" side */
+  --color-cream: #faf6f1;      /* page background */
+  --color-accent: #c9a227;     /* warm gold — buttons, highlights */
+  --color-accent-dark: #a8861d;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Jost", "Helvetica Neue", sans-serif;
+
+  /* Shape */
+  --radius: 14px;
+  --radius-pill: 999px;
+}
+
+/* ============ Reset & base ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-ink);
+  background: var(--color-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ============ Wordmark ============ */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.18em;
+  color: var(--color-ink);
+}
+
+.wordmark span {
+  color: var(--color-accent);
+}
+
+.wordmark.small {
+  font-size: 1rem;
+}
+
+/* ============ Header ============ */
+.site-header {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.5rem 0;
+}
+
+/* ============ Hero ============ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 5.5rem 1.5rem 7rem;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: auto -20% -55% -20%;
+  height: 75%;
+  background: radial-gradient(ellipse at center, var(--color-blush) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.12;
+  margin-bottom: 1.4rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-accent-dark);
+}
+
+.lede {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: var(--color-ink-soft);
+  max-width: 32rem;
+  margin: 0 auto 2.5rem;
+}
+
+/* ============ Signup form ============ */
+.signup {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.signup input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(45, 34, 51, 0.18);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.signup input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2);
+}
+
+.signup button {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  color: var(--color-white);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.signup button:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.signup-message {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.signup-message.success {
+  color: var(--color-accent-dark);
+}
+
+.signup-message.error {
+  color: #b3433e;
+}
+
+.signup-note {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin-top: 0.4rem;
+}
+
+/* ============ Story ============ */
+.story {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 5.5rem 1.5rem;
+}
+
+.story-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story .eyebrow {
+  color: var(--color-accent);
+}
+
+.story h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.story-copy p {
+  margin-bottom: 1.4rem;
+  color: rgba(250, 246, 241, 0.85);
+}
+
+.story-signoff {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-blush) !important;
+  margin-top: 2.2rem;
+}
+
+/* ============ Footer ============ */
+.site-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.site-footer p {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 540px) {
+  .signup {
+    flex-direction: column;
+  }
+
+  .signup button {
+    width: 100%;
+  }
+
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+}
