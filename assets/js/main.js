@@ -1,17 +1,14 @@
 /* =========================================================
    BOSSABABY — EMAIL SIGNUP (Formspree)
-   Setup (one time):
-     1. Create a free account at https://formspree.io
-     2. Create a new form, copy its endpoint URL
-        (looks like https://formspree.io/f/abcd1234)
-     3. Paste it below as FORM_ENDPOINT
-   Until then, the form shows a friendly "noted" message
-   but does NOT store the email anywhere.
+   Submits via AJAX to the Formspree endpoint below. The
+   <form action> in index.html points at the same endpoint
+   so signups still work if JavaScript is disabled.
    ========================================================= */
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "https://formspree.io/f/mvznqkqz";
 
 const form = document.getElementById("signup-form");
 const emailInput = document.getElementById("email");
+const submitButton = form.querySelector("button[type=submit]");
 const message = document.getElementById("signup-message");
 
 form.addEventListener("submit", async (event) => {
@@ -23,12 +20,7 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  if (!FORM_ENDPOINT) {
-    // Placeholder mode: no service configured yet.
-    showMessage("Thanks for your interest! Signups open very soon — check back shortly. 💛", "success");
-    form.reset();
-    return;
-  }
+  submitButton.disabled = true;
 
   try {
     const response = await fetch(FORM_ENDPOINT, {
@@ -37,12 +29,21 @@ form.addEventListener("submit", async (event) => {
       body: JSON.stringify({ email }),
     });
 
-    if (!response.ok) throw new Error("Request failed");
-
-    showMessage("You're on the list! See you at launch. 💛", "success");
-    form.reset();
+    if (response.ok) {
+      showMessage("You're on the list! See you at launch. 💛", "success");
+      form.reset();
+    } else {
+      // Surface Formspree's validation message when it sends one.
+      const data = await response.json().catch(() => null);
+      const detail = data && data.errors
+        ? data.errors.map((e) => e.message).join(", ")
+        : "Something went wrong — please try again in a moment.";
+      showMessage(detail, "error");
+    }
   } catch {
     showMessage("Something went wrong — please try again in a moment.", "error");
+  } finally {
+    submitButton.disabled = false;
   }
 });
 

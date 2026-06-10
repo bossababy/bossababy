@@ -9,7 +9,7 @@ with the custom domain **bossababy.ca** (registered at GoDaddy).
 ```
 index.html            The launch page (hero + email signup + brand story)
 assets/css/style.css  Styles — brand colors & fonts live in the :root block at the top
-assets/js/main.js     Email signup handler — set FORM_ENDPOINT when a service is chosen
+assets/js/main.js     Email signup handler (submits to Formspree)
 assets/img/           Favicon and images
 CNAME                 Tells GitHub Pages to serve the site at bossababy.ca
 ```
@@ -20,16 +20,15 @@ All colors, fonts, and shape values are CSS variables at the top of
 `assets/css/style.css` (the "BRAND TOKENS" block). Change them there and the
 whole site updates.
 
-## Email signup — Formspree (TODO before launch)
+## Email signup — Formspree
 
-The signup form is in **placeholder mode**: it shows a friendly message but
-does not store emails yet. To activate it:
+The signup form submits to Formspree (endpoint `https://formspree.io/f/mvznqkqz`)
+via AJAX, with the form's `action` attribute as a no-JavaScript fallback.
+Collected emails appear in the Formspree dashboard. The endpoint is set in two
+places if it ever changes: `FORM_ENDPOINT` in `assets/js/main.js` and the
+`action` attribute in `index.html`.
 
-1. Create a free account at [formspree.io](https://formspree.io)
-2. Create a new form and copy its endpoint URL (`https://formspree.io/f/...`)
-3. Paste it as `FORM_ENDPOINT` at the top of `assets/js/main.js`
-
-## Other TODOs before launch
+## TODOs before launch
 
 - Replace the `#` social links in `index.html` footer with real
   Instagram / TikTok / Facebook profile URLs (or remove unused ones).
