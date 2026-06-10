@@ -13,7 +13,7 @@
   /* Colors */
   --color-ink: #494b4d;        /* Wrought Iron — primary text */
   --color-ink-soft: #84786d;   /* warm gray — secondary text */
-  --color-cream: #f0efe6;      /* White Dove — page background */
+  --color-cream: #f6f5f1;      /* page background — near-white, a touch warm */
   --color-oak: #dbd3c4;        /* Pale Oak */
   --color-cloud: #e3dbd2;      /* Cloudy Gray */
   --color-sand: #b5a79b;       /* Sandlot Gray */
@@ -316,7 +316,7 @@ img {
 
 .story-copy p {
   margin-bottom: 1.4rem;
-  color: rgba(240, 239, 230, 0.82);
+  color: rgba(246, 245, 241, 0.82);
 }
 
 .story-signoff {
