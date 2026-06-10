@@ -37,7 +37,7 @@ places if it ever changes: `FORM_ENDPOINT` in `assets/js/main.js` and the
 - Swap `assets/img/bag-illustration.svg` for a real product photo when ready
   (product concept sketches exist; upload them to `assets/img/` to use them
   on the page).
-- Confirm the launch timing shown in the hero ("Launching 2027").
+- Confirm the launch timing shown in the hero ("Launching Fall 2026").
 
 ## Deploying to GitHub Pages
 

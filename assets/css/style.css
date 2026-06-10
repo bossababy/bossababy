@@ -130,6 +130,7 @@ img {
 .hero h1 em {
   font-style: italic;
   font-weight: 400;
+  font-size: 0.6em; /* 40% smaller than the first line */
   color: var(--color-accent);
 }
 
@@ -138,6 +139,10 @@ img {
   color: var(--color-ink-soft);
   max-width: 34rem;
   margin: 0 auto 2.5rem;
+}
+
+.lede p + p {
+  margin-top: 0.85em;
 }
 
 /* ============ Signup form ============ */
