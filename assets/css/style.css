@@ -201,6 +201,70 @@ img {
   margin-top: 0.4rem;
 }
 
+/* ============ Hero art ============ */
+.hero-art {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-art img {
+  width: min(340px, 70vw);
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(45, 34, 51, 0.18));
+}
+
+/* ============ Features ============ */
+.features {
+  background: var(--color-white);
+  padding: 5.5rem 1.5rem;
+}
+
+.features-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.features h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.4rem;
+  text-align: left;
+}
+
+.feature {
+  background: var(--color-cream);
+  border: 1px solid rgba(45, 34, 51, 0.07);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+}
+
+.feature-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.feature h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
 /* ============ Story ============ */
 .story {
   background: var(--color-ink);
@@ -245,8 +309,25 @@ img {
   padding: 3rem 1.5rem;
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.social-links a {
+  color: var(--color-ink-soft);
+  transition: color 0.2s, transform 0.15s;
+}
+
+.social-links a:hover {
+  color: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
 .site-footer p {
-  margin-top: 0.6rem;
+  margin-top: 1rem;
   font-size: 0.85rem;
   color: var(--color-ink-soft);
 }

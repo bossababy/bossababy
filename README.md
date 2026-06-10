@@ -20,11 +20,21 @@ All colors, fonts, and shape values are CSS variables at the top of
 `assets/css/style.css` (the "BRAND TOKENS" block). Change them there and the
 whole site updates.
 
-## Email signup (TODO before launch)
+## Email signup — Formspree (TODO before launch)
 
-The signup form is **placeholder mode**: it shows a friendly message but does
-not store emails yet. When an email service is chosen (Mailchimp, Formspree,
-etc.), set `FORM_ENDPOINT` at the top of `assets/js/main.js`.
+The signup form is in **placeholder mode**: it shows a friendly message but
+does not store emails yet. To activate it:
+
+1. Create a free account at [formspree.io](https://formspree.io)
+2. Create a new form and copy its endpoint URL (`https://formspree.io/f/...`)
+3. Paste it as `FORM_ENDPOINT` at the top of `assets/js/main.js`
+
+## Other TODOs before launch
+
+- Replace the `#` social links in `index.html` footer with real
+  Instagram / TikTok / Facebook profile URLs (or remove unused ones).
+- Swap `assets/img/bag-illustration.svg` for a real product photo when ready.
+- Confirm the launch timing shown in the hero ("Launching Fall 2026").
 
 ## Deploying to GitHub Pages
 

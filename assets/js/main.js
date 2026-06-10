@@ -1,10 +1,10 @@
 /* =========================================================
-   BOSSABABY — EMAIL SIGNUP
-   The email service hasn't been chosen yet. When it is,
-   set FORM_ENDPOINT below and the form starts submitting
-   for real. Examples:
-     Formspree:  "https://formspree.io/f/YOUR_FORM_ID"
-     Any service that accepts a POST with an "email" field.
+   BOSSABABY — EMAIL SIGNUP (Formspree)
+   Setup (one time):
+     1. Create a free account at https://formspree.io
+     2. Create a new form, copy its endpoint URL
+        (looks like https://formspree.io/f/abcd1234)
+     3. Paste it below as FORM_ENDPOINT
    Until then, the form shows a friendly "noted" message
    but does NOT store the email anywhere.
    ========================================================= */
