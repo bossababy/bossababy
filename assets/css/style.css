@@ -130,7 +130,7 @@ img {
 .hero h1 em {
   font-style: italic;
   font-weight: 400;
-  font-size: 0.6em; /* 40% smaller than the first line */
+  font-size: 0.75em; /* smaller than the first line */
   color: var(--color-accent);
 }
 
