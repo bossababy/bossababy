@@ -66,23 +66,18 @@ img {
   white-space: nowrap;
 }
 
-/* ============ Wordmark ============ */
-/* Lowercase didone wordmark matching the logo:
-   "bossababy" with the central "ab" in a deeper taupe. */
-.wordmark {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.7rem;
-  letter-spacing: 0.01em;
-  color: var(--color-sand);
+/* ============ Logo ============ */
+/* The official wordmark SVG (logo-wordmark.svg is the uploaded
+   artwork, cropped to the artwork's bounds via viewBox only). */
+.logo img {
+  width: min(240px, 60vw);
+  height: auto;
 }
 
-.wordmark span {
-  color: var(--color-accent);
-}
-
-.wordmark.small {
-  font-size: 1.25rem;
+.logo-img.small {
+  width: 160px;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* ============ Header ============ */
