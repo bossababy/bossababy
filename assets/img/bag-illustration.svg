@@ -1,60 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" role="img" aria-label="Stylized illustration of the Bossababy bag">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" role="img" aria-label="Illustration of the Bossababy bag: a structured satchel with rolled handles and a quilted front zip pocket">
   <defs>
     <linearGradient id="bagBody" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#54565a"/>
-      <stop offset="100%" stop-color="#494b4d"/>
+      <stop offset="0%" stop-color="#c3b3a5"/>
+      <stop offset="100%" stop-color="#b0a092"/>
     </linearGradient>
-    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#a18b77" stop-opacity="0.0"/>
-      <stop offset="50%" stop-color="#dbd3c4" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#a18b77" stop-opacity="0.0"/>
+    <linearGradient id="pocketFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2dacb"/>
+      <stop offset="100%" stop-color="#d6cdbc"/>
     </linearGradient>
+    <!-- diamond quilting -->
+    <pattern id="quilt" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M0 26 L26 0" stroke="#bfae9d" stroke-width="1.3" fill="none"/>
+      <path d="M0 0 L26 26" stroke="#bfae9d" stroke-width="1.3" fill="none"/>
+    </pattern>
+    <clipPath id="pocketClip">
+      <rect x="112" y="212" width="196" height="106" rx="14"/>
+    </clipPath>
   </defs>
 
   <!-- soft ground shadow -->
-  <ellipse cx="210" cy="332" rx="150" ry="16" fill="#494b4d" opacity="0.12"/>
+  <ellipse cx="210" cy="336" rx="155" ry="14" fill="#494b4d" opacity="0.10"/>
 
-  <!-- handles -->
-  <path d="M150 120 C150 60, 270 60, 270 120" fill="none" stroke="#494b4d" stroke-width="14" stroke-linecap="round"/>
-  <path d="M150 120 C150 66, 270 66, 270 120" fill="none" stroke="#a18b77" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <!-- back rolled handle -->
+  <path d="M150 152 C150 88, 270 88, 270 152" fill="none" stroke="#8f7b69" stroke-width="15" stroke-linecap="round"/>
+  <!-- front rolled handle -->
+  <path d="M134 152 C134 80, 254 80, 254 152" fill="none" stroke="#a18b77" stroke-width="15" stroke-linecap="round"/>
+  <path d="M134 152 C134 80, 254 80, 254 152" fill="none" stroke="#b5a194" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
 
-  <!-- bag body: structured tote silhouette -->
-  <path d="M84 122
-           Q82 112 92 112
-           L328 112
-           Q338 112 336 122
-           L322 296
-           Q320 322 294 322
-           L126 322
-           Q100 322 98 296 Z"
+  <!-- detachable shoulder strap hanging behind, left side -->
+  <path d="M96 170 C70 200, 64 250, 78 300" fill="none" stroke="#a18b77" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="96" cy="170" r="5.5" fill="none" stroke="#8c7866" stroke-width="3"/>
+
+  <!-- bag body: structured satchel, slight flare to the base -->
+  <path d="M98 156
+           Q98 148 106 148
+           L314 148
+           Q322 148 322 156
+           L334 296
+           Q336 322 308 322
+           L112 322
+           Q84 322 86 296 Z"
         fill="url(#bagBody)"/>
 
-  <!-- top edge trim -->
-  <rect x="86" y="110" width="248" height="10" rx="5" fill="#a18b77"/>
+  <!-- top zipper line -->
+  <line x1="106" y1="160" x2="314" y2="160" stroke="#94836f" stroke-width="2" stroke-dasharray="2.5 4" stroke-linecap="round" opacity="0.8"/>
 
-  <!-- center zipper / divider hint -->
-  <line x1="210" y1="132" x2="210" y2="176" stroke="#dbd3c4" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round" opacity="0.9"/>
+  <!-- embroidered wordmark on front panel -->
+  <text x="210" y="196" text-anchor="middle" font-family="Didot, 'Bodoni MT', Georgia, serif" font-style="italic" font-size="19" letter-spacing="0.5" fill="#7e6c5c">bossababy</text>
 
-  <!-- front pocket -->
-  <path d="M134 200
-           Q132 192 142 192
-           L278 192
-           Q288 192 286 200
-           L278 282
-           Q276 300 258 300
-           L162 300
-           Q144 300 142 282 Z"
-        fill="#b5a79b" opacity="0.4"/>
-  <rect x="142" y="192" width="136" height="6" rx="3" fill="#a18b77" opacity="0.9"/>
+  <!-- quilted front zip pocket -->
+  <rect x="112" y="212" width="196" height="106" rx="14" fill="url(#pocketFace)"/>
+  <g clip-path="url(#pocketClip)">
+    <rect x="112" y="212" width="196" height="106" fill="url(#quilt)"/>
+  </g>
+  <rect x="112" y="212" width="196" height="106" rx="14" fill="none" stroke="#a99685" stroke-width="2"/>
 
-  <!-- clasp -->
-  <circle cx="210" cy="186" r="9" fill="#a18b77"/>
-  <circle cx="210" cy="186" r="4" fill="#494b4d"/>
+  <!-- pocket zipper track -->
+  <line x1="120" y1="224" x2="300" y2="224" stroke="#94836f" stroke-width="2.5" stroke-dasharray="2.5 3.5" stroke-linecap="round"/>
+  <!-- double zipper pulls meeting at centre -->
+  <g stroke="#8c7866" fill="#cbbba9">
+    <line x1="204" y1="224" x2="198" y2="244" stroke-width="2.5"/>
+    <rect x="193" y="244" width="9" height="20" rx="4" stroke-width="2"/>
+    <line x1="216" y1="224" x2="222" y2="244" stroke-width="2.5"/>
+    <rect x="218" y="244" width="9" height="20" rx="4" stroke-width="2"/>
+  </g>
 
-  <!-- subtle shine sweep -->
-  <rect x="100" y="118" width="6" height="200" rx="3" fill="url(#shine)" opacity="0.3" transform="rotate(8 103 218)"/>
-
-  <!-- baby charm: tiny heart tag on handle -->
-  <line x1="266" y1="116" x2="276" y2="142" stroke="#a18b77" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M276 142 c-6 -7 -16 0 -9 8 l9 9 9 -9 c7 -8 -3 -15 -9 -8 Z" fill="#f0efe6" stroke="#a18b77" stroke-width="2"/>
+  <!-- side strap ring, right -->
+  <circle cx="324" cy="170" r="5.5" fill="none" stroke="#8c7866" stroke-width="3"/>
 </svg>
