@@ -82,9 +82,34 @@ img {
 
 /* ============ Header ============ */
 .site-header {
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 2.2rem 1.5rem 0;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 2.4rem;
+  right: 1.8rem;
+}
+
+.lang-switch a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  color: var(--color-accent-dark);
+  border: 1px solid var(--color-sand);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.8rem;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.lang-switch a:hover {
+  background: var(--color-white);
+  border-color: var(--color-accent);
+  color: var(--color-ink);
 }
 
 /* ============ Hero ============ */
