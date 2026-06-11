@@ -40,7 +40,7 @@ form.addEventListener("submit", async (event) => {
     const response = await fetch(FORM_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, language: FR ? "fr" : "en" }),
     });
 
     if (response.ok) {
