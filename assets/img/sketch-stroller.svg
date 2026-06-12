@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Line drawing: detachable strap clipping to a stroller handle">
+  <g fill="none" stroke="#494b4d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- stroller handle bar, diagonal -->
+    <path d="M70 50 Q210 16 350 50" stroke-width="9"/>
+    <path d="M70 50 Q210 16 350 50" stroke="#f6f5f1" stroke-width="4"/>
+    <!-- strap looped over the bar -->
+    <path d="M196 26 q14 -4 28 0 l10 60 q-24 8 -48 0 Z" stroke="#a18b77" stroke-width="2.5"/>
+    <!-- stitching on strap -->
+    <path d="M200 36 q10 -2 20 0" stroke="#a18b77" stroke-width="1.2" stroke-dasharray="3 4"/>
+    <!-- buckle ring -->
+    <circle cx="210" cy="96" r="9" stroke="#a18b77"/>
+    <!-- carabiner clip -->
+    <path d="M210 105 q-16 10 -14 30 q2 22 22 24 q20 2 24 -18 q3 -16 -10 -26" stroke-width="3"/>
+    <path d="M232 115 q6 4 8 12" stroke="#a18b77" stroke-width="3"/>
+    <!-- strap descending to bag ring -->
+    <path d="M218 158 q4 30 -2 56" stroke="#a18b77" stroke-width="6"/>
+    <!-- bag top corner hint -->
+    <path d="M120 256 Q118 244 132 244 L300 244 Q314 244 312 256 L308 290 L124 290 Z"/>
+    <circle cx="216" cy="232" r="8" stroke="#a18b77" stroke-width="2.5"/>
+    <line x1="216" y1="240" x2="216" y2="244" stroke="#a18b77"/>
+    <!-- x2 annotation, like the rendering -->
+    <text x="330" y="120" font-family="Georgia, serif" font-style="italic" font-size="26" fill="#a18b77" stroke="none">×2</text>
+  </g>
+</svg>
