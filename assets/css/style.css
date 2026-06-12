@@ -112,33 +112,37 @@ img {
   color: var(--color-ink);
 }
 
+/* launch line on cream, above the photo */
+.eyebrow-banner {
+  text-align: center;
+  margin: 1.6rem 1.5rem 1.8rem;
+}
+
 /* ============ Photo masthead ============ */
 /* No veil: the headline sits high on the photo, above the
    model's mid-back, so the bag stays in full view below it. */
 .hero-photo {
   position: relative;
   min-height: clamp(560px, 92vh, 940px);
-  margin-top: 1.8rem;
   background: url("../img/lifestyle-hallway.jpg") center 30% / cover no-repeat;
   display: flex;
   flex-direction: column;
 }
 
+/* full-width skinny band behind the headline: same 55% cream as
+   the story panel, fading softly in and out of the photo */
 .hero-photo-copy {
+  width: 100%;
   text-align: center;
-  padding: clamp(5.5rem, 24vh, 14rem) 1.5rem 0;
-  /* layered cream halo hugs the letterforms so the type stays
-     legible over the photo without veiling it */
-  text-shadow:
-    0 0 4px rgba(246, 245, 241, 0.95),
-    0 0 9px rgba(246, 245, 241, 0.95),
-    0 0 18px rgba(246, 245, 241, 0.9),
-    0 0 34px rgba(246, 245, 241, 0.8);
-}
-
-.hero-photo-copy .eyebrow {
-  margin-bottom: 1rem;
-  color: var(--color-accent-dark);
+  margin-top: clamp(4.5rem, 20vh, 12rem);
+  padding: 2rem 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(246, 245, 241, 0) 0%,
+    rgba(246, 245, 241, 0.55) 22%,
+    rgba(246, 245, 241, 0.55) 78%,
+    rgba(246, 245, 241, 0) 100%
+  );
 }
 
 .hero-photo-copy h1 {
