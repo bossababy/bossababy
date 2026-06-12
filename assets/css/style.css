@@ -113,42 +113,27 @@ img {
 }
 
 /* ============ Photo masthead ============ */
+/* No veil: the headline sits high on the photo, above the
+   model's mid-back, so the bag stays in full view below it. */
 .hero-photo {
   position: relative;
-  min-height: clamp(560px, 96vh, 940px);
+  min-height: clamp(560px, 92vh, 940px);
+  margin-top: 1.8rem;
   background: url("../img/lifestyle-hallway.jpg") center 30% / cover no-repeat;
   display: flex;
   flex-direction: column;
 }
 
-/* soft cream veil: strong at the top for the logo,
-   light in the middle so the photo reads, firmer at the
-   bottom under the headline */
-.hero-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(246, 245, 241, 0.97) 0%,
-    rgba(246, 245, 241, 0.8) 14%,
-    rgba(246, 245, 241, 0.15) 42%,
-    rgba(246, 245, 241, 0.12) 58%,
-    rgba(246, 245, 241, 0.8) 80%,
-    rgba(246, 245, 241, 0.97) 100%
-  );
-}
-
-.hero-photo .site-header,
 .hero-photo-copy {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-photo-copy {
-  margin-top: auto;
   text-align: center;
-  padding: 0 1.5rem clamp(2.5rem, 7vh, 4.5rem);
+  padding: clamp(5.5rem, 24vh, 14rem) 1.5rem 0;
+  /* layered cream halo hugs the letterforms so the type stays
+     legible over the photo without veiling it */
+  text-shadow:
+    0 0 4px rgba(246, 245, 241, 0.95),
+    0 0 9px rgba(246, 245, 241, 0.95),
+    0 0 18px rgba(246, 245, 241, 0.9),
+    0 0 34px rgba(246, 245, 241, 0.8);
 }
 
 .hero-photo-copy .eyebrow {
@@ -380,21 +365,22 @@ img {
   padding: 7rem 1.5rem;
 }
 
-/* translucent panel: the photo stays visible around and
-   faintly through the text block */
+/* translucent cream panel at 55%: the photo stays visible
+   around and through the text block */
 .story-inner {
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
-  background: rgba(62, 64, 66, 0.78);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(246, 245, 241, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border-radius: 8px;
   padding: 3.2rem 2.6rem;
+  color: var(--color-ink);
 }
 
 .story .eyebrow {
-  color: var(--color-sand);
+  color: var(--color-ink-soft);
 }
 
 .story h2 {
@@ -407,14 +393,14 @@ img {
 
 .story-copy p {
   margin-bottom: 1.4rem;
-  color: rgba(246, 245, 241, 0.82);
+  color: var(--color-ink);
 }
 
 .story-signoff {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.3rem;
-  color: var(--color-oak) !important;
+  color: var(--color-ink) !important;
   margin-top: 2.2rem;
 }
 
