@@ -1,0 +1,25 @@
+<div class="rte-page" style="max-width:1080px">
+  <h1>{{ collection.title }}</h1>
+
+  {%- if collection.description != blank -%}
+    <div class="rte">{{ collection.description }}</div>
+  {%- endif -%}
+
+  <div class="feature-grid" style="margin-top:2.5rem">
+    {%- for product in collection.products -%}
+      <a class="feature" href="{{ product.url }}" style="text-decoration:none;color:inherit">
+        {%- if product.featured_media -%}
+          <img
+            src="{{ product.featured_media | image_url: width: 600 }}"
+            alt="{{ product.featured_media.alt | default: product.title | escape }}"
+            style="border-radius:var(--radius);margin-bottom:1rem"
+            loading="lazy">
+        {%- endif -%}
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | money_with_currency }}</p>
+      </a>
+    {%- else -%}
+      <p>{{ 'collection.empty' | t }}</p>
+    {%- endfor -%}
+  </div>
+</div>

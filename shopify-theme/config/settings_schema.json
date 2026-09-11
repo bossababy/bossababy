@@ -1,0 +1,25 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Bossababy",
+    "theme_version": "1.0.0",
+    "theme_author": "Bossababy",
+    "theme_documentation_url": "https://bossababy.ca",
+    "theme_support_url": "https://bossababy.ca"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Use the 'ab' monogram. Square, at least 64×64."
+      },
+      {
+        "type": "paragraph",
+        "content": "Colours and fonts are set in assets/theme.css under BRAND TOKENS. Editing the variables there updates the whole store."
+      }
+    ]
+  }
+]

@@ -1,0 +1,167 @@
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign is_preorder = false
+  if product.tags contains 'preorder'
+    assign is_preorder = true
+  endif
+-%}
+
+<div class="product" data-product-root>
+  <div class="product-media">
+    {%- if product.featured_media -%}
+      <img
+        data-main-image
+        src="{{ product.featured_media | image_url: width: 1200 }}"
+        alt="{{ product.featured_media.alt | default: product.title | escape }}"
+        width="{{ product.featured_media.width }}"
+        height="{{ product.featured_media.height }}">
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag }}
+    {%- endif -%}
+
+    {%- if product.media.size > 1 -%}
+      <div class="product-media__thumbs">
+        {%- for media in product.media -%}
+          <button
+            type="button"
+            data-thumb
+            data-full="{{ media | image_url: width: 1200 }}"
+            aria-current="{% if media.id == product.featured_media.id %}true{% else %}false{% endif %}"
+            aria-label="{{ 'product.view_image' | t: number: forloop.index }}">
+            <img src="{{ media | image_url: width: 160 }}" alt="" width="74" loading="lazy">
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="product-info">
+    {%- if is_preorder -%}
+      <span class="preorder-badge">{{ 'product.preorder_badge' | t }}</span>
+    {%- endif -%}
+
+    <h1>{{ product.title }}</h1>
+
+    <div class="product-price">
+      <span data-price>{{ variant.price | money_with_currency }}</span>
+      {%- if variant.compare_at_price > variant.price -%}
+        <span class="compare" data-compare-price>{{ variant.compare_at_price | money }}</span>
+      {%- endif -%}
+    </div>
+    <p class="product-tax-note">{{ 'product.tax_note' | t }}</p>
+
+    {%- if is_preorder and section.settings.preorder_note != blank -%}
+      <div class="preorder-note">{{ section.settings.preorder_note }}</div>
+    {%- endif -%}
+
+    {%- if product.description != blank -%}
+      <div class="product-description rte">{{ product.description }}</div>
+    {%- endif -%}
+
+    {%- form 'product', product, id: 'product-form', novalidate: 'novalidate' -%}
+      <input type="hidden" name="id" value="{{ variant.id }}" data-variant-id>
+
+      {%- unless product.has_only_default_variant -%}
+        {%- for option in product.options_with_values -%}
+          <fieldset class="variant-field" data-option-index="{{ forloop.index0 }}">
+            <legend>{{ option.name }}</legend>
+            <div class="variant-options">
+              {%- for value in option.values -%}
+                {%- assign input_id = 'opt-' | append: forloop.parentloop.index0 | append: '-' | append: forloop.index0 -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="option-{{ forloop.parentloop.index0 }}"
+                  value="{{ value | escape }}"
+                  data-option-input
+                  {% if option.selected_value == value %}checked{% endif %}>
+                <label for="{{ input_id }}">{{ value }}</label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      {%- endunless -%}
+
+      {%- if is_preorder and section.settings.ship_window != blank -%}
+        <input type="hidden" name="properties[{{ 'product.ships_property' | t }}]" value="{{ section.settings.ship_window | escape }}">
+      {%- endif -%}
+
+      <div class="qty-row">
+        <label class="label" for="quantity">{{ 'product.quantity' | t }}</label>
+        <input id="quantity" type="number" name="quantity" value="1" min="1" inputmode="numeric">
+      </div>
+
+      {%- if is_preorder -%}
+        <div class="terms-row">
+          <input type="checkbox" id="preorder-terms" required>
+          <label for="preorder-terms">
+            {{ 'product.preorder_terms' | t: date: section.settings.ship_window }}
+          </label>
+        </div>
+      {%- endif -%}
+
+      <button
+        type="submit"
+        name="add"
+        class="btn btn--full"
+        data-add-button
+        {% unless variant.available %}disabled{% endunless %}>
+        {%- if variant.available -%}
+          {% if is_preorder %}{{ 'product.preorder_button' | t }}{% else %}{{ 'product.add_to_cart' | t }}{% endif %}
+        {%- else -%}
+          {{ 'product.sold_out' | t }}
+        {%- endif -%}
+      </button>
+    {%- endform -%}
+
+    <div class="product-meta">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.title }}</summary>
+          <div class="rte">{{ block.settings.body }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script type="application/json" data-variant-json>
+  {{ product.variants | json }}
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "ship_window",
+      "label": "Pre-order shipping window",
+      "info": "Shown to the customer and attached to every order line so fulfilment knows the promised date.",
+      "default": "November 2026"
+    },
+    {
+      "type": "richtext",
+      "id": "preorder_note",
+      "label": "Pre-order notice",
+      "default": "<p><strong>This is a pre-order.</strong> Your card is charged today to reserve your bag, and we ship as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "detail",
+      "name": "Detail accordion",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Shipping & returns" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Free shipping across Canada. 30-day returns on unused items.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product",
+      "blocks": [{ "type": "detail" }, { "type": "detail" }]
+    }
+  ]
+}
+{% endschema %}

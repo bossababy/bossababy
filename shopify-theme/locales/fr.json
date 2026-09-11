@@ -1,0 +1,58 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Passer au contenu"
+    },
+    "pagination": {
+      "page": "Page {{ number }}"
+    },
+    "social": {
+      "label": "Médias sociaux"
+    },
+    "footer": {
+      "contact_prefix": "Des questions? Écrivez-nous —",
+      "policies": "Politiques"
+    },
+    "404": {
+      "title": "Page introuvable",
+      "body": "La page que vous cherchez n'existe pas ou a été déplacée.",
+      "link": "Retour à l'accueil"
+    },
+    "search": {
+      "title": "Recherche",
+      "submit": "Rechercher",
+      "no_results": "Aucun résultat."
+    }
+  },
+  "product": {
+    "add_to_cart": "Ajouter au sac",
+    "preorder_button": "Précommander",
+    "preorder_badge": "Précommande",
+    "sold_out": "Épuisé",
+    "quantity": "Quantité",
+    "tax_note": "Taxes et livraison calculées à la caisse.",
+    "view_image": "Voir l'image {{ number }}",
+    "ships_property": "Expédition",
+    "preorder_terms": "Je comprends qu'il s'agit d'une précommande et que mon sac sera expédié en {{ date }}. Je peux annuler et être remboursée intégralement avant l'expédition."
+  },
+  "cart": {
+    "title": "Votre sac",
+    "short": "Sac",
+    "empty": "Votre sac est vide.",
+    "continue": "Poursuivre vos achats",
+    "remove": "Retirer",
+    "subtotal": "Sous-total",
+    "tax_note": "Taxes et livraison calculées à la caisse.",
+    "update": "Mettre à jour",
+    "checkout": "Passer à la caisse"
+  },
+  "collection": {
+    "empty": "Rien ici pour l'instant."
+  },
+  "newsletter": {
+    "email_label": "Adresse courriel",
+    "placeholder": "Entrez votre courriel",
+    "button": "Accès anticipé",
+    "success": "Vous êtes sur la liste! Votre code de 15 % arrivera par courriel. 💛"
+  }
+}

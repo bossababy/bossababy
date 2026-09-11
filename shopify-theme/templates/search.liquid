@@ -1,0 +1,21 @@
+<div class="rte-page" style="max-width:1080px">
+  <h1>{{ 'general.search.title' | t }}</h1>
+
+  <form action="{{ routes.search_url }}" method="get" class="signup" role="search">
+    <label class="visually-hidden" for="q">{{ 'general.search.title' | t }}</label>
+    <input id="q" type="search" name="q" value="{{ search.terms | escape }}">
+    <button type="submit" class="btn">{{ 'general.search.submit' | t }}</button>
+  </form>
+
+  {%- if search.performed -%}
+    <div class="feature-grid" style="margin-top:2.5rem">
+      {%- for item in search.results -%}
+        <a class="feature" href="{{ item.url }}" style="text-decoration:none;color:inherit">
+          <h3>{{ item.title }}</h3>
+        </a>
+      {%- else -%}
+        <p>{{ 'general.search.no_results' | t }}</p>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>

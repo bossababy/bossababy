@@ -1,0 +1,73 @@
+<div class="cart">
+  <h1>{{ 'cart.title' | t }}</h1>
+
+  {%- if cart.item_count == 0 -%}
+    <div class="cart-empty">
+      <p>{{ 'cart.empty' | t }}</p>
+      <p style="margin-top:1.5rem">
+        <a class="btn" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+      </p>
+    </div>
+  {%- else -%}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      {%- for item in cart.items -%}
+        <div class="cart-line">
+          <div>
+            {%- if item.image -%}
+              <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" width="96" loading="lazy">
+            {%- endif -%}
+          </div>
+
+          <div>
+            <a class="cart-line__title" href="{{ item.url }}">{{ item.product.title }}</a>
+
+            {%- unless item.variant.title contains 'Default' -%}
+              <div class="cart-line__variant">{{ item.variant.title }}</div>
+            {%- endunless -%}
+
+            {%- if item.properties != blank -%}
+              <div class="cart-line__props">
+                {%- for property in item.properties -%}
+                  {%- unless property.last == blank or property.first[0] == '_' -%}
+                    {{ property.first }}: {{ property.last }}<br>
+                  {%- endunless -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            <div class="cart-line__qty">
+              <label class="visually-hidden" for="qty-{{ forloop.index }}">{{ 'product.quantity' | t }}</label>
+              <input
+                id="qty-{{ forloop.index }}"
+                type="number"
+                name="updates[]"
+                value="{{ item.quantity }}"
+                min="0"
+                inputmode="numeric">
+              <a class="cart-line__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+            </div>
+          </div>
+
+          <div class="cart-line__price">{{ item.final_line_price | money }}</div>
+        </div>
+      {%- endfor -%}
+
+      <div class="cart-foot">
+        <p class="cart-total">
+          {{ 'cart.subtotal' | t }}: <strong>{{ cart.total_price | money_with_currency }}</strong>
+        </p>
+        <p class="cart-note">{{ 'cart.tax_note' | t }}</p>
+
+        <button type="submit" name="update" class="btn btn--outline">{{ 'cart.update' | t }}</button>
+        <button type="submit" name="checkout" class="btn">{{ 'cart.checkout' | t }}</button>
+      </div>
+    </form>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

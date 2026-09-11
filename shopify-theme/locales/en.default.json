@@ -1,0 +1,58 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content"
+    },
+    "pagination": {
+      "page": "Page {{ number }}"
+    },
+    "social": {
+      "label": "Social media"
+    },
+    "footer": {
+      "contact_prefix": "Questions? Say hello —",
+      "policies": "Policies"
+    },
+    "404": {
+      "title": "Page not found",
+      "body": "The page you were looking for doesn't exist, or has moved.",
+      "link": "Back to home"
+    },
+    "search": {
+      "title": "Search",
+      "submit": "Search",
+      "no_results": "No results found."
+    }
+  },
+  "product": {
+    "add_to_cart": "Add to bag",
+    "preorder_button": "Pre-order now",
+    "preorder_badge": "Pre-order",
+    "sold_out": "Sold out",
+    "quantity": "Quantity",
+    "tax_note": "Taxes and shipping calculated at checkout.",
+    "view_image": "View image {{ number }}",
+    "ships_property": "Ships",
+    "preorder_terms": "I understand this is a pre-order and my bag ships in {{ date }}. I can cancel for a full refund any time before it ships."
+  },
+  "cart": {
+    "title": "Your bag",
+    "short": "Bag",
+    "empty": "Your bag is empty.",
+    "continue": "Continue shopping",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "tax_note": "Taxes and shipping calculated at checkout.",
+    "update": "Update",
+    "checkout": "Checkout"
+  },
+  "collection": {
+    "empty": "Nothing here yet."
+  },
+  "newsletter": {
+    "email_label": "Email address",
+    "placeholder": "Enter your email",
+    "button": "Get early access",
+    "success": "You're on the list! Your 15% launch code will arrive by email. 💛"
+  }
+}

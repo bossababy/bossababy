@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "shipping": {
+          "type": "detail",
+          "settings": {
+            "title": "Shipping & returns",
+            "body": "<p>Free shipping across Canada. Pre-orders can be cancelled for a full refund any time before they ship. 30-day returns on unused items.</p>"
+          }
+        },
+        "materials": {
+          "type": "detail",
+          "settings": {
+            "title": "Materials & care",
+            "body": "<p>Luxury-grade vegan leather with a quilted front panel and gold-tone hardware. Wipe clean with a damp cloth; avoid prolonged direct sunlight.</p>"
+          }
+        },
+        "inside": {
+          "type": "detail",
+          "settings": {
+            "title": "What fits inside",
+            "body": "<p>Padded laptop sleeve, insulated bottle pockets, mesh compartments, key ring, and two detachable stroller straps.</p>"
+          }
+        }
+      },
+      "block_order": ["shipping", "materials", "inside"],
+      "settings": {
+        "ship_window": "November 2026",
+        "preorder_note": "<p><strong>This is a pre-order.</strong> Your card is charged today to reserve your bag, and we ship as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
+      }
+    }
+  },
+  "order": ["main"]
+}
