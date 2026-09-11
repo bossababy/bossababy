@@ -1,62 +1,69 @@
 # Bossababy — bossababy.ca
 
-Launch ("coming soon") page for **Bossababy**, the diaper bag designed for
-working moms. A static site — no build step — hosted on **GitHub Pages**
-with the custom domain **bossababy.ca** (registered at GoDaddy).
+Website for **Bossababy**, the Structured Tote for working mothers.
+
+The repository holds two eras of the site. The launch page is what is
+live today; the store is built and waiting to be switched on.
 
 ## Structure
 
 ```
-index.html            The launch page (hero + email signup + brand story)
-assets/css/style.css  Styles — brand colors & fonts live in the :root block at the top
-assets/js/main.js     Email signup handler (submits to Formspree)
-assets/img/           Favicon and images
-CNAME                 Tells GitHub Pages to serve the site at bossababy.ca
+index.html            Launch page, currently live on GitHub Pages
+fr/index.html         French launch page
+assets/               Styles, script and brand images for the launch page
+CNAME                 Serves the launch page at bossababy.ca
+
+shopify-theme/        The store design, uploaded to Shopify
+order-bridge/         Service that forwards paid orders to the 3PL
+STORE-SETUP.md        Step-by-step runbook for going from page to store
 ```
 
-## Editing the brand
+## Which one is live?
 
-All colors, fonts, and shape values are CSS variables at the top of
-`assets/css/style.css` (the "BRAND TOKENS" block). Change them there and the
-whole site updates.
+**Right now: the launch page**, on GitHub Pages, collecting emails
+through Formspree.
 
-## Email signup — Formspree
+The store takes over when the GoDaddy DNS records are repointed from
+GitHub Pages to Shopify — that single change is the cutover, and it is
+step 8 of `STORE-SETUP.md`. Nothing about the store is public before
+then.
 
-The signup form submits to Formspree (endpoint `https://formspree.io/f/mvznqkqz`)
-via AJAX, with the form's `action` attribute as a no-JavaScript fallback.
-Collected emails appear in the Formspree dashboard. The endpoint is set in two
-places if it ever changes: `FORM_ENDPOINT` in `assets/js/main.js` and the
-`action` attribute in `index.html`.
+## The launch page
 
-## TODOs before launch
+A static site with no build step. All colours, fonts and shape values
+are CSS variables at the top of `assets/css/style.css` (the "BRAND
+TOKENS" block); changing them there updates the whole page.
 
-- The signup area promises a **15% promo code by email at launch** — when the
-  shop goes live, create that code and email it to everyone on the Formspree
-  list.
+Signups post to Formspree (`https://formspree.io/f/mvznqkqz`) via AJAX,
+with the form's `action` attribute as a no-JavaScript fallback. Each
+submission records `language` as `en` or `fr` so the list can be
+segmented at launch.
 
-- Swap `assets/img/bag-illustration.svg` for a real product photo when ready
-  (product concept sketches exist; upload them to `assets/img/` to use them
-  on the page).
-- Confirm the launch timing shown in the hero ("Launching Fall 2026").
+## The store
 
-## Deploying to GitHub Pages
+`shopify-theme/` reproduces the launch page design as a Shopify theme —
+same palette, wordmark, photo masthead and story section — and adds a
+product page, cart, and a French storefront. Brand tokens live in the
+same place, `assets/theme.css`.
 
-1. Merge this branch into `main`.
-2. On GitHub: **Settings → Pages → Source: Deploy from a branch**, choose
-   `main` and `/ (root)`, then save.
-3. Under **Custom domain**, enter `bossababy.ca` and enable
-   **Enforce HTTPS** (available a few minutes after DNS resolves).
+The product page switches into pre-order mode when the product carries
+the `preorder` tag: a badge, an explanation of when the card is charged,
+a required acknowledgement, and the promised shipping window stamped
+onto every order line.
 
-## Pointing bossababy.ca (GoDaddy DNS)
+`order-bridge/` receives the `orders/paid` webhook and sends orders to
+the 3PL, parking pre-orders until stock arrives. It only exists if the
+3PL has no Shopify app of its own — see `order-bridge/README.md`.
 
-In GoDaddy → My Products → bossababy.ca → **DNS**:
+**No credential belongs in this repository.** It is public. API keys
+live as environment variables where the bridge is deployed.
 
-1. Add four **A records**, each with Name `@`, pointing to GitHub Pages:
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-2. Add a **CNAME record**: Name `www`, Value `<your-github-username>.github.io`
-3. Delete any GoDaddy "Parked" A record on `@`.
+## Outstanding
 
-DNS changes take from a few minutes up to ~48 hours to propagate.
+- Name the 3PL and confirm whether they offer a Shopify app; fill in
+  `order-bridge/lib/threepl.js` if not
+- Product photography to replace the concept illustration
+- The **15% code** promised to the early-access list — create it and
+  email the list when the store opens
+- Legal review of the pre-order terms before taking money
+  (see `STORE-SETUP.md`, section 6)
