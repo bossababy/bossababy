@@ -1,0 +1,55 @@
+<section class="features">
+  <div class="features-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2>{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="feature-grid">
+      {%- for block in section.blocks -%}
+        <article class="feature" {{ block.shopify_attributes }}>
+          {%- if block.settings.number != blank -%}
+            <div class="feature-num" aria-hidden="true">{{ block.settings.number }}</div>
+          {%- endif -%}
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Sneak peek" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One bag. Both worlds." }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "No. 1" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Tailored composure" },
+        { "type": "textarea", "id": "body", "label": "Description", "default": "A structured silhouette with a quilted front pocket, embroidered wordmark, and logo-stamped zipper pulls — it reads handbag, not diaper bag." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

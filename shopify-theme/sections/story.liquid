@@ -1,0 +1,39 @@
+<section
+  class="story"
+  {% if section.settings.image %}
+    style="background-image:url({{ section.settings.image | image_url: width: 2000 }});"
+  {% endif %}>
+  <div class="story-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2>{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <div class="story-copy">
+      {{ section.settings.body }}
+      {%- if section.settings.signoff != blank -%}
+        <p class="story-signoff">{{ section.settings.signoff }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background photo" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built by a working mom, for working moms." },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Bossababy was born in the gap between two worlds. Every bag on the market made us choose: look polished, or be prepared. We refused to pick.</p><p>So we designed one bag that does both. A silhouette refined enough for the boardroom, engineered with intelligent compartments for everything from a laptop to a change of onesies — because motherhood and elegance were never opposites.</p>"
+    },
+    { "type": "text", "id": "signoff", "label": "Sign-off", "default": "You've got this. We've got your bag." }
+  ],
+  "presets": [{ "name": "Story" }]
+}
+{% endschema %}

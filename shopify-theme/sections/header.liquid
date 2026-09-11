@@ -1,0 +1,50 @@
+<header class="site-header">
+  <a class="logo" href="{{ routes.root_url }}">
+    {%- if section.settings.logo -%}
+      <img
+        src="{{ section.settings.logo | image_url: width: 480 }}"
+        alt="{{ shop.name | escape }}"
+        width="{{ section.settings.logo.width }}"
+        height="{{ section.settings.logo.height }}">
+    {%- else -%}
+      <span class="visually-hidden">{{ shop.name }}</span>
+      {{ shop.name }}
+    {%- endif -%}
+  </a>
+
+  <div class="header-utils">
+    {%- comment -%} Language switch: shows the other available language {%- endcomment -%}
+    {%- if localization.available_languages.size > 1 -%}
+      {%- for language in localization.available_languages -%}
+        {%- unless language.iso_code == localization.language.iso_code -%}
+          {%- form 'localization' -%}
+            <input type="hidden" name="language_code" value="{{ language.iso_code }}">
+            <button type="submit" class="lang-btn" aria-label="{{ language.endonym_name | escape }}">
+              {{- language.iso_code | upcase -}}
+            </button>
+          {%- endform -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+    <a href="{{ routes.cart_url }}" aria-label="{{ 'cart.title' | t }}">
+      {{- 'cart.short' | t -}}
+      <span class="cart-count" data-cart-count>
+        {%- if cart.item_count > 0 %} ({{ cart.item_count }}){% endif -%}
+      </span>
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Wordmark logo"
+    }
+  ]
+}
+{% endschema %}
