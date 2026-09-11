@@ -1,0 +1,13 @@
+{
+  "name": "bossababy-order-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Forwards paid Shopify orders to the 3PL, holding pre-orders until stock arrives.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
