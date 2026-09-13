@@ -57,8 +57,14 @@ this repository at `assets/img/`:
 
 - `logo-wordmark.svg` — the wordmark
 - `logo-monogram.svg` — the "ab" monogram, used as the favicon
-- `lifestyle-hallway.jpg` — the masthead photo
-- `lifestyle-sketch.jpg` — the story photo
+- `masthead-lifestyle.jpg` — the masthead photo
+- `story-lifestyle.jpg` — the story photo
+- `product-front.jpg` — the front-on product shot
+
+Upload the rest of the product photography — the pouch in the front
+pocket, the embossed logo close-up, the laptop going in — as **product
+images on the product itself**, not to Files. Shopify generates the
+gallery and its thumbnails from those.
 
 Shopify serves images from Files rather than from the theme, which is
 why they are not bundled in the zip: uploading them once means you can
