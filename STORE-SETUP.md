@@ -79,11 +79,22 @@ wording without touching code.
 **Products → Add product.**
 
 - Title: *The Structured Tote*
-- Price, and a **Compare-at price** only if there is a genuine regular
-  price to compare against — an invented one is misleading advertising
-- **SKU**: agree the exact code with the 3PL first. This is the single
-  field most likely to cause a mis-ship, because it is what the warehouse
-  picks by.
+- Price: **$370.00 CAD**. Add a **Compare-at price** only if there is a
+  genuine regular price to compare against — an invented one is
+  misleading advertising
+- Colours, as three variants under one option named *Colour*:
+
+  | Variant | Colour |
+  |---|---|
+  | First Light | Taupe |
+  | After Hours | Black |
+  | Second Wind | Brown |
+
+- **SKU, one per colour.** Agree the exact codes with the 3PL first. This
+  is the single field most likely to cause a mis-ship, because it is what
+  the warehouse picks by — and with three colourways, picking the right
+  one depends entirely on the SKU being right. Something like
+  `BB-TOTE-FL`, `BB-TOTE-AH`, `BB-TOTE-SW` reads clearly on a pick list.
 - Weight and dimensions — the 3PL and the carrier both need these
 - Under Inventory, tick **Continue selling when out of stock**. This is
   what makes pre-orders possible with an empty warehouse.
