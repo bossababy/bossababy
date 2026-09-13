@@ -34,10 +34,11 @@ places if it ever changes: `FORM_ENDPOINT` in `assets/js/main.js` and the
   shop goes live, create that code and email it to everyone on the Formspree
   list.
 
-- Swap `assets/img/bag-illustration.svg` for a real product photo when ready
-  (product concept sketches exist; upload them to `assets/img/` to use them
-  on the page).
 - Confirm the launch timing shown in the hero ("Launching Fall 2026").
+
+Real product photography is now in place (`masthead-lifestyle.jpg`,
+`story-lifestyle.jpg`, `product-front.jpg`); the AI placeholders have been
+removed.
 
 ## Deploying to GitHub Pages
 
