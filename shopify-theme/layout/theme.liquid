@@ -33,6 +33,7 @@
 <body class="template-{{ template.name | handle }}">
   <a class="skip-link visually-hidden" href="#main">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
+  {% section 'announcement' %}
   {% section 'header' %}
 
   <main id="main" role="main">

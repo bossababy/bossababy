@@ -1,5 +1,9 @@
 <section class="hero">
   <div class="hero-inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="intro-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
     {%- if section.settings.body != blank -%}
       <div class="lede">{{ section.settings.body }}</div>
     {%- endif -%}
@@ -23,6 +27,7 @@
 {
   "name": "Intro",
   "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (optional)" },
     {
       "type": "richtext",
       "id": "body",

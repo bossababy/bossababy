@@ -27,8 +27,8 @@
       },
       "block_order": ["shipping", "materials", "inside"],
       "settings": {
-        "ship_window": "November 2026",
-        "preorder_note": "<p><strong>This is a pre-order.</strong> Your card is charged today to reserve your bag, and we ship as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
+        "ship_window": "December 2026",
+        "preorder_note": "<p><strong>Pre-order and save 20% until Sunday 6 December.</strong> Your card is charged today to reserve your bag, and we ship in December as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
       }
     }
   },

@@ -1,0 +1,37 @@
+{%- if section.settings.enabled and section.settings.text != blank -%}
+  <aside class="announce">
+    <p>
+      {{ section.settings.text }}
+      {%- if section.settings.deadline != blank -%}
+        <span class="announce-deadline">{{ section.settings.deadline }}</span>
+      {%- endif -%}
+    </p>
+  </aside>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Offer bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Show the offer bar",
+      "info": "Turn this off the moment the offer ends — an expired discount still on the page is a promise you have to honour.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Offer",
+      "default": "Pre-order now and take 20% off"
+    },
+    {
+      "type": "text",
+      "id": "deadline",
+      "label": "Deadline",
+      "default": "Ends Sunday 6 December"
+    }
+  ]
+}
+{% endschema %}

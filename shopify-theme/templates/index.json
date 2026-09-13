@@ -3,7 +3,7 @@
     "masthead": {
       "type": "photo-masthead",
       "settings": {
-        "eyebrow": "Launching Fall 2026 · Designed in Canada",
+        "eyebrow": "Pre-order now · Ships December 2026",
         "image_alt": "A mother walking hand in hand with her toddler, the Bossababy bag on her arm",
         "focal_y": 30,
         "heading_line_1": "Carry everything.",
@@ -14,8 +14,8 @@
       "type": "intro",
       "settings": {
         "body": "<p>Clean lines. Considered details. Luxury-grade vegan materials.</p><p>The Structured Tote holds the small chaos of a day with a baby, and gives nothing away.</p>",
-        "cta_label": "Pre-order now",
-        "cta_note": "<p><strong>Early-access pre-orders ship first.</strong> Reserve yours today.</p>"
+        "cta_label": "Pre-order and save 20%",
+        "cta_note": "<p><strong>20% off every pre-order placed before Sunday 6 December.</strong> Your bag ships in December, and you can cancel for a full refund any time before it does.</p>"
       }
     },
     "features": {
@@ -56,7 +56,7 @@
       },
       "block_order": ["f1", "f2", "f3", "f4"],
       "settings": {
-        "eyebrow": "Sneak peek",
+        "eyebrow": "Three colourways",
         "heading": "One bag. Both worlds."
       }
     },
@@ -69,13 +69,15 @@
         "signoff": "You've got this. We've got your bag."
       }
     },
-    "newsletter": {
-      "type": "newsletter",
+    "closing": {
+      "type": "intro",
       "settings": {
-        "heading": "Join the list",
-        "note": "<p><strong>Early access comes with 15% off</strong> — your promo code arrives by email. No spam, ever.</p>"
+        "heading": "First run. Three colourways. 20% off.",
+        "body": "<p>First Light, After Hours and Cold Brew — reserved now, shipped in December.</p>",
+        "cta_label": "Reserve yours",
+        "cta_note": "<p>Offer closes Sunday 6 December. Cancel for a full refund any time before your bag ships.</p>"
       }
     }
   },
-  "order": ["masthead", "intro", "features", "story", "newsletter"]
+  "order": ["masthead", "intro", "features", "story", "closing"]
 }

@@ -88,7 +88,7 @@ wording without touching code.
   |---|---|
   | First Light | Taupe |
   | After Hours | Black |
-  | Second Wind | Brown |
+  | Cold Brew | Brown |
 
 - **SKU, one per colour.** Agree the exact codes with the 3PL first. This
   is the single field most likely to cause a mis-ship, because it is what
@@ -106,8 +106,39 @@ required acknowledgement checkbox, and it stamps the promised shipping
 window onto every order line so the warehouse can see it.
 
 Set the shipping window text in **Customize → Product → Pre-order
-shipping window**. Keep it accurate — it is a promise, and it is what the
-acknowledgement checkbox refers to.
+shipping window**. It currently reads **December 2026**. Keep it
+accurate — it is a promise, and it is what the acknowledgement checkbox
+refers to.
+
+## 3a. The 20% pre-order offer **[you]**
+
+The storefront currently advertises **20% off every pre-order placed
+before Sunday 6 December 2026** (Black Friday 2026 falls on Friday 27
+November, so this is the end of the following week).
+
+Three things have to line up, or the site is promising something the
+checkout will not honour:
+
+1. **Create the discount.** Discounts → Create discount → Amount off
+   products → 20%, applied to the Structured Tote. Set the end date to
+   23:59 on 6 December in your own timezone.
+2. **Decide automatic or code.** An *automatic* discount applies at
+   checkout with nothing to type, which matches what the page says. A
+   *code* needs the page to tell people the code.
+3. **Turn the offer bar off when it expires.** Customize → Offer bar →
+   untick "Show the offer bar". An expired discount still displayed is a
+   promise you have to honour.
+
+The deadline appears in four places, all editable without touching code:
+the offer bar, the masthead line, the pre-order note on the product page,
+and the closing section. Change the date in one, change it in all four.
+
+**The 15% you already promised.** Everyone on the Formspree list signed up
+on the promise of *15% off at launch*. A public 20% offer is better than
+what they were promised, which is fine — but do not send them a 15% code
+during the pre-order window, or they will be worse off than strangers.
+Either tell them the 20% covers them, or give the list something the
+public offer does not have, such as first pick of colourways.
 
 ## 4. Payments, tax and shipping **[you]**
 
@@ -210,14 +241,16 @@ promised 15% to.
    value across as a tag so you can still send French speakers French.
 3. **Customers → Import customers.**
 
-Then create the discount: **Discounts → Create discount → Amount off
-products → 15%**, set a usage limit and an expiry, and email the code to
-the imported list. Consider making it single-use per customer so it
-cannot be shared publicly.
+Then email them about the pre-order window — see the note in section 3a
+about the 15% they were originally promised versus the 20% now offered
+publicly.
 
-Signups from the new site land in Shopify directly, tagged `newsletter`
-plus the language they used — Formspree is no longer needed once the
-domain moves.
+**The store no longer collects email addresses.** The signup was removed
+so the page asks for one thing only: a pre-order. That is the right call
+while there is something to sell and a deadline to sell it against, but
+it means no new list is being built. If you want that back after the
+offer closes, the `newsletter` section is still in the theme — add it to
+the homepage in **Customize → Add section → Newsletter**.
 
 ## 10. Before you take real money
 
