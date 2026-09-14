@@ -215,6 +215,23 @@ and I'd treat it as a launch blocker rather than a nice-to-have.
 
 ## 7. Connect the 3PL
 
+**You can launch without this.** Orders land in Shopify as paid and
+unfulfilled and simply sit there, which is all "holding orders ourselves"
+means — there is nothing to build for it. Every order already carries a
+`Ships: December 2026` line-item property, so whenever the orders do
+reach a warehouse, by API or by spreadsheet, the promised date travels
+with them. Do this section when the 3PL is ready, not before launch.
+
+**Returns have no address until this is done, and that is deliberate.**
+Nothing ships during the pre-order window, so there is nothing to return:
+a customer who changes their mind gets a cancellation, money back and no
+goods moving. The refund policy therefore publishes no return address at
+all — it asks the customer to email first and be told where to send the
+parcel. Keep it that way. A mailing address used for legal notices and
+email footers is not a returns destination, and a bag arriving at one is
+a bag nobody can process or restock. Settle the returns destination with
+the 3PL before the first parcel ships, not before launch.
+
 **First, ask them one question: do you have a Shopify app?**
 
 If yes, install it, connect it, and skip the rest of this section and the
