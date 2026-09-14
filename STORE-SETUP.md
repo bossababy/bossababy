@@ -155,12 +155,16 @@ The deadline appears in four places, all editable without touching code:
 the offer bar, the masthead line, the pre-order note on the product page,
 and the closing section. Change the date in one, change it in all four.
 
-**The 15% you already promised.** Everyone on the Formspree list signed up
-on the promise of *15% off at launch*. A public 20% offer is better than
-what they were promised, which is fine — but do not send them a 15% code
-during the pre-order window, or they will be worse off than strangers.
-Either tell them the 20% covers them, or give the list something the
-public offer does not have, such as first pick of colourways.
+**The 15% you already promised — resolved.** Everyone on the Formspree
+list signed up on the promise of *15% off at launch*. They get the public
+20% instead, which is more than they were promised, and they are told
+only once it is already applied.
+
+Nothing needs building for this: the discount is automatic and applies to
+every order, so the list is covered the moment they reach checkout. What
+matters is that **no 15% code is ever issued** — a code worth less than
+the automatic discount would make the list worse off than strangers, and
+would be the one version of this that reads as a bait and switch.
 
 ## 4. Payments, tax and shipping **[you]**
 
@@ -263,9 +267,10 @@ promised 15% to.
    value across as a tag so you can still send French speakers French.
 3. **Customers → Import customers.**
 
-Then email them about the pre-order window — see the note in section 3a
-about the 15% they were originally promised versus the 20% now offered
-publicly.
+Then email them about the pre-order window. They were promised 15% and
+they get 20%, applied automatically — see section 3a. Say so plainly in
+that email rather than letting them find it at checkout and wonder
+whether their code failed to apply.
 
 **The store no longer collects email addresses.** The signup was removed
 so the page asks for one thing only: a pre-order. That is the right call

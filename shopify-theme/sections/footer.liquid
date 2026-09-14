@@ -27,13 +27,25 @@
     </p>
   {%- endif -%}
 
-  {%- if section.settings.menu != blank -%}
-    <nav class="footer-links" aria-label="{{ 'general.footer.policies' | t }}">
+  {%- comment -%}
+    Policy links are not optional: someone deciding whether to pre-order
+    needs the cancellation terms before checkout, not during it. So if no
+    menu has been chosen, fall back to whichever policies the shop has
+    actually published rather than rendering nothing at all.
+  {%- endcomment -%}
+  <nav class="footer-links" aria-label="{{ 'general.footer.policies' | t }}">
+    {%- if section.settings.menu != blank -%}
       {%- for link in section.settings.menu.links -%}
         <a href="{{ link.url }}">{{ link.title }}</a>
       {%- endfor -%}
-    </nav>
-  {%- endif -%}
+    {%- else -%}
+      {%- for policy in shop.policies -%}
+        {%- if policy != blank -%}
+          <a href="{{ policy.url }}">{{ policy.title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </nav>
 
   <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} &middot; {{ section.settings.tagline }}</p>
 </footer>
