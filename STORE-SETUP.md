@@ -57,9 +57,21 @@ this repository at `assets/img/`:
 
 - `logo-wordmark.svg` — the wordmark
 - `logo-monogram.svg` — the "ab" monogram, used as the favicon
-- `masthead-lifestyle.jpg` — the masthead photo
-- `story-lifestyle.jpg` — the story photo
 - `product-front.jpg` — the front-on product shot
+
+For the masthead and story backgrounds there are two sets to choose
+between in the theme editor, and the live launch page currently uses the
+first:
+
+| | Masthead | Story |
+|---|---|---|
+| Mood imagery (AI-generated) | `lifestyle-hallway.jpg` | `lifestyle-sketch.jpg` |
+| Real photography | `masthead-lifestyle.jpg` | `story-lifestyle.jpg` |
+
+If you use the AI masthead on a page that sells the bag, keep the real
+product shot visible further down. The bag in that image is not the bag
+you ship, and a buyer who only ever saw it has grounds to dispute the
+charge.
 
 Upload the rest of the product photography — the pouch in the front
 pocket, the embossed logo close-up, the laptop going in — as **product

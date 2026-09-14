@@ -124,7 +124,7 @@ img {
 .hero-photo {
   position: relative;
   min-height: clamp(560px, 92vh, 940px);
-  background: url("../img/masthead-lifestyle.jpg") center 22% / cover no-repeat;
+  background: url("../img/lifestyle-hallway.jpg") center 30% / cover no-repeat;
   display: flex;
   flex-direction: column;
 }
@@ -360,7 +360,7 @@ img {
 
 /* ============ Story ============ */
 .story {
-  background: var(--color-ink) url("../img/story-lifestyle.jpg") center / cover no-repeat;
+  background: var(--color-ink) url("../img/lifestyle-sketch.jpg") center / cover no-repeat;
   color: var(--color-cream);
   padding: 7rem 1.5rem;
 }
