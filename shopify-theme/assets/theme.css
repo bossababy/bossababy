@@ -446,11 +446,11 @@ img {
   color: inherit;
 }
 
-/* The three bags are photographed at different crops; a fixed ratio
-   keeps them the same size on the page so the colours are what differ,
-   not the framing. */
+/* All three colourways are shot 16:9 on the same set. Matching that
+   ratio here means nothing gets cropped and the tiles stay identical,
+   so the colour is the only thing that differs between them. */
 .colourway-media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   max-width: 100%;
   overflow: hidden;
   border-radius: var(--radius);
