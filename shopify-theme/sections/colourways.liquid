@@ -1,0 +1,104 @@
+<section class="colourways">
+  <div class="colourways-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2>{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="colourway-grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign target = section.settings.product
+          if target != blank and block.settings.variant_handle != blank
+            assign target_url = target.url | append: '?variant=' | append: block.settings.variant_handle
+          elsif target != blank
+            assign target_url = target.url
+          else
+            assign target_url = blank
+          endif
+        -%}
+
+        <article class="colourway" {{ block.shopify_attributes }}>
+          {%- if target_url != blank -%}<a href="{{ target_url }}">{%- endif -%}
+
+          <div class="colourway-media">
+            {%- if block.settings.image -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 720 }}"
+                alt="{{ block.settings.image_alt | default: block.settings.name | escape }}"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                loading="lazy">
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'colourway-placeholder' }}
+            {%- endif -%}
+          </div>
+
+          <h3>{{ block.settings.name }}</h3>
+          {%- if block.settings.note != blank -%}
+            <p>{{ block.settings.note }}</p>
+          {%- endif -%}
+
+          {%- if target_url != blank -%}</a>{%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="colourways-note">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Colourways",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Three colourways" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Pick your neutral." },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Links to product",
+      "info": "Each colourway links here. Add the variant ID below to open on that colour."
+    },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "Note under the grid",
+      "default": "Every colourway, same bag: quilted front pocket, gold-tone hardware, padded laptop sleeve."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "colourway",
+      "name": "Colourway",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "image_alt", "label": "Photo description (accessibility)" },
+        { "type": "text", "id": "name", "label": "Colour name", "default": "First Light" },
+        { "type": "text", "id": "note", "label": "Short description", "default": "Warm taupe" },
+        {
+          "type": "text",
+          "id": "variant_handle",
+          "label": "Variant ID",
+          "info": "Optional. From the variant's URL in the admin — opens the product on this colour."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Colourways",
+      "blocks": [
+        { "type": "colourway" },
+        { "type": "colourway" },
+        { "type": "colourway" }
+      ]
+    }
+  ]
+}
+{% endschema %}

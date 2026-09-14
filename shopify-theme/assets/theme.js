@@ -52,6 +52,37 @@
     return template.replace(/[\d][\d.,\s]*/, amount);
   }
 
+  /* Three colourways that differ only by colour: if the shopper picks
+     After Hours and the photo stays on First Light, the page is showing
+     them the wrong bag. Shopify hands us the variant's own media
+     whenever one is assigned in the product's Media section — without
+     that assignment there is nothing to switch to, so we leave the
+     current image alone rather than guess. */
+  function showVariantImage(variant) {
+    if (!mainImage || !variant.featured_media) return;
+
+    var mediaId = String(variant.featured_media.id);
+    var match = null;
+
+    thumbs.forEach(function (thumb) {
+      var isCurrent = thumb.dataset.mediaId === mediaId;
+      thumb.setAttribute('aria-current', isCurrent ? 'true' : 'false');
+      if (isCurrent) match = thumb;
+    });
+
+    // Prefer the thumbnail's URL: it is already sized for this slot,
+    // where preview_image.src is the full-resolution original.
+    if (match) {
+      mainImage.src = match.dataset.full;
+    } else if (variant.featured_media.preview_image) {
+      mainImage.src = variant.featured_media.preview_image.src;
+    } else {
+      return;
+    }
+
+    mainImage.alt = variant.featured_media.alt || variant.name || mainImage.alt;
+  }
+
   function selectedOptions() {
     var chosen = [];
     root.querySelectorAll('[data-option-index]').forEach(function (field) {
@@ -98,6 +129,8 @@
     if (addButton) {
       addButton.disabled = !variant.available;
     }
+
+    showVariantImage(variant);
 
     // Keep the URL shareable without reloading the page.
     if (window.history.replaceState) {

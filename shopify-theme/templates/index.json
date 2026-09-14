@@ -20,6 +20,42 @@
         "cta_note": "<p><strong>20% off every pre-order placed before Sunday 6 December.</strong> Your bag ships in December, and you can cancel for a full refund any time before it does.</p>"
       }
     },
+    "colourways": {
+      "type": "colourways",
+      "blocks": {
+        "c1": {
+          "type": "colourway",
+          "settings": {
+            "name": "First Light",
+            "note": "Warm taupe",
+            "image_alt": "The Structured Tote in First Light, a warm taupe, seen from the front"
+          }
+        },
+        "c2": {
+          "type": "colourway",
+          "settings": {
+            "name": "High Noon",
+            "note": "Deep brown",
+            "image_alt": "The Structured Tote in High Noon, a deep brown, seen from the front"
+          }
+        },
+        "c3": {
+          "type": "colourway",
+          "settings": {
+            "name": "After Hours",
+            "note": "Black",
+            "image_alt": "The Structured Tote in After Hours, black, seen from the front"
+          }
+        }
+      },
+      "block_order": ["c1", "c2", "c3"],
+      "settings": {
+        "eyebrow": "Three colourways",
+        "heading": "Pick your neutral.",
+        "product": "the-structured-tote",
+        "footnote": "Every colourway, same bag: quilted front pocket, gold-tone hardware, padded laptop sleeve."
+      }
+    },
     "features": {
       "type": "features",
       "blocks": {
@@ -58,7 +94,7 @@
       },
       "block_order": ["f1", "f2", "f3", "f4"],
       "settings": {
-        "eyebrow": "Three colourways",
+        "eyebrow": "Considered details",
         "heading": "One bag. Both worlds."
       }
     },
@@ -76,12 +112,12 @@
       "type": "intro",
       "settings": {
         "heading": "First run. Three colourways. 20% off.",
-        "body": "<p>First Light, After Hours and Cold Brew — reserved now, shipped in December.</p>",
+        "body": "<p>First Light, High Noon and After Hours — reserved now, shipped in December.</p>",
         "cta_product": "the-structured-tote",
         "cta_label": "Reserve yours",
         "cta_note": "<p>Offer closes Sunday 6 December. Cancel for a full refund any time before your bag ships.</p>"
       }
     }
   },
-  "order": ["masthead", "intro", "features", "story", "closing"]
+  "order": ["masthead", "intro", "colourways", "features", "story", "closing"]
 }

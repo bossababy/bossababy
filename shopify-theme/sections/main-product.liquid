@@ -25,6 +25,7 @@
           <button
             type="button"
             data-thumb
+            data-media-id="{{ media.id }}"
             data-full="{{ media | image_url: width: 1200 }}"
             aria-current="{% if media.id == product.featured_media.id %}true{% else %}false{% endif %}"
             aria-label="{{ 'product.view_image' | t: number: forloop.index }}">

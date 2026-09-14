@@ -102,17 +102,21 @@ wording without touching code.
   misleading advertising
 - Colours, as three variants under one option named *Colour*:
 
-  | Variant | Colour |
-  |---|---|
-  | First Light | Taupe |
-  | After Hours | Black |
-  | Cold Brew | Brown |
+  | Variant | Colour | SKU |
+  |---|---|---|
+  | First Light | Taupe | `BB-TOTE-FL` |
+  | High Noon | Brown | `BB-TOTE-HN` |
+  | After Hours | Black | `BB-TOTE-AH` |
 
-- **SKU, one per colour.** Agree the exact codes with the 3PL first. This
-  is the single field most likely to cause a mis-ship, because it is what
-  the warehouse picks by — and with three colourways, picking the right
-  one depends entirely on the SKU being right. Something like
-  `BB-TOTE-FL`, `BB-TOTE-AH`, `BB-TOTE-SW` reads clearly on a pick list.
+- **SKU, one per colour** — the codes in the table above. Confirm them
+  with NLI before the first receiving, since this is the single field
+  most likely to cause a mis-ship: with three colourways that differ only
+  by colour, picking the right bag depends entirely on the SKU being
+  right on the pick list.
+- **Assign each colourway photo to its variant** in the product's Media
+  section. The theme swaps the main image when a customer picks a
+  colour, and it reads that mapping from the variant's assigned image —
+  without it, all three colours show the same bag.
 - Weight and dimensions — the 3PL and the carrier both need these
 - Under Inventory, tick **Continue selling when out of stock**. This is
   what makes pre-orders possible with an empty warehouse.
