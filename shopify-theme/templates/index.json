@@ -4,6 +4,7 @@
       "type": "photo-masthead",
       "settings": {
         "eyebrow": "Pre-order now · Ships December 2026",
+        "image": "shopify://shop_images/lifestyle-hallway.jpg",
         "image_alt": "A mother walking hand in hand with her toddler, the Bossababy bag on her arm",
         "focal_y": 30,
         "heading_line_1": "Carry everything.",
@@ -14,6 +15,7 @@
       "type": "intro",
       "settings": {
         "body": "<p>Clean lines. Considered details. Luxury-grade vegan materials.</p><p>The Structured Tote holds the small chaos of a day with a baby, and gives nothing away.</p>",
+        "cta_product": "the-structured-tote",
         "cta_label": "Pre-order and save 20%",
         "cta_note": "<p><strong>20% off every pre-order placed before Sunday 6 December.</strong> Your bag ships in December, and you can cancel for a full refund any time before it does.</p>"
       }
@@ -63,6 +65,7 @@
     "story": {
       "type": "story",
       "settings": {
+        "image": "shopify://shop_images/lifestyle-sketch.jpg",
         "eyebrow": "Our story",
         "heading": "Built by a working mom, for working moms.",
         "body": "<p>Bossababy was born in the gap between two worlds. Every bag on the market made us choose: look polished, or be prepared. We refused to pick.</p><p>So we designed one bag that does both. A silhouette refined enough for the boardroom, engineered with intelligent compartments for everything from a laptop to a change of onesies — because motherhood and elegance were never opposites.</p>",
@@ -74,6 +77,7 @@
       "settings": {
         "heading": "First run. Three colourways. 20% off.",
         "body": "<p>First Light, After Hours and Cold Brew — reserved now, shipped in December.</p>",
+        "cta_product": "the-structured-tote",
         "cta_label": "Reserve yours",
         "cta_note": "<p>Offer closes Sunday 6 December. Cancel for a full refund any time before your bag ships.</p>"
       }

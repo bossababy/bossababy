@@ -1,3 +1,31 @@
 {
-  "current": {}
+  "current": {
+    "favicon": "shopify://shop_images/logo-monogram.svg",
+    "sections": {
+      "announcement": {
+        "type": "announcement",
+        "settings": {
+          "enabled": true,
+          "text": "Pre-order now and take 20% off",
+          "deadline": "Ends Sunday 6 December"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/logo-wordmark.svg"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "logo": "shopify://shop_images/logo-wordmark.svg",
+          "instagram": "https://www.instagram.com/shopbossababy",
+          "tiktok": "https://www.tiktok.com/@bossababy",
+          "contact_email": "hello@bossababy.ca",
+          "tagline": "bossababy.ca · Designed in Canada"
+        }
+      }
+    }
+  }
 }
