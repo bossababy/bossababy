@@ -48,11 +48,5 @@
   },
   "collection": {
     "empty": "Nothing here yet."
-  },
-  "newsletter": {
-    "email_label": "Email address",
-    "placeholder": "Enter your email",
-    "button": "Get early access",
-    "success": "You're on the list! Your 20% pre-order discount is already applied at checkout. 💛"
   }
 }

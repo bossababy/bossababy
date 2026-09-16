@@ -55,10 +55,6 @@
       <div class="preorder-note">{{ section.settings.preorder_note }}</div>
     {%- endif -%}
 
-    {%- if product.description != blank -%}
-      <div class="product-description rte">{{ product.description }}</div>
-    {%- endif -%}
-
     {%- form 'product', product, id: 'product-form', novalidate: 'novalidate' -%}
       <input type="hidden" name="id" value="{{ variant.id }}" data-variant-id>
 
@@ -114,6 +110,10 @@
         {%- endif -%}
       </button>
     {%- endform -%}
+
+    {%- if product.description != blank -%}
+      <div class="product-description rte">{{ product.description }}</div>
+    {%- endif -%}
 
     <div class="product-meta">
       {%- for block in section.blocks -%}
