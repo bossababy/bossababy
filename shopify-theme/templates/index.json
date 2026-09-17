@@ -51,7 +51,11 @@
           }
         }
       },
-      "block_order": ["c1", "c2", "c3"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
       "settings": {
         "eyebrow": "Three colourways",
         "heading": "Pick your neutral.",
@@ -95,7 +99,12 @@
           }
         }
       },
-      "block_order": ["f1", "f2", "f3", "f4"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
       "settings": {
         "eyebrow": "Considered details",
         "heading": "One bag. Both worlds."
@@ -120,7 +129,24 @@
         "cta_label": "Reserve yours",
         "cta_note": "<p>Offer closes Sunday 6 December. Cancel for a full refund any time before your bag ships.</p>"
       }
+    },
+    "craft": {
+      "type": "craft",
+      "settings": {
+        "eyebrow": "Made by hand",
+        "heading": "Every bag is made by hand.",
+        "body": "<p>Not stamped out by a machine. Each Structured Tote is cut, stitched and finished by hand, which is why the quilting lines meet the way they do and why no two are quite identical.</p>",
+        "footnote": "A first run of 300, made to a standard we could not reach any faster."
+      }
     }
   },
-  "order": ["masthead", "intro", "colourways", "features", "story", "closing"]
+  "order": [
+    "masthead",
+    "intro",
+    "colourways",
+    "craft",
+    "features",
+    "story",
+    "closing"
+  ]
 }
