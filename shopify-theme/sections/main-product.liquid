@@ -88,15 +88,6 @@
         <input id="quantity" type="number" name="quantity" value="1" min="1" inputmode="numeric">
       </div>
 
-      {%- if is_preorder -%}
-        <div class="terms-row">
-          <input type="checkbox" id="preorder-terms" required>
-          <label for="preorder-terms">
-            {{ 'product.preorder_terms' | t: date: section.settings.ship_window }}
-          </label>
-        </div>
-      {%- endif -%}
-
       <button
         type="submit"
         name="add"

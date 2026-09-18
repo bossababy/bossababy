@@ -9,7 +9,22 @@
       </p>
     </div>
   {%- else -%}
-    <form action="{{ routes.cart_url }}" method="post" novalidate>
+    {%- comment -%} Detect pre-order line items via the Ships property {%- endcomment -%}
+    {%- assign ships_key = 'product.ships_property' | t -%}
+    {%- assign has_preorder = false -%}
+    {%- assign preorder_date = '' -%}
+    {%- for item in cart.items -%}
+      {%- assign ship_val = item.properties[ships_key] -%}
+      {%- if ship_val == blank -%}
+        {%- assign ship_val = item.properties['Ships'] -%}
+      {%- endif -%}
+      {%- if ship_val != blank -%}
+        {%- assign has_preorder = true -%}
+        {%- assign preorder_date = ship_val -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    <form action="{{ routes.cart_url }}" method="post">
       {%- for item in cart.items -%}
         <div class="cart-line">
           <div>
@@ -58,10 +73,65 @@
         </p>
         <p class="cart-note">{{ 'cart.tax_note' | t }}</p>
 
-        <button type="submit" name="update" class="btn btn--outline">{{ 'cart.update' | t }}</button>
-        <button type="submit" name="checkout" class="btn">{{ 'cart.checkout' | t }}</button>
+        {%- if has_preorder -%}
+          <div class="preorder-ack">
+            <input type="hidden" name="attributes[Pre-order acknowledged]" value="No">
+            <input
+              type="checkbox"
+              id="preorder-ack"
+              name="attributes[Pre-order acknowledged]"
+              value="Yes"
+              required>
+            <label for="preorder-ack">{{ 'product.preorder_terms' | t: date: preorder_date }}</label>
+          </div>
+        {%- endif -%}
+
+        <button type="submit" name="update" class="btn btn--outline" formnovalidate>{{ 'cart.update' | t }}</button>
+        <button
+          type="submit"
+          name="checkout"
+          class="btn"
+          {% if has_preorder %}data-requires-ack{% endif %}>{{ 'cart.checkout' | t }}</button>
       </div>
     </form>
+
+    {%- if has_preorder -%}
+      <style>
+        .preorder-ack {
+          display: flex;
+          align-items: flex-start;
+          gap: .75rem;
+          margin: 1.5rem 0;
+          padding: 1rem 1.25rem;
+          border: 1px solid rgba(0, 0, 0, .16);
+          border-radius: 4px;
+          text-align: left;
+        }
+        .preorder-ack input[type="checkbox"] {
+          flex: 0 0 auto;
+          margin-top: .3rem;
+        }
+        .preorder-ack label {
+          font-size: .9rem;
+          line-height: 1.55;
+        }
+        .btn[disabled] {
+          opacity: .45;
+          cursor: not-allowed;
+        }
+      </style>
+
+      <script>
+        (function () {
+          var box = document.getElementById('preorder-ack');
+          var btn = document.querySelector('[name="checkout"][data-requires-ack]');
+          if (!box || !btn) return;
+          function sync() { btn.disabled = !box.checked; }
+          box.addEventListener('change', sync);
+          sync();
+        })();
+      </script>
+    {%- endif -%}
   {%- endif -%}
 </div>
 

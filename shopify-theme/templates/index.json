@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "masthead": {
       "type": "photo-masthead",
       "settings": {
-        "eyebrow": "Pre-order now · Ships December 2026",
+        "eyebrow": "Pre-order now · Ships Winter 2026",
         "image": "shopify://shop_images/lifestyle-hallway.jpg",
         "image_alt": "A mother walking hand in hand with her toddler, the Bossababy bag on her arm",
         "focal_y": 30,
@@ -17,7 +26,7 @@
         "body": "<p>Clean lines. Considered details. Luxury-grade vegan materials.</p><p>The Structured Tote holds the small chaos of a day with a baby, and gives nothing away.</p>",
         "cta_product": "the-structured-tote",
         "cta_label": "Pre-order and save 20%",
-        "cta_note": "<p><strong>20% off every pre-order placed before Sunday 6 December.</strong> Your bag ships in December, and you can cancel for a full refund any time before it does.</p>"
+        "cta_note": "<p><strong>20% off every pre-order placed before Monday 30 November.</strong> Your bag ships Winter 2026, and you can cancel for a full refund any time before it does.</p>"
       }
     },
     "colourways": {
@@ -124,10 +133,10 @@
       "type": "intro",
       "settings": {
         "heading": "First run. Three colourways. 20% off.",
-        "body": "<p>First Light, High Noon and After Hours — reserved now, shipped in December.</p>",
+        "body": "<p>First Light, High Noon and After Hours — reserved now, shipped Winter 2026.</p>",
         "cta_product": "the-structured-tote",
         "cta_label": "Reserve yours",
-        "cta_note": "<p>Offer closes Sunday 6 December. Cancel for a full refund any time before your bag ships.</p>"
+        "cta_note": "<p>Offer closes Monday 30 November. Cancel for a full refund any time before your bag ships.</p>"
       }
     },
     "craft": {

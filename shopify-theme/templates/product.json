@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -27,8 +36,8 @@
       },
       "block_order": ["shipping", "materials", "inside"],
       "settings": {
-        "ship_window": "December 2026",
-        "preorder_note": "<p><strong>Pre-order and save 20% until Sunday 6 December.</strong> Your card is charged today to reserve your bag, and we ship in December as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
+        "ship_window": "Winter 2026",
+        "preorder_note": "<p><strong>Pre-order and save 20% until Monday 30 November.</strong> Your card is charged today to reserve your bag, and we ship Winter 2026 as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
       }
     }
   },
