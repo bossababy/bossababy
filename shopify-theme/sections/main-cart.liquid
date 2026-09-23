@@ -79,9 +79,6 @@
         {%- if cart.original_total_price > cart.total_price -%}
           <p class="cart-was">
             <s>{{ cart.original_total_price | money_with_currency }}</s>
-            <span class="cart-saving">
-              {{ 'cart.you_save' | t: amount: cart.total_discount | money }}
-            </span>
           </p>
         {%- endif -%}
         <p class="cart-note">{{ 'cart.tax_note' | t }}</p>

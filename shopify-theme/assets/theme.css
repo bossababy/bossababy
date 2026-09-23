@@ -580,11 +580,6 @@ img {
   text-decoration-thickness: 1px;
 }
 
-.cart-saving {
-  margin-left: 0.6rem;
-  color: var(--color-accent-dark);
-}
-
 /* ============ Story ============ */
 .story {
   background-color: var(--color-ink);
