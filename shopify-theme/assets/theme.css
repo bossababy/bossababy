@@ -113,17 +113,32 @@ img {
 }
 
 /* ============ Header ============ */
+/* Three columns — empty, logo, utilities — so the logo is optically
+   centred while the buttons still get their own reserved space. The
+   utilities used to be positioned absolutely over a centred logo, which
+   meant the two could occupy the same pixels at any width where the
+   logo grew large enough. A grid cannot overlap. */
 .site-header {
   position: relative;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
   padding: 2.2rem 1.5rem 0;
 }
 
+.site-header .logo {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.site-header .logo img {
+  max-width: 100%;
+}
+
 .header-utils {
-  position: absolute;
-  top: 2.4rem;
-  right: 1.8rem;
+  grid-column: 3;
+  justify-self: end;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -1059,25 +1074,29 @@ img {
     padding-bottom: 5rem;
   }
 
-  /* The utilities are positioned absolutely, so a centred logo grows
-     underneath them as the screen narrows — which is what made the
-     wordmark and the Bag button collide. At phone width put everything
-     in normal flow, so the row divides the space instead of overlapping. */
   .site-header {
-    justify-content: space-between;
-    align-items: center;
     padding: 1.5rem 1rem 0;
+    gap: 0.5rem;
   }
 
   .header-utils {
-    position: static;
-    top: auto;
-    right: auto;
     gap: 0.4rem;
   }
 
+  /* Below this width the three columns cannot all fit, so the empty
+     spacer is dropped and the logo sits left of the buttons. */
+  @media (max-width: 460px) {
+    .site-header {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+    }
+
+    .site-header .logo { grid-column: 1; }
+    .header-utils { grid-column: 2; }
+  }
+
   .logo img {
-    width: min(170px, 46vw);
+    width: min(170px, 44vw);
   }
 
   .header-utils a {
