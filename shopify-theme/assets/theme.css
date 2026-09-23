@@ -203,6 +203,20 @@ img {
   color: var(--color-accent-dark);
 }
 
+/* A set wordmark standing in for a heading: sized by width so it scales
+   like type rather than sitting at whatever pixel size it was exported. */
+.hero-wordmark {
+  width: min(560px, 82%);
+  height: auto;
+  margin: 0 auto;
+}
+
+.section-wordmark {
+  width: min(420px, 74%);
+  height: auto;
+  margin: 0 auto 0.4rem;
+}
+
 /* ============ Intro ============ */
 .hero {
   position: relative;
@@ -539,6 +553,21 @@ img {
   display: inline-block;
   font-size: 0.88rem;
   color: var(--color-ink-soft);
+}
+
+.cart-was {
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+.cart-was s {
+  text-decoration-thickness: 1px;
+}
+
+.cart-saving {
+  margin-left: 0.6rem;
+  color: var(--color-accent-dark);
 }
 
 /* ============ Story ============ */
@@ -1030,10 +1059,25 @@ img {
     padding-bottom: 5rem;
   }
 
+  /* The utilities are positioned absolutely, so a centred logo grows
+     underneath them as the screen narrows — which is what made the
+     wordmark and the Bag button collide. At phone width put everything
+     in normal flow, so the row divides the space instead of overlapping. */
+  .site-header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem 0;
+  }
+
   .header-utils {
-    top: 1.9rem;
-    right: 1rem;
+    position: static;
+    top: auto;
+    right: auto;
     gap: 0.4rem;
+  }
+
+  .logo img {
+    width: min(170px, 46vw);
   }
 
   .header-utils a {

@@ -71,6 +71,19 @@
         <p class="cart-total">
           {{ 'cart.subtotal' | t }}: <strong>{{ cart.total_price | money_with_currency }}</strong>
         </p>
+        {%- comment -%}
+          Show what the bag costs without the pre-order discount, so the
+          saving is visible at the moment of deciding rather than only
+          implied by a percentage elsewhere on the page.
+        {%- endcomment -%}
+        {%- if cart.original_total_price > cart.total_price -%}
+          <p class="cart-was">
+            <s>{{ cart.original_total_price | money_with_currency }}</s>
+            <span class="cart-saving">
+              {{ 'cart.you_save' | t: amount: cart.total_discount | money }}
+            </span>
+          </p>
+        {%- endif -%}
         <p class="cart-note">{{ 'cart.tax_note' | t }}</p>
 
         {%- if has_preorder -%}

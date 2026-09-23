@@ -17,7 +17,8 @@
         "image_alt": "A mother walking hand in hand with her toddler, the Bossababy bag on her arm",
         "focal_y": 30,
         "heading_line_1": "Carry everything.",
-        "heading_line_2": "Compromise nothing."
+        "heading_line_2": "Compromise nothing.",
+        "heading_image": "shopify://shop_images/wordmark-carry-everything.png"
       }
     },
     "intro": {
@@ -25,8 +26,8 @@
       "settings": {
         "body": "<p>Clean lines. Considered details. Luxury-grade vegan materials.</p><p>The Structured Tote holds the small chaos of a day with a baby, and gives nothing away.</p>",
         "cta_product": "the-structured-tote",
-        "cta_label": "Pre-order and save 20%",
-        "cta_note": "<p><strong>20% off every pre-order placed before Monday 30 November.</strong> Your bag ships Winter 2026, and you can cancel for a full refund any time before it does.</p>"
+        "cta_label": "Pre-order and save 15%",
+        "cta_note": "<p><strong>Pre-order today and save 15%.</strong> Cancel any time before your bag ships for a full refund.</p>"
       }
     },
     "colourways": {
@@ -69,7 +70,8 @@
         "eyebrow": "Three colourways",
         "heading": "Pick your neutral.",
         "product": "the-structured-tote",
-        "footnote": "Every colourway, same bag: quilted front pocket, gold-tone hardware, padded laptop sleeve."
+        "footnote": "Every colourway, same bag: pockets, a tailored vegan leather and mesh interior, a wipe-clean base, a key leash, and a structured shape that opens flat.",
+        "heading_image": "shopify://shop_images/wordmark-pick-your-neutral.png"
       }
     },
     "features": {
@@ -103,8 +105,8 @@
           "type": "feature",
           "settings": {
             "number": "No. 4",
-            "title": "Carries your office too",
-            "body": "A padded laptop sleeve tucked behind the compartments, a key ring where you'll find it, and firm zipper sides that hold their shape."
+            "title": "Everything else, handled.",
+            "body": "A padded device sleeve tucked behind the compartments, a key leash to end the bottom-of-the-bag search, and firm sides that hold their shape."
           }
         }
       },
@@ -132,11 +134,11 @@
     "closing": {
       "type": "intro",
       "settings": {
-        "heading": "First run. Three colourways. 20% off.",
+        "heading": "First edition. Three colourways.",
         "body": "<p>First Light, High Noon and After Hours — reserved now, shipped Winter 2026.</p>",
         "cta_product": "the-structured-tote",
         "cta_label": "Reserve yours",
-        "cta_note": "<p>Offer closes Monday 30 November. Cancel for a full refund any time before your bag ships.</p>"
+        "cta_note": "<p>Offer ends Monday 30 November. Cancel for a full refund any time before your bag ships.</p>"
       }
     },
     "craft": {

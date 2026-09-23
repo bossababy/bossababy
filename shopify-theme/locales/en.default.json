@@ -53,7 +53,8 @@
     "subtotal": "Subtotal",
     "tax_note": "Taxes and shipping calculated at checkout.",
     "update": "Update",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "you_save": "You save {{ amount }}"
   },
   "collection": {
     "empty": "Nothing here yet."

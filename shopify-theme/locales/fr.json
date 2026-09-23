@@ -53,7 +53,8 @@
     "subtotal": "Sous-total",
     "tax_note": "Taxes et livraison calculées à la caisse.",
     "update": "Mettre à jour",
-    "checkout": "Passer à la caisse"
+    "checkout": "Passer à la caisse",
+    "you_save": "Vous économisez {{ amount }}"
   },
   "collection": {
     "empty": "Rien ici pour l'instant."

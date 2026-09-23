@@ -3,7 +3,16 @@
     {%- if section.settings.eyebrow != blank -%}
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
-    {%- if section.settings.heading != blank -%}
+    {%- if section.settings.heading_image -%}
+      <h2>
+        <img
+          class="section-wordmark"
+          src="{{ section.settings.heading_image | image_url: width: 1100 }}"
+          alt="{{ section.settings.heading | escape }}"
+          width="{{ section.settings.heading_image.width }}"
+          height="{{ section.settings.heading_image.height }}">
+      </h2>
+    {%- elsif section.settings.heading != blank -%}
       <h2>{{ section.settings.heading }}</h2>
     {%- endif -%}
 
@@ -59,6 +68,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Three colourways" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Pick your neutral." },
+    { "type": "image_picker", "id": "heading_image", "label": "Heading as an image", "info": "Optional. Replaces the heading text above, which is still used as the image description." },
     {
       "type": "product",
       "id": "product",

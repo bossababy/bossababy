@@ -34,12 +34,18 @@
           }
         }
       },
-      "block_order": ["shipping", "materials", "inside"],
+      "block_order": [
+        "shipping",
+        "materials",
+        "inside"
+      ],
       "settings": {
         "ship_window": "Winter 2026",
-        "preorder_note": "<p><strong>Pre-order and save 20% until Monday 30 November.</strong> Your card is charged today to reserve your bag, and we ship Winter 2026 as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
+        "preorder_note": "<p><strong>Pre-order and save 15% until Monday 30 November.</strong> Your card is charged today to reserve your bag, and we ship Winter 2026 as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

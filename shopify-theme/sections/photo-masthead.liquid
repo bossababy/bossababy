@@ -10,10 +10,24 @@
     aria-label="{{ section.settings.image_alt | escape }}"
   {% endif %}>
   <div class="hero-photo-copy">
+    {%- comment -%}
+      A set wordmark replaces the typed headline, but the headline text is
+      still what the image is labelled with: search engines and screen
+      readers get the same words either way.
+    {%- endcomment -%}
     <h1>
-      {{ section.settings.heading_line_1 }}
-      {%- if section.settings.heading_line_2 != blank -%}
-        <br><em>{{ section.settings.heading_line_2 }}</em>
+      {%- if section.settings.heading_image -%}
+        <img
+          class="hero-wordmark"
+          src="{{ section.settings.heading_image | image_url: width: 1400 }}"
+          alt="{{ section.settings.heading_line_1 }} {{ section.settings.heading_line_2 }}"
+          width="{{ section.settings.heading_image.width }}"
+          height="{{ section.settings.heading_image.height }}">
+      {%- else -%}
+        {{ section.settings.heading_line_1 }}
+        {%- if section.settings.heading_line_2 != blank -%}
+          <br><em>{{ section.settings.heading_line_2 }}</em>
+        {%- endif -%}
       {%- endif -%}
     </h1>
   </div>
@@ -27,6 +41,7 @@
     { "type": "image_picker", "id": "image", "label": "Background photo" },
     { "type": "text", "id": "image_alt", "label": "Photo description (accessibility)", "default": "A mother walking hand in hand with her toddler, the Bossababy bag on her arm" },
     { "type": "range", "id": "focal_y", "label": "Vertical focal point", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 30 },
+    { "type": "image_picker", "id": "heading_image", "label": "Headline as an image", "info": "Optional. Replaces the typed headline below, which is still used as the image description." },
     { "type": "text", "id": "heading_line_1", "label": "Headline, first line", "default": "Carry everything." },
     { "type": "text", "id": "heading_line_2", "label": "Headline, second line (italic)", "default": "Compromise nothing." }
   ],
