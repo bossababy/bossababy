@@ -15,8 +15,7 @@
         "type": "announcement",
         "settings": {
           "enabled": true,
-          "text": "Pre-order now and take 25% off",
-          "deadline": "Ends November 30"
+          "text": "Pre-order now and take 25% off"
         }
       },
       "header": {
