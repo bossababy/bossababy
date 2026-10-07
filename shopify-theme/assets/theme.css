@@ -1393,23 +1393,8 @@ img {
     padding: 0.6rem 1rem 4rem;
   }
 
-  /* one row that scrolls sideways instead of wrapping onto a second */
   .product-media__thumbs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 0.45rem;
     margin-top: 0.5rem;
-    padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-
-  .product-media__thumbs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .product-media__thumbs button {
-    flex: 0 0 auto;
-    width: 62px;
   }
 
   .preorder-badge {
