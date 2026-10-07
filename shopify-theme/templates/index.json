@@ -9,25 +9,18 @@
  */
 {
   "sections": {
-    "masthead": {
-      "type": "photo-masthead",
+    "hero": {
+      "type": "video-hero",
       "settings": {
+        "video": "shopify://files/videos/Video4.mov",
         "eyebrow": "Pre-order now · Ships Winter 2026",
-        "image": "shopify://shop_images/lifestyle-hallway.jpg",
-        "image_alt": "A mother walking hand in hand with her toddler, the Bossababy bag on her arm",
-        "focal_y": 30,
+        "heading_image": "shopify://shop_images/wordmark-carry-everything.png",
         "heading_line_1": "Carry everything.",
         "heading_line_2": "Compromise nothing.",
-        "heading_image": "shopify://shop_images/wordmark-carry-everything.png"
-      }
-    },
-    "intro": {
-      "type": "intro",
-      "settings": {
-        "body": "<p>Clean lines. Considered details. Luxury-grade vegan materials.</p><p>The Structured Tote holds the small chaos of a day with a baby, and gives nothing away.</p>",
-        "cta_product": "the-structured-tote",
-        "cta_label": "Pre-order and save 25%",
-        "cta_note": "<p><strong>Pre-order today and save 25%.</strong> Cancel any time before your bag ships for a full refund.</p>"
+        "lede": "Clean lines. Considered details. Luxury-grade vegan materials.",
+        "product": "the-structured-tote",
+        "cta_label": "Pre-order now",
+        "cta_note": "<p>Cancel any time before your bag ships for a full refund. Free shipping across Canada.</p>"
       }
     },
     "colourways": {
@@ -72,6 +65,14 @@
         "product": "the-structured-tote",
         "footnote": "Every colourway, same bag: pockets, a tailored vegan leather and mesh interior, a wipe-clean base, a key leash, and a structured shape that opens flat.",
         "heading_image": "shopify://shop_images/wordmark-pick-your-neutral.png"
+      }
+    },
+    "craft": {
+      "type": "craft",
+      "settings": {
+        "eyebrow": "Made by hand",
+        "heading": "Every bag is made by hand.",
+        "body": "<p>Not stamped out by a machine. Each Structured Tote is cut, stitched and finished by hand, which is why the quilting lines meet the way they do and why no two are quite identical.</p>"
       }
     },
     "features": {
@@ -124,7 +125,6 @@
     "story": {
       "type": "story",
       "settings": {
-        "image": "shopify://shop_images/lifestyle-sketch.jpg",
         "eyebrow": "Our story",
         "heading": "Built by a working mom, for working moms.",
         "body": "<p>Bossababy was born in the gap between two worlds. Every bag on the market made us choose: look polished, or be prepared. We refused to pick.</p><p>So we designed one bag that does both. A silhouette refined enough for the boardroom, engineered with intelligent compartments for everything from a laptop to a change of onesies — because motherhood and elegance were never opposites.</p>",
@@ -140,19 +140,10 @@
         "cta_label": "Reserve yours",
         "cta_note": "<p>Cancel for a full refund any time before your bag ships.</p>"
       }
-    },
-    "craft": {
-      "type": "craft",
-      "settings": {
-        "eyebrow": "Made by hand",
-        "heading": "Every bag is made by hand.",
-        "body": "<p>Not stamped out by a machine. Each Structured Tote is cut, stitched and finished by hand, which is why the quilting lines meet the way they do and why no two are quite identical.</p>"
-      }
     }
   },
   "order": [
-    "masthead",
-    "intro",
+    "hero",
     "colourways",
     "craft",
     "features",

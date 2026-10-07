@@ -21,5 +21,21 @@
         "content": "Colours and fonts are set in assets/theme.css under BRAND TOKENS. Editing the variables there updates the whole store."
       }
     ]
+  },
+  {
+    "name": "Pre-order offer",
+    "settings": [
+      {
+        "type": "range",
+        "id": "preorder_discount",
+        "label": "Pre-order discount shown on the site",
+        "min": 0,
+        "max": 50,
+        "step": 5,
+        "unit": "%",
+        "default": 0,
+        "info": "Shows the price after the discount next to the regular price. This only changes what is displayed: the discount itself is the automatic discount in Shopify admin. Set to 0 when the offer ends."
+      }
+    ]
   }
 ]

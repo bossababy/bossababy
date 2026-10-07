@@ -1,5 +1,5 @@
 <section
-  class="story"
+  class="story{% if section.settings.image == blank %} story--plain{% endif %}"
   {% if section.settings.image %}
     style="background-image:url({{ section.settings.image | image_url: width: 2000 }});"
   {% endif %}>

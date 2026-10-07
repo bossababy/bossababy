@@ -1,0 +1,26 @@
+{%- comment -%}
+  The price after the automatic pre-order discount, with the regular
+  price struck through. The discount itself is applied at checkout by
+  the "Pre-order 25%" automatic discount; this only shows the shopper
+  what they will pay, so the page agrees with the ad.
+
+  The percentage comes from the theme setting "Pre-order discount".
+  Set it to 0 when the offer ends and this falls back to the plain price.
+
+  Accepts:
+  - price: the regular price in cents
+{%- endcomment -%}
+{%- liquid
+  assign pct = settings.preorder_discount | default: 0
+  assign keep = 100 | minus: pct
+  assign sale = price | times: keep | divided_by: 100
+-%}
+<span class="preorder-price" data-preorder-price data-percent="{{ pct }}">
+  {%- if pct > 0 -%}
+    <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
+    <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>
+    <span class="preorder-price__save">{{ 'product.save_percent' | t: percent: pct }}</span>
+  {%- else -%}
+    <span class="preorder-price__now" data-preorder-now>{{ price | money }}</span>
+  {%- endif -%}
+</span>

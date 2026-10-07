@@ -31,6 +31,10 @@
       "title": "Search",
       "submit": "Search",
       "no_results": "No results found."
+    },
+    "video": {
+      "sound_on": "Turn sound on",
+      "sound_off": "Turn sound off"
     }
   },
   "product": {
@@ -42,7 +46,9 @@
     "tax_note": "Taxes and shipping calculated at checkout.",
     "view_image": "View image {{ number }}",
     "ships_property": "Ships",
-    "preorder_terms": "I understand this is a pre-order and my bag ships in {{ date }}. I can cancel for a full refund any time before it ships."
+    "preorder_terms": "I understand this is a pre-order and my bag ships in {{ date }}. I can cancel for a full refund any time before it ships.",
+    "save_percent": "Save {{ percent }}%",
+    "play_video": "Play video"
   },
   "cart": {
     "title": "Your bag",

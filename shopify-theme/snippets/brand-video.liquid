@@ -1,0 +1,54 @@
+{%- comment -%}
+  A looping product video that starts muted, because browsers only
+  autoplay silent video. A small button turns the sound on.
+
+  Safari gets Shopify's adaptive (HLS) stream; everything else falls
+  through to the 1080p MP4. playsinline keeps iPhone from opening it
+  full screen.
+
+  Accepts:
+  - video: a video object from a `video` setting
+  - class: extra class for the wrapper
+{%- endcomment -%}
+{%- liquid
+  assign mp4 = blank
+  assign hls = blank
+  for source in video.sources
+    if source.format == 'm3u8'
+      assign hls = source.url
+    elsif source.format == 'mp4' and source.height == 1080
+      assign mp4 = source.url
+    endif
+  endfor
+  if mp4 == blank
+    for source in video.sources
+      if source.format == 'mp4'
+        assign mp4 = source.url
+      endif
+    endfor
+  endif
+-%}
+<div class="brand-video {{ class }}" data-brand-video>
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="{{ video.preview_image | image_url: width: 1080 }}"
+    {% if video.alt != blank %}aria-label="{{ video.alt | escape }}"{% endif %}>
+    {%- if hls != blank -%}<source src="{{ hls }}" type="application/x-mpegURL">{%- endif -%}
+    {%- if mp4 != blank -%}<source src="{{ mp4 }}" type="video/mp4">{%- endif -%}
+  </video>
+  <button
+    type="button"
+    class="brand-video__sound"
+    data-sound-toggle
+    aria-pressed="false"
+    data-label-on="{{ 'general.video.sound_off' | t | escape }}"
+    data-label-off="{{ 'general.video.sound_on' | t | escape }}"
+    aria-label="{{ 'general.video.sound_on' | t | escape }}">
+    <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    <svg class="icon-sound" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+  </button>
+</div>

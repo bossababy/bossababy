@@ -31,6 +31,10 @@
       "title": "Recherche",
       "submit": "Rechercher",
       "no_results": "Aucun résultat."
+    },
+    "video": {
+      "sound_on": "Activer le son",
+      "sound_off": "Couper le son"
     }
   },
   "product": {
@@ -42,7 +46,9 @@
     "tax_note": "Taxes et livraison calculées à la caisse.",
     "view_image": "Voir l'image {{ number }}",
     "ships_property": "Expédition",
-    "preorder_terms": "Je comprends qu'il s'agit d'une précommande et que mon sac sera expédié en {{ date }}. Je peux annuler et être remboursée intégralement avant l'expédition."
+    "preorder_terms": "Je comprends qu'il s'agit d'une précommande et que mon sac sera expédié en {{ date }}. Je peux annuler et être remboursée intégralement avant l'expédition.",
+    "save_percent": "Économisez {{ percent }} %",
+    "play_video": "Lire la vidéo"
   },
   "cart": {
     "title": "Votre sac",

@@ -8,26 +8,45 @@
 
 <div class="product" data-product-root>
   <div class="product-media">
-    {%- if product.featured_media -%}
-      <img
-        data-main-image
-        src="{{ product.featured_media | image_url: width: 1200 }}"
-        alt="{{ product.featured_media.alt | default: product.title | escape }}"
-        width="{{ product.featured_media.width }}"
-        height="{{ product.featured_media.height }}">
-    {%- else -%}
-      {{ 'product-1' | placeholder_svg_tag }}
-    {%- endif -%}
+    {%- assign video = section.settings.video -%}
+    <div class="product-stage">
+      {%- if video -%}
+        {% render 'brand-video', video: video, class: 'product-video' %}
+      {%- endif -%}
 
-    {%- if product.media.size > 1 -%}
+      {%- if product.featured_media -%}
+        <img
+          data-main-image
+          src="{{ product.featured_media | image_url: width: 1200 }}"
+          alt="{{ product.featured_media.alt | default: product.title | escape }}"
+          width="{{ product.featured_media.width }}"
+          height="{{ product.featured_media.height }}"
+          {% if video %}hidden{% endif %}>
+      {%- elsif video == blank -%}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+
+    {%- if product.media.size > 1 or video -%}
       <div class="product-media__thumbs">
+        {%- if video -%}
+          <button
+            type="button"
+            class="thumb-video"
+            data-thumb
+            data-thumb-video
+            aria-current="true"
+            aria-label="{{ 'product.play_video' | t }}">
+            <img src="{{ video.preview_image | image_url: width: 160 }}" alt="" width="74" loading="lazy">
+          </button>
+        {%- endif -%}
         {%- for media in product.media -%}
           <button
             type="button"
             data-thumb
             data-media-id="{{ media.id }}"
             data-full="{{ media | image_url: width: 1200 }}"
-            aria-current="{% if media.id == product.featured_media.id %}true{% else %}false{% endif %}"
+            aria-current="{% if video == blank and media.id == product.featured_media.id %}true{% else %}false{% endif %}"
             aria-label="{{ 'product.view_image' | t: number: forloop.index }}">
             <img src="{{ media | image_url: width: 160 }}" alt="" width="74" loading="lazy">
           </button>
@@ -44,9 +63,13 @@
     <h1>{{ product.title }}</h1>
 
     <div class="product-price">
-      <span data-price>{{ variant.price | money_with_currency }}</span>
-      {%- if variant.compare_at_price > variant.price -%}
-        <span class="compare" data-compare-price>{{ variant.compare_at_price | money }}</span>
+      {%- if is_preorder and settings.preorder_discount > 0 -%}
+        {% render 'preorder-price', price: variant.price %}
+      {%- else -%}
+        <span data-price>{{ variant.price | money_with_currency }}</span>
+        {%- if variant.compare_at_price > variant.price -%}
+          <span class="compare" data-compare-price>{{ variant.compare_at_price | money }}</span>
+        {%- endif -%}
       {%- endif -%}
     </div>
     <p class="product-tax-note">{{ 'product.tax_note' | t }}</p>
@@ -93,6 +116,7 @@
         name="add"
         class="btn btn--full"
         data-add-button
+        data-sticky-trigger
         {% unless variant.available %}disabled{% endunless %}>
         {%- if variant.available -%}
           {% if is_preorder %}{{ 'product.preorder_button' | t }}{% else %}{{ 'product.add_to_cart' | t }}{% endif %}
@@ -117,6 +141,10 @@
   </div>
 </div>
 
+{%- if is_preorder -%}
+  {% render 'sticky-buy', product: product, form_id: 'product-form' %}
+{%- endif -%}
+
 <script type="application/json" data-variant-json>
   {{ product.variants | json }}
 </script>
@@ -125,6 +153,12 @@
 {
   "name": "Product",
   "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Shown first in the gallery, muted on a loop. Visitors can turn the sound on."
+    },
     {
       "type": "text",
       "id": "ship_window",

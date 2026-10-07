@@ -36,6 +36,7 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "preorder_discount": 25
   }
 }

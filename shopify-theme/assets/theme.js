@@ -6,14 +6,75 @@
 (function () {
   'use strict';
 
+  /* ---------- Brand video: sound toggle ---------- */
+  // Videos start muted because browsers only autoplay silent video.
+  // Visitors who want the sound can tap the speaker.
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('[data-brand-video]').forEach(function (wrap) {
+    var video = wrap.querySelector('video');
+    var toggle = wrap.querySelector('[data-sound-toggle]');
+    if (!video) return;
+
+    if (reduceMotion) {
+      video.removeAttribute('autoplay');
+      video.pause();
+      video.controls = true;
+    }
+
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      video.muted = !video.muted;
+      if (!video.muted && video.paused) video.play();
+      var on = !video.muted;
+      toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      toggle.setAttribute('aria-label', on ? toggle.dataset.labelOn : toggle.dataset.labelOff);
+    });
+  });
+
+  /* ---------- Sticky buy bar ---------- */
+  // Shown on phones once the page's own buy button has scrolled away.
+  var stickyBar = document.querySelector('[data-sticky-buy]');
+  var stickyTrigger = document.querySelector('[data-sticky-trigger]');
+  if (stickyBar && stickyTrigger && 'IntersectionObserver' in window) {
+    stickyBar.hidden = false;
+    document.body.classList.add('has-sticky-buy');
+    new IntersectionObserver(function (entries) {
+      var entry = entries[0];
+      // Only once the button is above the viewport, not before reaching it.
+      var scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      stickyBar.classList.toggle('is-visible', scrolledPast);
+    }).observe(stickyTrigger);
+  }
+
   /* ---------- Product media gallery ---------- */
   var mainImage = document.querySelector('[data-main-image]');
+  var stageVideo = document.querySelector('.product-stage [data-brand-video]');
   var thumbs = document.querySelectorAll('[data-thumb]');
+
+  function showStageVideo(show) {
+    if (!stageVideo) return;
+    var video = stageVideo.querySelector('video');
+    stageVideo.hidden = !show;
+    if (mainImage) mainImage.hidden = show;
+    if (!video) return;
+    if (show) {
+      if (!reduceMotion) video.play();
+    } else {
+      video.pause();
+    }
+  }
 
   thumbs.forEach(function (thumb) {
     thumb.addEventListener('click', function () {
-      if (!mainImage) return;
-      mainImage.src = thumb.dataset.full;
+      if (thumb.hasAttribute('data-thumb-video')) {
+        showStageVideo(true);
+      } else {
+        if (!mainImage) return;
+        mainImage.src = thumb.dataset.full;
+        showStageVideo(false);
+      }
       thumbs.forEach(function (other) {
         other.setAttribute('aria-current', other === thumb ? 'true' : 'false');
       });
@@ -38,6 +99,9 @@
   var priceEl = root.querySelector('[data-price]');
   var compareEl = root.querySelector('[data-compare-price]');
   var addButton = root.querySelector('[data-add-button]');
+  var preorderPrice = root.querySelector('[data-preorder-price]');
+  var preorderNow = preorderPrice && preorderPrice.querySelector('[data-preorder-now]');
+  var preorderWas = preorderPrice && preorderPrice.querySelector('[data-preorder-was]');
   var optionInputs = root.querySelectorAll('[data-option-input]');
 
   if (!optionInputs.length) return;
@@ -81,6 +145,7 @@
     }
 
     mainImage.alt = variant.featured_media.alt || variant.name || mainImage.alt;
+    showStageVideo(false);
   }
 
   function selectedOptions() {
@@ -115,6 +180,15 @@
 
     if (priceEl && moneyFormat) {
       priceEl.textContent = formatMoney(variant.price, moneyFormat);
+    }
+
+    if (preorderNow) {
+      var percent = parseInt(preorderPrice.dataset.percent, 10) || 0;
+      var sale = Math.round(variant.price * (100 - percent) / 100);
+      preorderNow.textContent = formatMoney(sale, preorderNow.textContent.trim());
+      if (preorderWas) {
+        preorderWas.textContent = formatMoney(variant.price, preorderWas.textContent.trim());
+      }
     }
 
     if (compareEl) {

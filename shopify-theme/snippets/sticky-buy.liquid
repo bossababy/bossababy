@@ -1,0 +1,22 @@
+{%- comment -%}
+  Phone-only bar pinned to the bottom of the screen. It appears once
+  the page's main buy button has scrolled out of view, so there is
+  always a way to buy without scrolling back up.
+
+  Accepts:
+  - product: the product being sold
+  - form_id: submit this form (product page). Without it, links to the product.
+{%- endcomment -%}
+<div class="sticky-buy" data-sticky-buy hidden>
+  <div class="sticky-buy__text">
+    <span class="sticky-buy__title">{{ product.title }}</span>
+    {% render 'preorder-price', price: product.price %}
+  </div>
+  {%- if form_id != blank -%}
+    <button type="submit" form="{{ form_id }}" name="add" class="btn" data-sticky-add>
+      {{- 'product.preorder_button' | t -}}
+    </button>
+  {%- else -%}
+    <a class="btn" href="{{ product.url }}">{{ 'product.preorder_button' | t }}</a>
+  {%- endif -%}
+</div>
