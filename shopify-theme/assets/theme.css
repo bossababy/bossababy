@@ -1113,13 +1113,13 @@ img {
 }
 
 /* ============ Video hero ============ */
-/* Phones: the video fills the first screen and the copy sits over
-   its lower edge on a cream wash, so the button is visible without
-   scrolling. The announcement bar and header take ~8rem; svh keeps the iPhone
-   toolbar from pushing the button off screen. */
+/* Phones: the video fills the screen below the slim header and the
+   copy sits over its lower edge on a soft cream fade, so the button is
+   visible without scrolling. svh keeps the iPhone toolbar from pushing
+   the button off screen; the header is ~3.5rem tall on phones. */
 .video-hero {
   position: relative;
-  min-height: min(calc(100svh - 8rem), 48rem);
+  min-height: calc(100svh - 3.5rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1143,25 +1143,31 @@ img {
   bottom: auto;
 }
 
+/* A fade rather than a solid panel, so the video shows through
+   behind the words and only the bottom edge is softened. */
 .video-hero__copy {
   position: relative;
   text-align: center;
-  padding: 1.4rem 1.25rem 1.6rem;
-  background: rgba(246, 245, 241, 0.82);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  padding: 3rem 1.25rem 1.1rem;
+  background: linear-gradient(
+    to top,
+    rgba(246, 245, 241, 0.72) 0%,
+    rgba(246, 245, 241, 0.55) 60%,
+    rgba(246, 245, 241, 0) 100%
+  );
 }
 
 .video-hero__copy .eyebrow {
-  margin-bottom: 0.7rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
+  margin-bottom: 0.5rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--color-ink);
 }
 
 .video-hero__copy h1 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(1.9rem, 6vw, 3.2rem);
+  font-size: clamp(1.5rem, 5vw, 3.2rem);
   line-height: 1.15;
 }
 
@@ -1173,7 +1179,7 @@ img {
 }
 
 .video-hero__copy .hero-wordmark {
-  width: min(420px, 78%);
+  width: min(300px, 62%);
 }
 
 .video-hero__lede {
@@ -1183,18 +1189,20 @@ img {
 }
 
 .video-hero__price {
-  font-size: 1.15rem;
-  margin: 0.9rem 0 0.9rem;
+  font-size: 1rem;
+  margin: 0.55rem 0 0.7rem;
 }
 
 .video-hero__copy .btn {
-  min-width: min(100%, 18rem);
+  min-width: min(100%, 15rem);
+  padding: 0.75rem 1.4rem;
+  font-size: 0.8rem;
 }
 
 .video-hero__note {
-  font-size: 0.82rem;
-  color: var(--color-ink-soft);
-  margin-top: 0.7rem;
+  font-size: 0.7rem;
+  color: var(--color-ink);
+  margin-top: 0.5rem;
 }
 
 /* Wider screens: a portrait video blown up to landscape would be soft
@@ -1233,6 +1241,22 @@ img {
 
   .video-hero__copy .hero-wordmark {
     width: 100%;
+  }
+
+  .video-hero__copy .eyebrow {
+    font-size: 0.7rem;
+    margin-bottom: 0.7rem;
+    color: var(--color-accent);
+  }
+
+  .video-hero__copy .btn {
+    padding: 0.9rem 1.7rem;
+    font-size: 0.92rem;
+  }
+
+  .video-hero__note {
+    font-size: 0.82rem;
+    color: var(--color-ink-soft);
   }
 
   .video-hero__lede {
@@ -1375,7 +1399,7 @@ img {
   }
 
   .site-header {
-    padding: 1.5rem 1rem 0;
+    padding: 0.7rem 1rem 0.6rem;
     gap: 0.5rem;
   }
 
@@ -1396,7 +1420,7 @@ img {
   }
 
   .logo img {
-    width: min(170px, 44vw);
+    width: min(118px, 34vw);
   }
 
   .header-utils a {

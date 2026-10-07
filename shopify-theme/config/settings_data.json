@@ -14,7 +14,7 @@
       "announcement": {
         "type": "announcement",
         "settings": {
-          "enabled": true,
+          "enabled": false,
           "text": "Pre-order now and take 25% off"
         }
       },
