@@ -22,10 +22,9 @@ Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/wor
 Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so the ad now points at the product page and both pages lead with the product video. Theme **"Bossababy (video landing)"** (`gid://shopify/OnlineStoreTheme/158678843564`), source on branch `claude/bossababy-handoff-setup-tk853x`:
 
 - Homepage opens on `sections/video-hero.liquid`: Video4.mov (Shopify Files) muted on a loop with a sound button, headline, the pre-order price, the button and the refund note. The AI hallway masthead and the opening "intro" section are gone; the story section has no background photo (the AI sketch).
-- Product page: the same video is first in the gallery (`video` setting on the product section); picking a colour switches to that colour's photo.
+- Product page gallery follows the product's media order in admin: all three colours (`assets/img/all-three-colourways.jpg`, stitched from the three colourway shots), Video4 (attached to the product as media), the two lifestyle photos, then First Light, High Noon, After Hours. A `?variant=` link opens on that colour; phones can swipe the main photo. Video alt text can't be translated (Shopify doesn't expose it).
 - Price after the discount is shown next to the regular price (`snippets/preorder-price.liquid`), driven by the theme setting `preorder_discount` (25). Display only — the discount itself is the automatic discount.
 - Phones get a bar pinned to the bottom (`snippets/sticky-buy.liquid`) once the main button scrolls away.
-- Product gallery still has `masthead-lifestyle.jpg` and `story-lifestyle.jpg`; check with Amy whether those are AI too.
 
 ## How to change the live theme (read before editing anything)
 
