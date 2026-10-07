@@ -8,48 +8,72 @@
 
 <div class="product" data-product-root>
   <div class="product-media">
-    {%- assign video = section.settings.video -%}
-    <div class="product-stage">
+    {%- liquid
+      # Gallery order is the product's media order in Shopify admin; the
+      # video is one of those media. A colour link (?variant=) opens on
+      # that colour's photo instead of the first item.
+      assign stage_media = product.featured_media
+      if product.selected_variant.featured_media
+        assign stage_media = product.selected_variant.featured_media
+      endif
+      assign video = product.media | where: 'media_type', 'video' | first
+      assign video_first = false
+      if video and stage_media.id == video.id
+        assign video_first = true
+      endif
+      assign video_hidden = true
+      if video_first
+        assign video_hidden = false
+      endif
+      assign stage_image = stage_media
+      if video_first
+        assign stage_image = product.media | where: 'media_type', 'image' | first
+      endif
+    -%}
+    <div class="product-stage" data-stage>
       {%- if video -%}
-        {% render 'brand-video', video: video, class: 'product-video' %}
+        {% render 'brand-video', video: video, class: 'product-video', autoplay: video_first, hidden: video_hidden %}
       {%- endif -%}
 
-      {%- if product.featured_media -%}
+      {%- if stage_image -%}
         <img
           data-main-image
-          src="{{ product.featured_media | image_url: width: 1200 }}"
-          alt="{{ product.featured_media.alt | default: product.title | escape }}"
-          width="{{ product.featured_media.width }}"
-          height="{{ product.featured_media.height }}"
-          {% if video %}hidden{% endif %}>
+          src="{{ stage_image | image_url: width: 1200 }}"
+          alt="{{ stage_image.alt | default: product.title | escape }}"
+          width="{{ stage_image.width }}"
+          height="{{ stage_image.height }}"
+          {% if video_first %}hidden{% endif %}>
       {%- elsif video == blank -%}
         {{ 'product-1' | placeholder_svg_tag }}
       {%- endif -%}
     </div>
 
-    {%- if product.media.size > 1 or video -%}
+    {%- if product.media.size > 1 -%}
       <div class="product-media__thumbs">
-        {%- if video -%}
-          <button
-            type="button"
-            class="thumb-video"
-            data-thumb
-            data-thumb-video
-            aria-current="true"
-            aria-label="{{ 'product.play_video' | t }}">
-            <img src="{{ video.preview_image | image_url: width: 160 }}" alt="" width="74" loading="lazy">
-          </button>
-        {%- endif -%}
         {%- for media in product.media -%}
-          <button
-            type="button"
-            data-thumb
-            data-media-id="{{ media.id }}"
-            data-full="{{ media | image_url: width: 1200 }}"
-            aria-current="{% if video == blank and media.id == product.featured_media.id %}true{% else %}false{% endif %}"
-            aria-label="{{ 'product.view_image' | t: number: forloop.index }}">
-            <img src="{{ media | image_url: width: 160 }}" alt="" width="74" loading="lazy">
-          </button>
+          {%- if media.media_type == 'video' -%}
+            <button
+              type="button"
+              class="thumb-video"
+              data-thumb
+              data-thumb-video
+              data-media-id="{{ media.id }}"
+              aria-current="{% if media.id == stage_media.id %}true{% else %}false{% endif %}"
+              aria-label="{{ 'product.play_video' | t }}">
+              <img src="{{ media.preview_image | image_url: width: 160 }}" alt="" width="74" loading="lazy">
+            </button>
+          {%- else -%}
+            <button
+              type="button"
+              data-thumb
+              data-media-id="{{ media.id }}"
+              data-full="{{ media | image_url: width: 1200 }}"
+              data-alt="{{ media.alt | escape }}"
+              aria-current="{% if media.id == stage_media.id %}true{% else %}false{% endif %}"
+              aria-label="{{ 'product.view_image' | t: number: forloop.index }}">
+              <img src="{{ media | image_url: width: 160 }}" alt="" width="74" loading="lazy">
+            </button>
+          {%- endif -%}
         {%- endfor -%}
       </div>
     {%- endif -%}
@@ -153,12 +177,6 @@
 {
   "name": "Product",
   "settings": [
-    {
-      "type": "video",
-      "id": "video",
-      "label": "Video",
-      "info": "Shown first in the gallery, muted on a loop. Visitors can turn the sound on."
-    },
     {
       "type": "text",
       "id": "ship_window",

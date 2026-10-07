@@ -73,6 +73,7 @@
       } else {
         if (!mainImage) return;
         mainImage.src = thumb.dataset.full;
+        if (thumb.dataset.alt) mainImage.alt = thumb.dataset.alt;
         showStageVideo(false);
       }
       thumbs.forEach(function (other) {
@@ -80,6 +81,30 @@
       });
     });
   });
+
+  // Swipe the main photo on phones to step through the gallery.
+  var stage = document.querySelector('[data-stage]');
+  if (stage && thumbs.length > 1) {
+    var startX = null;
+    var startY = null;
+    stage.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      startX = null;
+      if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+      var list = Array.prototype.slice.call(thumbs);
+      var current = list.findIndex(function (t) {
+        return t.getAttribute('aria-current') === 'true';
+      });
+      var next = current + (dx < 0 ? 1 : -1);
+      if (next >= 0 && next < list.length) list[next].click();
+    }, { passive: true });
+  }
 
   /* ---------- Variant selection ---------- */
   var root = document.querySelector('[data-product-root]');

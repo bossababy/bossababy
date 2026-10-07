@@ -9,6 +9,8 @@
   Accepts:
   - video: a video object from a `video` setting
   - class: extra class for the wrapper
+  - autoplay: false to wait for a tap (default true)
+  - hidden: true to render it hidden (a gallery slide not yet shown)
 {%- endcomment -%}
 {%- liquid
   assign mp4 = blank
@@ -28,13 +30,13 @@
     endfor
   endif
 -%}
-<div class="brand-video {{ class }}" data-brand-video>
+<div class="brand-video {{ class }}" data-brand-video {% if hidden %}hidden{% endif %}>
   <video
-    autoplay
+    {% unless autoplay == false %}autoplay{% endunless %}
     muted
     loop
     playsinline
-    preload="metadata"
+    preload="{% if autoplay == false %}none{% else %}metadata{% endif %}"
     poster="{{ video.preview_image | image_url: width: 1080 }}"
     {% if video.alt != blank %}aria-label="{{ video.alt | escape }}"{% endif %}>
     {%- if hls != blank -%}<source src="{{ hls }}" type="application/x-mpegURL">{%- endif -%}
