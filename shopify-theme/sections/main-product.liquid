@@ -98,10 +98,6 @@
     </div>
     <p class="product-tax-note">{{ 'product.tax_note' | t }}</p>
 
-    {%- if is_preorder and section.settings.preorder_note != blank -%}
-      <div class="preorder-note">{{ section.settings.preorder_note }}</div>
-    {%- endif -%}
-
     {%- form 'product', product, id: 'product-form', novalidate: 'novalidate' -%}
       <input type="hidden" name="id" value="{{ variant.id }}" data-variant-id>
 
@@ -125,6 +121,11 @@
           </fieldset>
         {%- endfor -%}
       {%- endunless -%}
+
+      {%- comment -%} Colour first, then the pre-order terms, then quantity and the button. {%- endcomment -%}
+      {%- if is_preorder and section.settings.preorder_note != blank -%}
+        <div class="preorder-note">{{ section.settings.preorder_note }}</div>
+      {%- endif -%}
 
       {%- if is_preorder and section.settings.ship_window != blank -%}
         <input type="hidden" name="properties[{{ 'product.ships_property' | t }}]" value="{{ section.settings.ship_window | escape }}">
