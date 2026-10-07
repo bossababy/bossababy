@@ -17,6 +17,16 @@ Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/wor
 | 3PL | NLI International: they log into Shopify with a staff account. No API, no middleware. |
 | Orders | #1004 (a friend: refunded down to 40% off, partially refunded), #1005, #1006 and #1007 paid. #1001–#1003 were tests and are closed. |
 
+## Video landing (7 October 2026)
+
+Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so the ad now points at the product page and both pages lead with the product video. Theme **"Bossababy (video landing)"** (`gid://shopify/OnlineStoreTheme/158678843564`), source on branch `claude/bossababy-handoff-setup-tk853x`:
+
+- Homepage opens on `sections/video-hero.liquid`: Video4.mov (Shopify Files) muted on a loop with a sound button, headline, the pre-order price, the button and the refund note. The AI hallway masthead and the opening "intro" section are gone; the story section has no background photo (the AI sketch).
+- Product page: the same video is first in the gallery (`video` setting on the product section); picking a colour switches to that colour's photo.
+- Price after the discount is shown next to the regular price (`snippets/preorder-price.liquid`), driven by the theme setting `preorder_discount` (25). Display only — the discount itself is the automatic discount.
+- Phones get a bar pinned to the bottom (`snippets/sticky-buy.liquid`) once the main button scrolls away.
+- Product gallery still has `masthead-lifestyle.jpg` and `story-lifestyle.jpg`; check with Amy whether those are AI too.
+
 ## How to change the live theme (read before editing anything)
 
 1. **This connector can't write to the published theme, and can't publish one.** The workflow is: `themeDuplicate` the live theme, then `themeFilesUpsert` the changed files into the copy, then Amy publishes the copy.
@@ -38,7 +48,7 @@ Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/wor
 1. **PO box first, then marketing email.** CASL requires a mailing address in every marketing email. The address was removed from the policies for privacy; add the PO box back once Amy has one.
 2. **Pre-order hold before NLI gets Shopify access.** Use a Shopify Flow rule: on order created with tag `preorder`, place a fulfillment hold ("Awaiting stock — do not ship") and add tag `PREORDER-HOLD`. Also give NLI a saved order view that excludes held orders, and a staff account limited to orders. Release the holds in bulk when stock arrives.
 3. **When stock lands:** receive inventory against the negative counts (for example, −40 + 300 = 260), turn Expedited back on, update the shipping policy in English and French, release the holds.
-4. **Ending the 25% offer:** deactivate the discount, turn off the offer bar, and update the homepage button and note plus the product page notice, English and French, all at once.
+4. **Ending the 25% offer:** deactivate the discount, set the theme setting **Pre-order offer → "Pre-order discount shown on the site" to 0** (it drives the struck-through price on the homepage, product page and sticky bar), turn off the offer bar, and update the product page notice, English and French, all at once.
 5. **NLI contract (unsigned):** two-year term vs 90-day notice contradiction, $50/unit liability cap, goods not insured by NLI, 36-hour claim window. Also: CARM registration (blocking for imports), the returns destination for defective items (pending NLI's Steve), and a kitting quote.
 6. **Clean-up:** `order-bridge/` is dead code (NLI uses staff access instead). Delete it. 17 themes are on the store; prune them in January, after pre-orders ship.
 7. **Unverified:** whether the order confirmation email shows "Ships: Winter 2026".
