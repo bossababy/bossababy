@@ -1296,8 +1296,15 @@ img {
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
 }
 
-.product-media__thumbs .thumb-video img {
-  aspect-ratio: 1;
+/* Every thumbnail is the same 16:9 tile as the colourway shots,
+   whatever the shape of the photo or video behind it. */
+.product-media__thumbs button {
+  aspect-ratio: 16 / 9;
+}
+
+.product-media__thumbs button img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
