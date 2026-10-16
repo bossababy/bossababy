@@ -13,7 +13,7 @@
       "type": "video-hero",
       "settings": {
         "video": "shopify://files/videos/Video4.mov",
-        "eyebrow": "Pre-order now · Ships Winter 2026",
+        "eyebrow": "Pre-order now · Ships Fall 2026",
         "heading_image": "shopify://shop_images/wordmark-carry-everything.png",
         "heading_line_1": "Carry everything.",
         "heading_line_2": "Compromise nothing.",
@@ -135,7 +135,7 @@
       "type": "intro",
       "settings": {
         "heading": "First edition. Three colourways.",
-        "body": "<p>First Light, High Noon and After Hours — reserved now, shipped Winter 2026.</p>",
+        "body": "<p>First Light, High Noon and After Hours — reserved now, shipping Fall 2026.</p>",
         "cta_product": "the-structured-tote",
         "cta_label": "Reserve yours",
         "cta_note": "<p>Cancel for a full refund any time before your bag ships.</p>"

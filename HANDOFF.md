@@ -1,6 +1,6 @@
 # Bossababy: handoff (7 October 2026)
 
-Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/work bag. It is on pre-order now and ships Winter 2026. Owner: Amy (amy@bossababy.ca). Public contact: hello@bossababy.ca.
+Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/work bag. It is on pre-order now and ships Fall 2026 (stock lands late November to early December). Owner: Amy (amy@bossababy.ca). Public contact: hello@bossababy.ca.
 
 ## Where things are
 
@@ -9,7 +9,7 @@ Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/wor
 | Store | Shopify, **live at https://bossababy.ca** (admin: `zxh53r-ry.myshopify.com`). Password off. EN + FR (`/fr/`). |
 | Repo | `github.com/bossababy/bossababy` (formerly `aeamedeiros/Bossababy`). Work branch: `claude/bossababy-website-design-8reddm`. `main` holds the old static launch page; its `CNAME` was deleted after the domain moved to Shopify. |
 | Theme source | `shopify-theme/` on the work branch |
-| **Live theme** | **"Bossababy (no end date)"**, `gid://shopify/OnlineStoreTheme/158569660588` |
+| **Live theme** | **"Bossababy (video landing)"**, `gid://shopify/OnlineStoreTheme/158678843564` (published by Amy after 7 October) |
 | Product | `gid://shopify/Product/8758471327916`, $370 CAD. Variants: First Light `BB-TOTE-FL`, High Noon `BB-TOTE-HN`, After Hours `BB-TOTE-AH`. Tag `preorder`. Inventory tracked with "continue selling", so the count goes negative and shows how many bags are committed. Weight 4 lb. |
 | Discount | **"Pre-order 25%"**, automatic, **no end date**, `gid://shopify/DiscountAutomaticNode/1503176458412` |
 | Shipping | Canada only. **Standard, free, 5–8 business days.** "Expedited" ($25, 2–3 days) is **deactivated, not deleted**. Turn it back on when stock lands. |
@@ -50,4 +50,4 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 4. **Ending the 25% offer:** deactivate the discount, set the theme setting **Pre-order offer → "Pre-order discount shown on the site" to 0** (it drives the struck-through price on the homepage, product page and sticky bar), turn off the offer bar, and update the product page notice, English and French, all at once.
 5. **NLI contract (unsigned):** two-year term vs 90-day notice contradiction, $50/unit liability cap, goods not insured by NLI, 36-hour claim window. Also: CARM registration (blocking for imports), the returns destination for defective items (pending NLI's Steve), and a kitting quote.
 6. **Clean-up:** `order-bridge/` is dead code (NLI uses staff access instead). Delete it. 17 themes are on the store; prune them in January, after pre-orders ship.
-7. **Unverified:** whether the order confirmation email shows "Ships: Winter 2026".
+7. **Unverified:** whether the order confirmation email shows the "Ships" line (now "Fall 2026"; orders placed before 16 October say "Winter 2026"). The Refund and Shipping policies still need "Winter 2026" changed to "Fall 2026" by Amy.
