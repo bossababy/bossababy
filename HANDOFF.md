@@ -29,7 +29,7 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 ## Story and FAQ (3 November 2026)
 
 - Homepage "Our story" is Amy's origin story (heading "I couldn't find it, so I made it.", signed "— Amy, founder" via the story section's `byline` setting).
-- `sections/faq.liquid`: open/close questions plus FAQPage structured data. Homepage has a 6-question version after the story; the product page has the full 11 below the product. Answers state facts from the policies: Fall 2026 shipping, free Canada shipping 5–8 business days, 30-day returns, 7-day damage claims, 16" × 12" (18" with handles) × 7", about 3 lb.
+- `sections/faq.liquid`: open/close questions plus FAQPage structured data. Homepage has a 7-question version after the story; the product page has the full 12 below the product. Answers state facts from the policies: Fall 2026 shipping, free Canada shipping up to 8 business days, Expedited $25 (2–3 days; the rate must be switched on in Shopify for this to be true), 30-day returns, 7-day damage claims, 16" × 12" (18" with handles) × 7", about 3 lb.
 
 ## How to change the live theme (read before editing anything)
 

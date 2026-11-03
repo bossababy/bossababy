@@ -72,7 +72,7 @@
           "type": "question",
           "settings": {
             "question": "Where do you ship, and how much does it cost?",
-            "answer": "<p>We ship anywhere in Canada. Standard shipping is free and takes 5–8 business days once your bag leaves our warehouse.</p>"
+            "answer": "<p>We ship anywhere in Canada. Standard shipping is free and can take up to 8 business days once your bag leaves our warehouse. Expedited shipping (2–3 business days) is available for $25.</p>"
           }
         },
         "returns": {
@@ -93,7 +93,7 @@
           "type": "question",
           "settings": {
             "question": "What fits inside?",
-            "answer": "<p>A laptop up to 14\", bottles in the insulated pockets, diapers, wipes and a change of clothes in the mesh compartments, and your keys on the key leash. It opens flat like a suitcase, so you can see everything at once. A matching snap pouch is included.</p>"
+            "answer": "<p>A laptop up to 14\", bottles in the insulated pockets, diapers, wipes and a change of clothes in the mesh compartments, and your keys on the key leash. It opens flat like a suitcase, so you can see everything at once. A matching change pad is included.</p>"
           }
         },
         "stroller": {
@@ -123,6 +123,13 @@
             "question": "Is it only a diaper bag?",
             "answer": "<p>No. It's designed to work as a work bag or everyday tote too. Most people won't guess it's a diaper bag.</p>"
           }
+        },
+        "howreturn": {
+          "type": "question",
+          "settings": {
+            "question": "How do I start a return?",
+            "answer": "<p>Email us at <a href=\"mailto:hello@bossababy.ca\">hello@bossababy.ca</a> with your order number and we'll send you return instructions. Please don't ship anything back before you hear from us, so we can match the return to your order.</p>"
+          }
         }
       },
       "block_order": [
@@ -131,6 +138,7 @@
         "discount",
         "shipping",
         "returns",
+        "howreturn",
         "size",
         "fits",
         "stroller",
