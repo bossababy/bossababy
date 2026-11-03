@@ -12,7 +12,7 @@ Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/wor
 | **Live theme** | **"Bossababy (video landing)"**, `gid://shopify/OnlineStoreTheme/158678843564` (published by Amy after 7 October) |
 | Product | `gid://shopify/Product/8758471327916`, $370 CAD. Variants: First Light `BB-TOTE-FL`, High Noon `BB-TOTE-HN`, After Hours `BB-TOTE-AH`. Tag `preorder`. Inventory tracked with "continue selling", so the count goes negative and shows how many bags are committed. Weight 4 lb. |
 | Discount | **"Pre-order 25%"**, automatic, **no end date**, `gid://shopify/DiscountAutomaticNode/1503176458412` |
-| Shipping | Canada only. **Standard, free, 5–8 business days.** "Expedited" ($25, 2–3 days) is **deactivated, not deleted**. Turn it back on when stock lands. |
+| Shipping | Canada only. **Standard, free, up to 8 business days. Expedited $25, 2–3 business days** (Amy switched it back on 3 November). |
 | Location | "Bossababy Inc.", 1515 Drew Rd, Mississauga (NLI's warehouse). |
 | 3PL | NLI International: they log into Shopify with a staff account. No API, no middleware. |
 | Orders | #1004 (a friend: refunded down to 40% off, partially refunded), #1005, #1006 and #1007 paid. #1001–#1003 were tests and are closed. |
@@ -29,7 +29,7 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 ## Story and FAQ (3 November 2026)
 
 - Homepage "Our story" is Amy's origin story (heading "I couldn't find it, so I made it.", signed "— Amy, founder" via the story section's `byline` setting).
-- `sections/faq.liquid`: open/close questions plus FAQPage structured data. Homepage has a 7-question version after the story; the product page has the full 12 below the product. Answers state facts from the policies: Fall 2026 shipping, free Canada shipping up to 8 business days, Expedited $25 (2–3 days; the rate must be switched on in Shopify for this to be true), 30-day returns, 7-day damage claims, 16" × 12" (18" with handles) × 7", about 3 lb.
+- `sections/faq.liquid`: open/close questions plus FAQPage structured data. Homepage has a 7-question version after the story; the product page has the full 12 below the product. Answers state facts from the policies: Fall 2026 shipping, free Canada shipping up to 8 business days, Expedited $25 (2–3 days), 30-day returns, 7-day damage claims, 16" × 12" (18" with handles) × 7", about 3 lb.
 
 ## How to change the live theme (read before editing anything)
 
@@ -51,7 +51,7 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 
 1. **PO box first, then marketing email.** CASL requires a mailing address in every marketing email. The address was removed from the policies for privacy; add the PO box back once Amy has one.
 2. **Pre-order hold before NLI gets Shopify access.** Use a Shopify Flow rule: on order created with tag `preorder`, place a fulfillment hold ("Awaiting stock — do not ship") and add tag `PREORDER-HOLD`. Also give NLI a saved order view that excludes held orders, and a staff account limited to orders. Release the holds in bulk when stock arrives.
-3. **When stock lands:** receive inventory against the negative counts (for example, −40 + 300 = 260), turn Expedited back on, update the shipping policy in English and French, release the holds.
+3. **When stock lands:** receive inventory against the negative counts (for example, −40 + 300 = 260), update the shipping policy in English and French, release the holds.
 4. **Ending the 25% offer:** deactivate the discount, set the theme setting **Pre-order offer → "Pre-order discount shown on the site" to 0** (it drives the struck-through price on the homepage, product page and sticky bar), turn off the offer bar, update the product page notice, and remove the product-page FAQ question "Is there a discount for pre-ordering?", English and French, all at once.
 5. **NLI contract (unsigned):** two-year term vs 90-day notice contradiction, $50/unit liability cap, goods not insured by NLI, 36-hour claim window. Also: CARM registration (blocking for imports), the returns destination for defective items (pending NLI's Steve), and a kitting quote.
 6. **Clean-up:** `order-bridge/` is dead code (NLI uses staff access instead). Delete it. 17 themes are on the store; prune them in January, after pre-orders ship.
