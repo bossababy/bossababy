@@ -43,9 +43,110 @@
         "ship_window": "Fall 2026",
         "preorder_note": "<p><strong>Pre-order and save 25%.</strong> Your card is charged today to reserve your bag, and we ship Fall 2026 as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
       }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "ship": {
+          "type": "question",
+          "settings": {
+            "question": "When will my bag ship?",
+            "answer": "<p>Pre-orders ship in Fall 2026. We expect stock in late November to early December, and orders go out as soon as it arrives. We'll email you a tracking number when yours is on its way.</p>"
+          }
+        },
+        "preorder": {
+          "type": "question",
+          "settings": {
+            "question": "What does pre-ordering mean?",
+            "answer": "<p>Your card is charged when you order, which reserves your bag from our first production run. You can cancel for a full refund any time before it ships. No reason needed, no fee.</p>"
+          }
+        },
+        "discount": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a discount for pre-ordering?",
+            "answer": "<p>Yes. Pre-orders are 25% off, applied automatically at checkout.</p>"
+          }
+        },
+        "shipping": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship, and how much does it cost?",
+            "answer": "<p>We ship anywhere in Canada. Standard shipping is free and takes 5–8 business days once your bag leaves our warehouse.</p>"
+          }
+        },
+        "returns": {
+          "type": "question",
+          "settings": {
+            "question": "Can I return it?",
+            "answer": "<p>Yes. You have 30 days from delivery to return an unused bag in its original condition. If it arrives damaged or faulty, contact us within 7 days and we'll replace it or refund you, and we cover the shipping.</p>"
+          }
+        },
+        "size": {
+          "type": "question",
+          "settings": {
+            "question": "How big is it?",
+            "answer": "<p>16\" wide, 12\" tall (18\" to the top of the handles) and 7\" deep. It weighs about 3 lb.</p>"
+          }
+        },
+        "fits": {
+          "type": "question",
+          "settings": {
+            "question": "What fits inside?",
+            "answer": "<p>A laptop up to 14\", bottles in the insulated pockets, diapers, wipes and a change of clothes in the mesh compartments, and your keys on the key leash. It opens flat like a suitcase, so you can see everything at once. A matching snap pouch is included.</p>"
+          }
+        },
+        "stroller": {
+          "type": "question",
+          "settings": {
+            "question": "Does it attach to a stroller?",
+            "answer": "<p>Yes. Two detachable straps clip it straight onto the stroller handle.</p>"
+          }
+        },
+        "material": {
+          "type": "question",
+          "settings": {
+            "question": "What is it made of?",
+            "answer": "<p>Luxury-grade vegan leather with a quilted front pocket and gold-tone hardware. Each bag is cut, stitched and finished by hand.</p>"
+          }
+        },
+        "clean": {
+          "type": "question",
+          "settings": {
+            "question": "How do I clean it?",
+            "answer": "<p>Wipe it with a damp cloth. The base wipes clean, and we recommend keeping it out of prolonged direct sunlight.</p>"
+          }
+        },
+        "diaperbag": {
+          "type": "question",
+          "settings": {
+            "question": "Is it only a diaper bag?",
+            "answer": "<p>No. It's designed to work as a work bag or everyday tote too. Most people won't guess it's a diaper bag.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ship",
+        "preorder",
+        "discount",
+        "shipping",
+        "returns",
+        "size",
+        "fits",
+        "stroller",
+        "material",
+        "clean",
+        "diaperbag"
+      ],
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Good to know.",
+        "footnote": "<p>Still have a question? Email us at <a href=\"mailto:hello@bossababy.ca\">hello@bossababy.ca</a> and a real person will answer.</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "faq"
   ]
 }

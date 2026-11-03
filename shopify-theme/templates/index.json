@@ -126,9 +126,70 @@
       "type": "story",
       "settings": {
         "eyebrow": "Our story",
-        "heading": "Built by a working mom, for working moms.",
-        "body": "<p>Bossababy was born in the gap between two worlds. Every bag on the market made us choose: look polished, or be prepared. We refused to pick.</p><p>So we designed one bag that does both. A silhouette refined enough for the boardroom, engineered with intelligent compartments for everything from a laptop (up to 14\") to a change of onesies — because motherhood and elegance were never opposites.</p>",
-        "signoff": "You've got this. We've got your bag."
+        "heading": "I couldn't find it, so I made it.",
+        "body": "<p>When I was pregnant with my second child, I spent a lot of time looking for a bag that didn't seem to exist. I wanted one that actually made the day easier, with a dedicated place for all of the necessities so I wasn't digging around every time I needed something.</p><p>I also wanted to feel like myself. Once I became a mom, the things that used to matter to me quickly moved to the back burner. I was tired of getting dressed for the day, then throwing a bulky backpack over my shoulder on my way out the door. Everything I found was either practical or pretty. Never both.</p><p>So I made my own.</p><p>I took it everywhere I went. People would compliment my purse, and they were always surprised to hear it was actually a diaper bag. After hearing it enough times, I knew I wasn't the only mom looking for one.</p><p>That bag became the Bossababy Structured Tote: made for the chaos of a day with little ones, and polished enough to bring wherever the day takes you.</p>",
+        "signoff": "You've got this. We've got your bag.",
+        "byline": "— Amy, founder"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "ship": {
+          "type": "question",
+          "settings": {
+            "question": "When will my bag ship?",
+            "answer": "<p>Pre-orders ship in Fall 2026. We expect stock in late November to early December, and orders go out as soon as it arrives. We'll email you a tracking number when yours is on its way.</p>"
+          }
+        },
+        "preorder": {
+          "type": "question",
+          "settings": {
+            "question": "What does pre-ordering mean?",
+            "answer": "<p>Your card is charged when you order, which reserves your bag from our first production run. You can cancel for a full refund any time before it ships. No reason needed, no fee.</p>"
+          }
+        },
+        "shipping": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship, and how much does it cost?",
+            "answer": "<p>We ship anywhere in Canada. Standard shipping is free and takes 5–8 business days once your bag leaves our warehouse.</p>"
+          }
+        },
+        "fits": {
+          "type": "question",
+          "settings": {
+            "question": "What fits inside?",
+            "answer": "<p>A laptop up to 14\", bottles in the insulated pockets, diapers, wipes and a change of clothes in the mesh compartments, and your keys on the key leash. It opens flat like a suitcase, so you can see everything at once. A matching snap pouch is included.</p>"
+          }
+        },
+        "size": {
+          "type": "question",
+          "settings": {
+            "question": "How big is it?",
+            "answer": "<p>16\" wide, 12\" tall (18\" to the top of the handles) and 7\" deep. It weighs about 3 lb.</p>"
+          }
+        },
+        "returns": {
+          "type": "question",
+          "settings": {
+            "question": "Can I return it?",
+            "answer": "<p>Yes. You have 30 days from delivery to return an unused bag in its original condition. If it arrives damaged or faulty, contact us within 7 days and we'll replace it or refund you, and we cover the shipping.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ship",
+        "preorder",
+        "shipping",
+        "fits",
+        "size",
+        "returns"
+      ],
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Good to know.",
+        "footnote": "<p>Still have a question? Email us at <a href=\"mailto:hello@bossababy.ca\">hello@bossababy.ca</a> and a real person will answer.</p>"
       }
     },
     "closing": {
@@ -148,6 +209,7 @@
     "craft",
     "features",
     "story",
+    "faq",
     "closing"
   ]
 }

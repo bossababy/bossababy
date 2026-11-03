@@ -1383,6 +1383,97 @@ img {
   }
 }
 
+/* ============ Story byline ============ */
+.story-byline {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+/* ============ FAQ ============ */
+.faq {
+  background: var(--color-cream);
+  padding: 5rem 1.5rem;
+}
+
+.faq-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq .eyebrow,
+.faq h2 {
+  text-align: center;
+}
+
+.faq h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 2.4rem;
+}
+
+.faq-list {
+  border-top: 1px solid var(--color-oak);
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--color-oak);
+}
+
+.faq-list summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  color: var(--color-ink);
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.faq-list details[open] summary::after {
+  content: "\2013";
+}
+
+.faq-list details > .rte {
+  padding-bottom: 1.2rem;
+}
+
+.faq-list details > .rte p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-footnote {
+  margin-top: 1.8rem;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+}
+
+.faq-footnote a {
+  color: var(--color-accent-dark);
+}
+
+/* the product page already sits on cream with its own padding */
+.template-product .faq {
+  padding-top: 1rem;
+}
+
 /* ============ Mobile ============ */
 /* Phones: the photo, price and colour choice all fit on the first
    screen, so a visitor from an ad can pick a colour without scrolling. */
