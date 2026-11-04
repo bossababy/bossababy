@@ -97,7 +97,9 @@
       var dy = e.changedTouches[0].clientY - startY;
       startX = null;
       if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
-      var list = Array.prototype.slice.call(thumbs);
+      var list = Array.prototype.slice.call(thumbs).filter(function (t) {
+        return !t.hidden;
+      });
       var current = list.findIndex(function (t) {
         return t.getAttribute('aria-current') === 'true';
       });
@@ -173,6 +175,18 @@
     showStageVideo(false);
   }
 
+  /* Only the chosen colour's photos are listed, plus the shared ones
+     (video, lifestyle, all three together), which have no data-colour. */
+  var thumbList = document.querySelector('[data-colour-index]');
+  function showColourThumbs(variant) {
+    if (!thumbList) return;
+    var colour = variant.options[parseInt(thumbList.dataset.colourIndex, 10) || 0];
+    thumbs.forEach(function (thumb) {
+      var own = thumb.dataset.colour;
+      thumb.hidden = !!own && own !== colour;
+    });
+  }
+
   function selectedOptions() {
     var chosen = [];
     root.querySelectorAll('[data-option-index]').forEach(function (field) {
@@ -229,6 +243,7 @@
       addButton.disabled = !variant.available;
     }
 
+    showColourThumbs(variant);
     showVariantImage(variant);
 
     // Keep the URL shareable without reloading the page.

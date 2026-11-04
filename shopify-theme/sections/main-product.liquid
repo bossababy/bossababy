@@ -48,9 +48,40 @@
       {%- endif -%}
     </div>
 
+    {%- liquid
+      # Photos of one colour are named for it in their alt text ("... in
+      # High Noon ..."). Only the chosen colour's photos are listed; shared
+      # media (the video, lifestyle shots, all three together) always is.
+      assign colour_index = 0
+      for option in product.options_with_values
+        assign option_name = option.name | downcase
+        if option_name == 'colour' or option_name == 'color' or option_name == 'couleur'
+          assign colour_index = forloop.index0
+        endif
+      endfor
+      assign colour_values = product.options_with_values[colour_index].values
+      assign current_colour = variant.options[colour_index]
+    -%}
     {%- if product.media.size > 1 -%}
-      <div class="product-media__thumbs">
+      <div class="product-media__thumbs" data-colour-index="{{ colour_index }}">
         {%- for media in product.media -%}
+          {%- liquid
+            assign media_colour = ''
+            assign matches = 0
+            for value in colour_values
+              if media.alt contains value
+                assign media_colour = value
+                assign matches = matches | plus: 1
+              endif
+            endfor
+            if matches != 1
+              assign media_colour = ''
+            endif
+            assign thumb_hidden = false
+            if media_colour != blank and media_colour != current_colour
+              assign thumb_hidden = true
+            endif
+          -%}
           {%- if media.media_type == 'video' -%}
             <button
               type="button"
@@ -58,6 +89,8 @@
               data-thumb
               data-thumb-video
               data-media-id="{{ media.id }}"
+              data-colour="{{ media_colour | escape }}"
+              {% if thumb_hidden %}hidden{% endif %}
               aria-current="{% if media.id == stage_media.id %}true{% else %}false{% endif %}"
               aria-label="{{ 'product.play_video' | t }}">
               <img src="{{ media.preview_image | image_url: width: 160 }}" alt="" width="74" loading="lazy">
@@ -67,6 +100,8 @@
               type="button"
               data-thumb
               data-media-id="{{ media.id }}"
+              data-colour="{{ media_colour | escape }}"
+              {% if thumb_hidden %}hidden{% endif %}
               data-full="{{ media | image_url: width: 1200 }}"
               data-alt="{{ media.alt | escape }}"
               aria-current="{% if media.id == stage_media.id %}true{% else %}false{% endif %}"
