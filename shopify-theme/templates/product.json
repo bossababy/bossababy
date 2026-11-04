@@ -30,7 +30,7 @@
           "type": "detail",
           "settings": {
             "title": "What fits inside",
-            "body": "<p>Padded sleeve for up to a 14\" laptop, insulated bottle pockets, mesh compartments, key ring, and two detachable stroller straps.</p>"
+            "body": "<p>Padded sleeve for up to a 14\" laptop, insulated bottle pockets, mesh compartments, key ring, two detachable stroller straps and a detachable shoulder strap.</p>"
           }
         }
       },
@@ -93,7 +93,7 @@
           "type": "question",
           "settings": {
             "question": "What fits inside?",
-            "answer": "<p>A laptop up to 14\", bottles in the insulated pockets, diapers, wipes and a change of clothes in the mesh compartments, and your keys on the key leash. It opens flat like a suitcase, so you can see everything at once. A matching change pad is included.</p>"
+            "answer": "<p>A laptop up to 14\", bottles in the insulated pockets, diapers, wipes and a change of clothes in the mesh compartments, and your keys on the key leash. It opens flat like a suitcase, so you can see everything at once. A matching change pad and a detachable shoulder strap are included.</p>"
           }
         },
         "stroller": {
@@ -130,6 +130,13 @@
             "question": "How do I start a return?",
             "answer": "<p>Email us at <a href=\"mailto:hello@bossababy.ca\">hello@bossababy.ca</a> with your order number and we'll send you return instructions. Please don't ship anything back before you hear from us, so we can match the return to your order.</p>"
           }
+        },
+        "shoulder": {
+          "type": "question",
+          "settings": {
+            "question": "Can I wear it on my shoulder?",
+            "answer": "<p>Yes. Every bag comes with a detachable shoulder strap, so you can carry it by the handles or wear it on your shoulder.</p>"
+          }
         }
       },
       "block_order": [
@@ -142,6 +149,7 @@
         "size",
         "fits",
         "stroller",
+        "shoulder",
         "material",
         "clean",
         "diaperbag"
