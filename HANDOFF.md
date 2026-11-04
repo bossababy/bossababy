@@ -31,6 +31,14 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 - Homepage "Our story" is Amy's origin story (heading "I couldn't find it, so I made it.", signed "— Amy, founder" via the story section's `byline` setting).
 - `sections/faq.liquid`: open/close questions plus FAQPage structured data. Homepage has a 7-question version after the story; the product page has the full 13 below the product. Answers state facts from the policies: Fall 2026 shipping, free Canada shipping up to 8 business days, Expedited $25 (2–3 days), 30-day returns, 7-day damage claims, 16" × 12" (18" with handles) × 7", about 3 lb.
 
+## Real product photos (4 November 2026)
+
+- 15 studio photos (`assets/img/products/`, backgrounds widened to square) are on the product: First Light 6 (incl. the flat-lay with shoulder strap, stroller straps and change pad), High Noon 5, After Hours 4. Each variant's image is its real front shot.
+- The gallery lists shared media (all-three photo, video, lifestyle) plus only the selected colour's photos. A photo belongs to a colour if its alt text names exactly one colour ("The Structured Tote in High Noon, …"). Keep that naming when adding photos.
+- The three tan-background renders were removed from the product but kept in Files: the homepage colour tiles still use them, by Amy's choice. The all-three photo at the top of the gallery is stitched from those renders.
+- Every bag comes with a detachable shoulder strap (in the description, FAQ and "What fits inside").
+- The store allows 20 themes; Amy removed 5 on 4 November. Ask her to remove old drafts when a duplicate silently returns `newTheme: null`.
+
 ## How to change the live theme (read before editing anything)
 
 1. **This connector can't write to the published theme, and can't publish one.** The workflow is: `themeDuplicate` the live theme, then `themeFilesUpsert` the changed files into the copy, then Amy publishes the copy.
