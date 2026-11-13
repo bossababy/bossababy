@@ -33,7 +33,7 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 
 ## Real product photos (4 November 2026)
 
-- Product photos (`assets/img/products/`): per colour, the front, three-quarter and open views are Amy's white-background hero shots (13 November); the side, back and First Light flat-lay are the earlier grey studio photos, backgrounds widened to square. First Light 6, High Noon 5, After Hours 4. Each variant's image is its hero front shot.
+- Product photos (`assets/img/products/`): per colour, the front, three-quarter and open views are Amy's white-background hero shots (13 November); High Noon still has the earlier grey studio side and back views, After Hours the back view; Amy removed First Light's side, back and flat-lay on 13 November (kept in Files). First Light 3, High Noon 5, After Hours 4. Each variant's image is its hero front shot.
 - The gallery lists shared media (all-three photo, video, lifestyle) plus only the selected colour's photos. A photo belongs to a colour if its alt text names exactly one colour ("The Structured Tote in High Noon, …"). Keep that naming when adding photos.
 - The three tan-background renders were removed from the product but kept in Files: the homepage colour tiles still use them, by Amy's choice. The all-three photo at the top of the gallery is stitched from those renders.
 - Every bag comes with a detachable shoulder strap (in the description, FAQ and "What fits inside").
