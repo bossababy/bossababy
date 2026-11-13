@@ -50,8 +50,10 @@
 
     {%- liquid
       # Photos of one colour are named for it in their alt text ("... in
-      # High Noon ..."). Only the chosen colour's photos are listed; shared
-      # media (the video, lifestyle shots, all three together) always is.
+      # High Noon ..."). Until a colour is chosen the gallery shows only
+      # the shared photos (all three together, lifestyle); once one is
+      # chosen, or the page was opened on a colour (?variant=), it shows
+      # only that colour's photos.
       assign colour_index = 0
       for option in product.options_with_values
         assign option_name = option.name | downcase
@@ -78,7 +80,11 @@
               assign media_colour = ''
             endif
             assign thumb_hidden = false
-            if media_colour != blank and media_colour != current_colour
+            if product.selected_variant
+              if media_colour != current_colour
+                assign thumb_hidden = true
+              endif
+            elsif media_colour != blank
               assign thumb_hidden = true
             endif
           -%}

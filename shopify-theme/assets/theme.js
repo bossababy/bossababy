@@ -175,15 +175,14 @@
     showStageVideo(false);
   }
 
-  /* Only the chosen colour's photos are listed, plus the shared ones
-     (video, lifestyle, all three together), which have no data-colour. */
+  /* Once a colour is chosen, only its photos are listed. The shared
+     photos (no data-colour) show only before any colour is chosen. */
   var thumbList = document.querySelector('[data-colour-index]');
   function showColourThumbs(variant) {
     if (!thumbList) return;
     var colour = variant.options[parseInt(thumbList.dataset.colourIndex, 10) || 0];
     thumbs.forEach(function (thumb) {
-      var own = thumb.dataset.colour;
-      thumb.hidden = !!own && own !== colour;
+      thumb.hidden = (thumb.dataset.colour || '') !== colour;
     });
   }
 
@@ -254,7 +253,10 @@
     }
   }
 
+  // First Light is ticked when the page opens, so tapping it again must
+  // still switch the gallery to its photos: listen for clicks as well.
   optionInputs.forEach(function (input) {
     input.addEventListener('change', update);
+    input.addEventListener('click', update);
   });
 })();
