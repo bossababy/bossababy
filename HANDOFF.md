@@ -9,9 +9,9 @@ Bossababy sells one product, **The Structured Tote**, a vegan-leather diaper/wor
 | Store | Shopify, **live at https://bossababy.ca** (admin: `zxh53r-ry.myshopify.com`). Password off. EN + FR (`/fr/`). |
 | Repo | `github.com/bossababy/bossababy` (formerly `aeamedeiros/Bossababy`). Work branch: `claude/bossababy-website-design-8reddm`. `main` holds the old static launch page; its `CNAME` was deleted after the domain moved to Shopify. |
 | Theme source | `shopify-theme/` on the work branch |
-| **Live theme** | **"Bossababy (video landing)"**, `gid://shopify/OnlineStoreTheme/158678843564` (published by Amy after 7 October) |
+| **Live theme** | **"Bossababy (regular price)"**, `gid://shopify/OnlineStoreTheme/160270287020` (16 November). Pending Amy's publish: "Bossababy (colour links)" `160270516396`, which adds each variant ID to the homepage colour tiles. Always check the MAIN theme before starting. |
 | Product | `gid://shopify/Product/8758471327916`, $370 CAD. Variants: First Light `BB-TOTE-FL`, High Noon `BB-TOTE-HN`, After Hours `BB-TOTE-AH`. Tag `preorder`. Inventory tracked with "continue selling", so the count goes negative and shows how many bags are committed. Weight 4 lb. |
-| Discount | **"Pre-order 25%"** automatic discount (`gid://shopify/DiscountAutomaticNode/1503176458412`): being ended 16 November 2026; theme "Bossababy (regular price)" shows $370 with no offer copy. Publish that theme and deactivate the discount together. Codes TIGHTKNIT40 and EAKAM100 are separate and still active. |
+| Discount | None running. "Pre-order 25%" automatic discount and code EAKAM100 were switched off 16 November 2026 (expired, not deleted). Code TIGHTKNIT40 is still active. Price shown is $370; theme setting `preorder_discount` is 0. |
 | Shipping | Canada only. **Standard, free, up to 8 business days. Expedited $25, 2–3 business days** (Amy switched it back on 3 November). |
 | Location | "Bossababy Inc.", 1515 Drew Rd, Mississauga (NLI's warehouse). |
 | 3PL | NLI International: they log into Shopify with a staff account. No API, no middleware. |
