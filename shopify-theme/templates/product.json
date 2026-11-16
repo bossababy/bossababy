@@ -41,7 +41,7 @@
       ],
       "settings": {
         "ship_window": "Fall 2026",
-        "preorder_note": "<p><strong>Pre-order and save 25%.</strong> Your card is charged today to reserve your bag, and we ship Fall 2026 as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
+        "preorder_note": "<p><strong>This is a pre-order.</strong> Your card is charged today to reserve your bag, and we ship Fall 2026 as soon as stock arrives. You can cancel for a full refund any time before it ships.</p>"
       }
     },
     "faq": {
@@ -59,13 +59,6 @@
           "settings": {
             "question": "What does pre-ordering mean?",
             "answer": "<p>Your card is charged when you order, which reserves your bag from our first production run. You can cancel for a full refund any time before it ships. No reason needed, no fee.</p>"
-          }
-        },
-        "discount": {
-          "type": "question",
-          "settings": {
-            "question": "Is there a discount for pre-ordering?",
-            "answer": "<p>Yes. Pre-orders are 25% off, applied automatically at checkout.</p>"
           }
         },
         "shipping": {
@@ -142,7 +135,6 @@
       "block_order": [
         "ship",
         "preorder",
-        "discount",
         "shipping",
         "returns",
         "howreturn",

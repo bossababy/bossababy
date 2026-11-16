@@ -15,7 +15,7 @@
         "type": "announcement",
         "settings": {
           "enabled": false,
-          "text": "Pre-order now and take 25% off"
+          "text": ""
         }
       },
       "header": {
@@ -37,6 +37,6 @@
       }
     },
     "content_for_index": [],
-    "preorder_discount": 25
+    "preorder_discount": 0
   }
 }
