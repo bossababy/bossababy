@@ -32,7 +32,8 @@
             "name": "First Light",
             "note": "Warm taupe",
             "image": "shopify://shop_images/colourway-first-light.jpg",
-            "image_alt": "The Structured Tote in First Light, a warm taupe, seen from the front"
+            "image_alt": "The Structured Tote in First Light, a warm taupe, seen from the front",
+            "variant_handle": "47199623348396"
           }
         },
         "c2": {
@@ -41,7 +42,8 @@
             "name": "High Noon",
             "note": "Warm grey-brown",
             "image": "shopify://shop_images/colourway-high-noon.jpg",
-            "image_alt": "The Structured Tote in High Noon, a warm grey-brown, seen from the front"
+            "image_alt": "The Structured Tote in High Noon, a warm grey-brown, seen from the front",
+            "variant_handle": "47199623413932"
           }
         },
         "c3": {
@@ -50,7 +52,8 @@
             "name": "After Hours",
             "note": "Black",
             "image": "shopify://shop_images/colourway-after-hours.jpg",
-            "image_alt": "The Structured Tote in After Hours, black, seen from the front"
+            "image_alt": "The Structured Tote in After Hours, black, seen from the front",
+            "variant_handle": "47199623381164"
           }
         }
       },
