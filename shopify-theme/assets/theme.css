@@ -1202,6 +1202,11 @@ img {
   margin-top: 1rem;
 }
 
+/* the sale note makes the price block full width: keep the row centred */
+.video-hero__price .preorder-price {
+  justify-content: center;
+}
+
 .video-hero__price {
   font-size: 1rem;
   margin: 0.55rem 0 0.7rem;
