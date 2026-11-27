@@ -16,7 +16,7 @@
           "type": "detail",
           "settings": {
             "title": "Shipping & returns",
-            "body": "<p>Free shipping across Canada. Pre-orders can be cancelled for a full refund any time before they ship. 30-day returns on unused items.</p>"
+            "body": "<p>Free standard shipping across Canada (up to 8 business days), or Expedited for $25 (2–3 business days). 30-day returns on unused items.</p>"
           }
         },
         "materials": {
@@ -51,14 +51,14 @@
           "type": "question",
           "settings": {
             "question": "When will my bag ship?",
-            "answer": "<p>Pre-orders ship in Fall 2026. We expect stock in late November to early December, and orders go out as soon as it arrives. We'll email you a tracking number when yours is on its way.</p>"
+            "answer": "<p>Orders are packed within 1–2 business days, and you'll get a tracking number by email as soon as yours is on its way. Standard shipping takes up to 8 business days; Expedited takes 2–3.</p>"
           }
         },
         "preorder": {
           "type": "question",
           "settings": {
-            "question": "What does pre-ordering mean?",
-            "answer": "<p>Your card is charged when you order, which reserves your bag from our first production run. You can cancel for a full refund any time before it ships. No reason needed, no fee.</p>"
+            "question": "I pre-ordered. When will my bag arrive?",
+            "answer": "<p>Pre-orders are first in line and ship as soon as our stock is processed. You'll get a tracking number by email when yours is on its way.</p>"
           }
         },
         "shipping": {

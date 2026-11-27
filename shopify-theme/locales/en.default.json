@@ -50,7 +50,8 @@
     "save_percent": "Save {{ percent }}%",
     "play_video": "Play video",
     "save_amount": "Save {{ amount }}",
-    "sale_note": "Black Friday + Cyber Monday · Ends Monday at midnight ET"
+    "sale_note": "Black Friday + Cyber Monday · Ends Monday at midnight ET",
+    "shop_now": "Shop now"
   },
   "cart": {
     "title": "Your bag",

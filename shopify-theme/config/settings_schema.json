@@ -26,6 +26,13 @@
     "name": "Pre-order offer",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "preorder_mode",
+        "label": "Sell as a pre-order",
+        "default": true,
+        "info": "On: products tagged 'preorder' show the pre-order badge, notice, button and cart checkbox, and each order line records the shipping window. Off: they sell as in stock."
+      },
+      {
         "type": "range",
         "id": "preorder_discount",
         "label": "Pre-order discount shown on the site",

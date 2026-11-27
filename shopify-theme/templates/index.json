@@ -13,14 +13,14 @@
       "type": "video-hero",
       "settings": {
         "video": "shopify://files/videos/Video4.mov",
-        "eyebrow": "Pre-order now · Ships Fall 2026",
+        "eyebrow": "Now shipping · Free across Canada",
         "heading_image": "shopify://shop_images/wordmark-carry-everything.png",
         "heading_line_1": "Carry everything.",
         "heading_line_2": "Compromise nothing.",
         "lede": "Clean lines. Considered details. Luxury-grade vegan materials.",
         "product": "the-structured-tote",
-        "cta_label": "Pre-order now",
-        "cta_note": "<p>Cancel any time before your bag ships for a full refund. Free shipping across Canada.</p>"
+        "cta_label": "Shop now",
+        "cta_note": "<p>Free shipping across Canada and 30-day returns.</p>"
       }
     },
     "colourways": {
@@ -142,14 +142,14 @@
           "type": "question",
           "settings": {
             "question": "When will my bag ship?",
-            "answer": "<p>Pre-orders ship in Fall 2026. We expect stock in late November to early December, and orders go out as soon as it arrives. We'll email you a tracking number when yours is on its way.</p>"
+            "answer": "<p>Orders are packed within 1–2 business days, and you'll get a tracking number by email as soon as yours is on its way. Standard shipping takes up to 8 business days; Expedited takes 2–3.</p>"
           }
         },
         "preorder": {
           "type": "question",
           "settings": {
-            "question": "What does pre-ordering mean?",
-            "answer": "<p>Your card is charged when you order, which reserves your bag from our first production run. You can cancel for a full refund any time before it ships. No reason needed, no fee.</p>"
+            "question": "I pre-ordered. When will my bag arrive?",
+            "answer": "<p>Pre-orders are first in line and ship as soon as our stock is processed. You'll get a tracking number by email when yours is on its way.</p>"
           }
         },
         "shipping": {
@@ -207,10 +207,10 @@
       "type": "intro",
       "settings": {
         "heading": "First edition. Three colourways.",
-        "body": "<p>First Light, High Noon and After Hours — reserved now, shipping Fall 2026.</p>",
+        "body": "<p>First Light, High Noon and After Hours, ready to ship.</p>",
         "cta_product": "the-structured-tote",
-        "cta_label": "Reserve yours",
-        "cta_note": "<p>Cancel for a full refund any time before your bag ships.</p>"
+        "cta_label": "Shop now",
+        "cta_note": "<p>Free shipping across Canada and 30-day returns.</p>"
       }
     }
   },

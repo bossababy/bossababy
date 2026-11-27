@@ -58,7 +58,13 @@
 </section>
 
 {%- if product != blank -%}
-  {% render 'sticky-buy', product: product %}
+  {%- liquid
+    assign sells_preorder = false
+    if product.tags contains 'preorder' and settings.preorder_mode
+      assign sells_preorder = true
+    endif
+  -%}
+  {% render 'sticky-buy', product: product, preorder: sells_preorder %}
 {%- endif -%}
 
 {% schema %}

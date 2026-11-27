@@ -1,7 +1,7 @@
 {%- liquid
   assign variant = product.selected_or_first_available_variant
   assign is_preorder = false
-  if product.tags contains 'preorder'
+  if product.tags contains 'preorder' and settings.preorder_mode
     assign is_preorder = true
   endif
 -%}
@@ -207,9 +207,7 @@
   </div>
 </div>
 
-{%- if is_preorder -%}
-  {% render 'sticky-buy', product: product, form_id: 'product-form' %}
-{%- endif -%}
+{% render 'sticky-buy', product: product, form_id: 'product-form', preorder: is_preorder %}
 
 <script type="application/json" data-variant-json>
   {{ product.variants | json }}

@@ -39,6 +39,12 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 - Every bag comes with a detachable shoulder strap (in the description, FAQ and "What fits inside").
 - The store allows 20 themes; Amy removed 5 on 4 November. Ask her to remove old drafts when a duplicate silently returns `newTheme: null`.
 
+## In stock (prepared 27 November 2026)
+
+- Theme setting **Pre-order offer → "Sell as a pre-order"** (`preorder_mode`) switches pre-order selling on or off for products tagged `preorder`: badge, notice, button wording, the "Ships" line property and the cart checkbox. Off = sold as in stock. The tag stays on the product.
+- "Bossababy (now shipping)" has it off, plus in-stock wording (homepage hero and closing, shipping accordion, FAQ "When will my bag ship?" and "I pre-ordered. When will my bag arrive?"). "Bossababy (Black Friday)" is the same sale in pre-order mode (repo commit 3fe0bc9). The repo HEAD is the in-stock version.
+- When stock arrives: receive the inventory against the negative counts, update the Shipping and Refund policies (Amy), and remove pre-order wording from the policies.
+
 ## How to change the live theme (read before editing anything)
 
 1. **This connector can't write to the published theme, and can't publish one.** The workflow is: `themeDuplicate` the live theme, then `themeFilesUpsert` the changed files into the copy, then Amy publishes the copy.

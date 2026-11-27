@@ -50,7 +50,8 @@
     "save_percent": "Économisez {{ percent }} %",
     "play_video": "Lire la vidéo",
     "save_amount": "Économisez {{ amount }}",
-    "sale_note": "Vendredi fou et Cyber lundi · Se termine lundi à minuit (HE)"
+    "sale_note": "Vendredi fou et Cyber lundi · Se termine lundi à minuit (HE)",
+    "shop_now": "Magasiner"
   },
   "cart": {
     "title": "Votre sac",

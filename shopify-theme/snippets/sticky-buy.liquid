@@ -6,6 +6,7 @@
   Accepts:
   - product: the product being sold
   - form_id: submit this form (product page). Without it, links to the product.
+  - preorder: true when the product is sold as a pre-order (button wording)
 {%- endcomment -%}
 <div class="sticky-buy" data-sticky-buy hidden>
   <div class="sticky-buy__text">
@@ -14,9 +15,9 @@
   </div>
   {%- if form_id != blank -%}
     <button type="submit" form="{{ form_id }}" name="add" class="btn" data-sticky-add>
-      {{- 'product.preorder_button' | t -}}
+      {%- if preorder -%}{{ 'product.preorder_button' | t }}{%- else -%}{{ 'product.add_to_cart' | t }}{%- endif -%}
     </button>
   {%- else -%}
-    <a class="btn" href="{{ product.url }}">{{ 'product.preorder_button' | t }}</a>
+    <a class="btn" href="{{ product.url }}">{%- if preorder -%}{{ 'product.preorder_button' | t }}{%- else -%}{{ 'product.shop_now' | t }}{%- endif -%}</a>
   {%- endif -%}
 </div>
