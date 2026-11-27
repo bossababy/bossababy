@@ -1104,6 +1104,20 @@ img {
   font-size: 0.85em;
 }
 
+/* Sale name and end, on its own line under the price */
+.preorder-price__note {
+  flex-basis: 100%;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.sticky-buy .preorder-price__note {
+  display: none;
+}
+
 .preorder-price__save {
   font-size: 0.72rem;
   font-weight: 500;

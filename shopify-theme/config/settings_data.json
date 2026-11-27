@@ -15,8 +15,8 @@
         "type": "announcement",
         "settings": {
           "enabled": true,
-          "text": "Black Friday: $100 off every bag",
-          "deadline": "Ends Monday, Nov. 30 at 11:59 p.m. ET",
+          "text": "Black Friday + Cyber Monday: $100 off every bag",
+          "deadline": "Ends Monday at midnight ET",
           "hide_after": "2026-11-30 23:59:59 -0500"
         }
       },

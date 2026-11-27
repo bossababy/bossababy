@@ -50,6 +50,10 @@
     <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
     <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>
     <span class="preorder-price__save" data-preorder-save>{{ 'product.save_amount' | t: amount: amount_text }}</span>
+    {%- assign sale_note = 'product.sale_note' | t -%}
+    {%- unless sale_note contains 'translation missing' or sale_note == blank -%}
+      <span class="preorder-price__note" data-preorder-save>{{ sale_note }}</span>
+    {%- endunless -%}
   {%- elsif pct > 0 -%}
     <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
     <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>

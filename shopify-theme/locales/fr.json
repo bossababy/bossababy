@@ -49,7 +49,8 @@
     "preorder_terms": "Je comprends qu'il s'agit d'une précommande et que mon sac sera expédié en {{ date }}. Je peux annuler et être remboursée intégralement avant l'expédition.",
     "save_percent": "Économisez {{ percent }} %",
     "play_video": "Lire la vidéo",
-    "save_amount": "Économisez {{ amount }}"
+    "save_amount": "Économisez {{ amount }}",
+    "sale_note": "Vendredi fou et Cyber lundi · Se termine lundi à minuit (HE)"
   },
   "cart": {
     "title": "Votre sac",

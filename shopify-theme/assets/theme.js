@@ -47,10 +47,9 @@
     atTime(parseInt(el.dataset.ends, 10), function () {
       var now = el.querySelector('[data-preorder-now]');
       var was = el.querySelector('[data-preorder-was]');
-      var save = el.querySelector('[data-preorder-save]');
       if (now && was) now.textContent = was.textContent;
       if (was) was.remove();
-      if (save) save.remove();
+      el.querySelectorAll('[data-preorder-save]').forEach(function (n) { n.remove(); });
       el.dataset.amount = '0';
       el.dataset.percent = '0';
     });
