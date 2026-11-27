@@ -1330,6 +1330,7 @@ img {
   aspect-ratio: 16 / 9;
 }
 
+.product-media__thumbs[hidden],
 .product-media__thumbs button[hidden] {
   display: none;
 }
