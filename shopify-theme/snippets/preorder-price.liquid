@@ -5,7 +5,8 @@
   pay, so the page agrees with the ad.
 
   Two theme settings drive it (Theme settings → Pre-order offer):
-  - "Dollar amount off" with an optional end time. Past the end time the
+  - "Dollar amount off" with optional start and end times (match the
+    automatic discount's). Before the start it is not shown. Past the end the
     plain price shows again, on the server and, for pages already open
     or cached, in the browser (assets/theme.js).
   - "Pre-order discount" as a percentage, used when no dollar amount is set.
@@ -21,9 +22,15 @@
   assign sale_active = false
   if amount_off > 0 and amount_off < price
     assign sale_active = true
+    assign now_s = 'now' | date: '%s' | plus: 0
+    if settings.sale_starts != blank
+      assign starts_s = settings.sale_starts | date: '%s' | plus: 0
+      if starts_s > 1000000000 and now_s < starts_s
+        assign sale_active = false
+      endif
+    endif
     if settings.sale_ends != blank
       assign ends_s = settings.sale_ends | date: '%s' | plus: 0
-      assign now_s = 'now' | date: '%s' | plus: 0
       # An unreadable date comes back as a small number: ignore it
       # rather than hide the sale by mistake.
       if ends_s > 1000000000 and now_s > ends_s

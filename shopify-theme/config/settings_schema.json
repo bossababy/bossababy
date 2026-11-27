@@ -52,6 +52,12 @@
       },
       {
         "type": "text",
+        "id": "sale_starts",
+        "label": "Dollar offer starts",
+        "info": "Optional. Date and time the dollar offer starts, e.g. 2026-11-27 00:00:00 -0500. Before it, the regular price shows. Match the automatic discount's start."
+      },
+      {
+        "type": "text",
         "id": "sale_ends",
         "label": "Dollar offer ends",
         "info": "Optional. Date and time the dollar offer ends, e.g. 2026-11-30 23:59:59 -0500 (Toronto winter time). After it, the regular price shows again on its own."

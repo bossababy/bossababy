@@ -128,14 +128,7 @@
     <h1>{{ product.title }}</h1>
 
     <div class="product-price">
-      {%- if is_preorder -%}
-        {% render 'preorder-price', price: variant.price %}
-      {%- else -%}
-        <span data-price>{{ variant.price | money_with_currency }}</span>
-        {%- if variant.compare_at_price > variant.price -%}
-          <span class="compare" data-compare-price>{{ variant.compare_at_price | money }}</span>
-        {%- endif -%}
-      {%- endif -%}
+      {% render 'preorder-price', price: variant.price %}
     </div>
     <p class="product-tax-note">{{ 'product.tax_note' | t }}</p>
 

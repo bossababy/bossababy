@@ -42,6 +42,7 @@
     "preorder_discount": 0,
     "sale_amount_off": 100,
     "sale_ends": "2026-11-30 23:59:59 -0500",
-    "preorder_mode": false
+    "preorder_mode": false,
+    "sale_starts": "2026-11-27 00:00:00 -0500"
   }
 }
