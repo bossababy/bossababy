@@ -24,7 +24,7 @@
     if settings.sale_ends != blank
       assign ends_s = settings.sale_ends | date: '%s' | plus: 0
       assign now_s = 'now' | date: '%s' | plus: 0
-      # A date Shopify can't read comes back as a small number; ignore it
+      # An unreadable date comes back as a small number: ignore it
       # rather than hide the sale by mistake.
       if ends_s > 1000000000 and now_s > ends_s
         assign sale_active = false
@@ -34,6 +34,7 @@
 
   if sale_active
     assign sale = price | minus: amount_off
+    assign amount_text = amount_off | money_without_trailing_zeros
   elsif pct > 0
     assign keep = 100 | minus: pct
     assign sale = price | times: keep | divided_by: 100
@@ -48,7 +49,7 @@
   {%- if sale_active -%}
     <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
     <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>
-    <span class="preorder-price__save" data-preorder-save>{{ 'product.save_amount' | t: amount: (amount_off | money_without_trailing_zeros) }}</span>
+    <span class="preorder-price__save" data-preorder-save>{{ 'product.save_amount' | t: amount: amount_text }}</span>
   {%- elsif pct > 0 -%}
     <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
     <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>
