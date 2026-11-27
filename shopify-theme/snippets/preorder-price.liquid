@@ -1,25 +1,58 @@
 {%- comment -%}
-  The price after the automatic pre-order discount, with the regular
-  price struck through. The discount itself is applied at checkout by
-  the "Pre-order 25%" automatic discount; this only shows the shopper
-  what they will pay, so the page agrees with the ad.
+  The price after the current offer, with the regular price struck
+  through. The discount itself is applied at checkout by an automatic
+  discount in Shopify admin; this only shows the shopper what they will
+  pay, so the page agrees with the ad.
 
-  The percentage comes from the theme setting "Pre-order discount".
-  Set it to 0 when the offer ends and this falls back to the plain price.
+  Two theme settings drive it (Theme settings → Pre-order offer):
+  - "Dollar amount off" with an optional end time. Past the end time the
+    plain price shows again, on the server and, for pages already open
+    or cached, in the browser (assets/theme.js).
+  - "Pre-order discount" as a percentage, used when no dollar amount is set.
+  Set both to 0 and this shows the plain price.
 
   Accepts:
   - price: the regular price in cents
 {%- endcomment -%}
 {%- liquid
   assign pct = settings.preorder_discount | default: 0
-  assign keep = 100 | minus: pct
-  assign sale = price | times: keep | divided_by: 100
+  assign amount_off = settings.sale_amount_off | default: 0 | times: 100
+  assign ends_s = 0
+  assign sale_active = false
+  if amount_off > 0 and amount_off < price
+    assign sale_active = true
+    if settings.sale_ends != blank
+      assign ends_s = settings.sale_ends | date: '%s' | plus: 0
+      assign now_s = 'now' | date: '%s' | plus: 0
+      # A date Shopify can't read comes back as a small number; ignore it
+      # rather than hide the sale by mistake.
+      if ends_s > 1000000000 and now_s > ends_s
+        assign sale_active = false
+      endif
+    endif
+  endif
+
+  if sale_active
+    assign sale = price | minus: amount_off
+  elsif pct > 0
+    assign keep = 100 | minus: pct
+    assign sale = price | times: keep | divided_by: 100
+  endif
 -%}
-<span class="preorder-price" data-preorder-price data-percent="{{ pct }}">
-  {%- if pct > 0 -%}
+<span
+  class="preorder-price"
+  data-preorder-price
+  data-percent="{% if sale_active %}0{% else %}{{ pct }}{% endif %}"
+  data-amount="{% if sale_active %}{{ amount_off }}{% else %}0{% endif %}"
+  {% if sale_active and ends_s > 1000000000 %}data-ends="{{ ends_s }}"{% endif %}>
+  {%- if sale_active -%}
     <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
     <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>
-    <span class="preorder-price__save">{{ 'product.save_percent' | t: percent: pct }}</span>
+    <span class="preorder-price__save" data-preorder-save>{{ 'product.save_amount' | t: amount: (amount_off | money_without_trailing_zeros) }}</span>
+  {%- elsif pct > 0 -%}
+    <span class="preorder-price__now" data-preorder-now>{{ sale | money }}</span>
+    <s class="preorder-price__was" data-preorder-was>{{ price | money }}</s>
+    <span class="preorder-price__save" data-preorder-save>{{ 'product.save_percent' | t: percent: pct }}</span>
   {%- else -%}
     <span class="preorder-price__now" data-preorder-now>{{ price | money }}</span>
   {%- endif -%}

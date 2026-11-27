@@ -128,7 +128,7 @@
     <h1>{{ product.title }}</h1>
 
     <div class="product-price">
-      {%- if is_preorder and settings.preorder_discount > 0 -%}
+      {%- if is_preorder -%}
         {% render 'preorder-price', price: variant.price %}
       {%- else -%}
         <span data-price>{{ variant.price | money_with_currency }}</span>

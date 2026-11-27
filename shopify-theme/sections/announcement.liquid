@@ -1,5 +1,19 @@
-{%- if section.settings.enabled and section.settings.text != blank -%}
-  <aside class="announce">
+{%- liquid
+  assign show_bar = false
+  if section.settings.enabled and section.settings.text != blank
+    assign show_bar = true
+  endif
+  assign hide_s = 0
+  if section.settings.hide_after != blank
+    assign hide_s = section.settings.hide_after | date: '%s' | plus: 0
+    assign now_s = 'now' | date: '%s' | plus: 0
+    if hide_s > 1000000000 and now_s > hide_s
+      assign show_bar = false
+    endif
+  endif
+-%}
+{%- if show_bar -%}
+  <aside class="announce" {% if hide_s > 1000000000 %}data-hide-after="{{ hide_s }}"{% endif %}>
     <p>
       {{ section.settings.text }}
       {%- if section.settings.deadline != blank -%}
@@ -30,6 +44,12 @@
       "type": "text",
       "id": "deadline",
       "label": "Deadline"
+    },
+    {
+      "type": "text",
+      "id": "hide_after",
+      "label": "Hide the bar after",
+      "info": "Optional. Date and time the offer ends, e.g. 2026-11-30 23:59:59 -0500 (Toronto winter time). The bar disappears on its own after it."
     }
   ]
 }

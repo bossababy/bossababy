@@ -48,7 +48,8 @@
     "ships_property": "Ships",
     "preorder_terms": "I understand this is a pre-order and my bag ships in {{ date }}. I can cancel for a full refund any time before it ships.",
     "save_percent": "Save {{ percent }}%",
-    "play_video": "Play video"
+    "play_video": "Play video",
+    "save_amount": "Save {{ amount }}"
   },
   "cart": {
     "title": "Your bag",

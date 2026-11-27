@@ -35,6 +35,19 @@
         "unit": "%",
         "default": 0,
         "info": "Shows the price after the discount next to the regular price. This only changes what is displayed: the discount itself is the automatic discount in Shopify admin. Set to 0 when the offer ends."
+      },
+      {
+        "type": "number",
+        "id": "sale_amount_off",
+        "label": "Dollar amount off shown on the site",
+        "default": 0,
+        "info": "Shows the price after this many dollars off, next to the regular price. Display only: the discount itself is the automatic discount in Shopify admin. Takes priority over the percentage. Set to 0 when the offer ends."
+      },
+      {
+        "type": "text",
+        "id": "sale_ends",
+        "label": "Dollar offer ends",
+        "info": "Optional. Date and time the dollar offer ends, e.g. 2026-11-30 23:59:59 -0500 (Toronto winter time). After it, the regular price shows again on its own."
       }
     ]
   }

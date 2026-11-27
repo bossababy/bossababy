@@ -33,6 +33,35 @@
     });
   });
 
+  /* ---------- Offer end time ---------- */
+  // Pages can be served from cache or left open past the end of an offer,
+  // so the browser takes the sale price and offer bar down at the end time
+  // too, not only the server.
+  function atTime(seconds, fn) {
+    var wait = seconds * 1000 - Date.now();
+    if (wait <= 0) return fn();
+    if (wait < 2147483647) setTimeout(fn, wait);
+  }
+
+  document.querySelectorAll('[data-preorder-price][data-ends]').forEach(function (el) {
+    atTime(parseInt(el.dataset.ends, 10), function () {
+      var now = el.querySelector('[data-preorder-now]');
+      var was = el.querySelector('[data-preorder-was]');
+      var save = el.querySelector('[data-preorder-save]');
+      if (now && was) now.textContent = was.textContent;
+      if (was) was.remove();
+      if (save) save.remove();
+      el.dataset.amount = '0';
+      el.dataset.percent = '0';
+    });
+  });
+
+  document.querySelectorAll('[data-hide-after]').forEach(function (el) {
+    atTime(parseInt(el.dataset.hideAfter, 10), function () {
+      el.remove();
+    });
+  });
+
   /* ---------- Sticky buy bar ---------- */
   // Shown on phones once the page's own buy button has scrolled away.
   var stickyBar = document.querySelector('[data-sticky-buy]');
@@ -222,7 +251,10 @@
 
     if (preorderNow) {
       var percent = parseInt(preorderPrice.dataset.percent, 10) || 0;
-      var sale = Math.round(variant.price * (100 - percent) / 100);
+      var amountOff = parseInt(preorderPrice.dataset.amount, 10) || 0;
+      var sale = amountOff > 0
+        ? variant.price - amountOff
+        : Math.round(variant.price * (100 - percent) / 100);
       preorderNow.textContent = formatMoney(sale, preorderNow.textContent.trim());
       if (preorderWas) {
         preorderWas.textContent = formatMoney(variant.price, preorderWas.textContent.trim());
