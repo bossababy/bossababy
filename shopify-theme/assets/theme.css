@@ -745,6 +745,15 @@ img {
   margin-bottom: 0.6rem;
 }
 
+/* shown when someone tries to buy before choosing a colour */
+.variant-field--needs-choice legend {
+  color: var(--color-error);
+}
+
+.variant-field--needs-choice .variant-options label {
+  border-color: var(--color-error);
+}
+
 .variant-options {
   display: flex;
   flex-wrap: wrap;

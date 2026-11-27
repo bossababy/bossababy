@@ -209,9 +209,13 @@
   function showColourThumbs(variant) {
     if (!thumbList) return;
     var colour = variant.options[parseInt(thumbList.dataset.colourIndex, 10) || 0];
+    var shown = 0;
     thumbs.forEach(function (thumb) {
       thumb.hidden = (thumb.dataset.colour || '') !== colour;
+      if (!thumb.hidden) shown += 1;
     });
+    // A row with a single thumbnail is just a smaller copy of the photo.
+    thumbList.hidden = shown < 2;
   }
 
   function selectedOptions() {
@@ -271,7 +275,13 @@
 
     if (addButton) {
       addButton.disabled = !variant.available;
+      if (variant.available && addButton.dataset.readyText) {
+        addButton.textContent = addButton.dataset.readyText;
+      }
     }
+    root.querySelectorAll('.variant-field--needs-choice').forEach(function (f) {
+      f.classList.remove('variant-field--needs-choice');
+    });
 
     showColourThumbs(variant);
     showVariantImage(variant);
@@ -284,8 +294,24 @@
     }
   }
 
-  // First Light is ticked when the page opens, so tapping it again must
-  // still switch the gallery to its photos: listen for clicks as well.
+  // No colour is chosen on arrival. The page's own button waits, but the
+  // sticky bar submits the same form, so stop that and point at the colours.
+  var productForm = document.getElementById('product-form');
+  if (productForm) {
+    productForm.addEventListener('submit', function (e) {
+      var missing = null;
+      root.querySelectorAll('[data-option-index]').forEach(function (field) {
+        if (!missing && !field.querySelector('[data-option-input]:checked')) missing = field;
+      });
+      if (!missing) return;
+      e.preventDefault();
+      missing.classList.add('variant-field--needs-choice');
+      missing.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  // Listen for clicks as well as changes, so tapping a colour that is
+  // already ticked still switches the gallery to its photos.
   optionInputs.forEach(function (input) {
     input.addEventListener('change', update);
     input.addEventListener('click', update);

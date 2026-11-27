@@ -51,7 +51,8 @@
     "play_video": "Play video",
     "save_amount": "Save {{ amount }}",
     "sale_note": "Black Friday + Cyber Monday · Ends Monday at midnight ET",
-    "shop_now": "Shop now"
+    "shop_now": "Shop now",
+    "choose_colour": "Choose a colour"
   },
   "cart": {
     "title": "Your bag",

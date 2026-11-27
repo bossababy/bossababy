@@ -1,5 +1,11 @@
 {%- liquid
   assign variant = product.selected_or_first_available_variant
+  # No colour is chosen on arrival unless the link names one (?variant=):
+  # the shopper picks it, and the button waits until they do.
+  assign colour_chosen = false
+  if product.selected_variant or product.has_only_default_variant
+    assign colour_chosen = true
+  endif
   assign is_preorder = false
   if product.tags contains 'preorder' and settings.preorder_mode
     assign is_preorder = true
@@ -64,8 +70,31 @@
       assign colour_values = product.options_with_values[colour_index].values
       assign current_colour = variant.options[colour_index]
     -%}
+    {%- liquid
+      assign visible_thumbs = 0
+      for media in product.media
+        assign media_colour = ''
+        assign matches = 0
+        for value in colour_values
+          if media.alt contains value
+            assign media_colour = value
+            assign matches = matches | plus: 1
+          endif
+        endfor
+        if matches != 1
+          assign media_colour = ''
+        endif
+        if product.selected_variant
+          if media_colour == current_colour
+            assign visible_thumbs = visible_thumbs | plus: 1
+          endif
+        elsif media_colour == blank
+          assign visible_thumbs = visible_thumbs | plus: 1
+        endif
+      endfor
+    -%}
     {%- if product.media.size > 1 -%}
-      <div class="product-media__thumbs" data-colour-index="{{ colour_index }}">
+      <div class="product-media__thumbs" data-colour-index="{{ colour_index }}" {% if visible_thumbs < 2 %}hidden{% endif %}>
         {%- for media in product.media -%}
           {%- liquid
             assign media_colour = ''
@@ -148,7 +177,7 @@
                   name="option-{{ forloop.parentloop.index0 }}"
                   value="{{ value | escape }}"
                   data-option-input
-                  {% if option.selected_value == value %}checked{% endif %}>
+                  {% if colour_chosen and option.selected_value == value %}checked{% endif %}>
                 <label for="{{ input_id }}">{{ value }}</label>
               {%- endfor -%}
             </div>
@@ -170,15 +199,23 @@
         <input id="quantity" type="number" name="quantity" value="1" min="1" inputmode="numeric">
       </div>
 
+      {%- if is_preorder -%}
+        {%- assign ready_text = 'product.preorder_button' | t -%}
+      {%- else -%}
+        {%- assign ready_text = 'product.add_to_cart' | t -%}
+      {%- endif -%}
       <button
         type="submit"
         name="add"
         class="btn btn--full"
         data-add-button
         data-sticky-trigger
-        {% unless variant.available %}disabled{% endunless %}>
-        {%- if variant.available -%}
-          {% if is_preorder %}{{ 'product.preorder_button' | t }}{% else %}{{ 'product.add_to_cart' | t }}{% endif %}
+        data-ready-text="{{ ready_text | escape }}"
+        {% unless variant.available and colour_chosen %}disabled{% endunless %}>
+        {%- if colour_chosen == false -%}
+          {{ 'product.choose_colour' | t }}
+        {%- elsif variant.available -%}
+          {{ ready_text }}
         {%- else -%}
           {{ 'product.sold_out' | t }}
         {%- endif -%}
