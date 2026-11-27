@@ -33,9 +33,9 @@ Instagram ad traffic (~600 phone visits) produced 11 cart adds and no sales, so 
 
 ## Real product photos (4 November 2026)
 
-- Product photos (`assets/img/products/`): per colour, the front, three-quarter and open views are Amy's white-background hero shots (13 November); Amy removed all the earlier grey studio photos on 13 November (kept in Files). Each colour has 3. Each variant's image is its hero front shot.
+- Product photos (`assets/img/products/`): per colour, the front, three-quarter and open views are Amy's white-background hero shots (13 November); Amy removed all the earlier grey studio photos on 13 November (kept in Files). On 27 November the tan-background render of each colour went back on as that colour's first photo and variant image, so each colour shows render, front, three-quarter, open (4). Each variant's image is its hero front shot.
 - The gallery shows only the shared photos (all-three, two lifestyle) until a colour is chosen, then only that colour's photos (tapping the pre-ticked First Light counts). A `?variant=` link opens on that colour's photos. The video was removed from the product on 13 November (homepage only). A photo belongs to a colour if its alt text names exactly one colour ("The Structured Tote in High Noon, …"). Keep that naming when adding photos.
-- The three tan-background renders were removed from the product but kept in Files: the homepage colour tiles still use them, by Amy's choice. The all-three photo at the top of the gallery is stitched from those renders.
+- The three tan-background renders lead each colour's photos again (27 November) and are also the homepage colour tiles. The all-three photo at the top of the gallery is stitched from those renders.
 - Every bag comes with a detachable shoulder strap (in the description, FAQ and "What fits inside").
 - The store allows 20 themes; Amy removed 5 on 4 November. Ask her to remove old drafts when a duplicate silently returns `newTheme: null`.
 
